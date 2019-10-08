@@ -20,7 +20,7 @@ public class DBDisplay {
             stmnt = conn.createStatement();
             ResultSet rset = stmnt.executeQuery(strSelect);
 
-            out.println("Available flights:" +"<br/><br/>");
+            out.println("<h1>Available flights:</h1>" +"<br/><br/>");
             out.println("<div class=\"table\">");
             out.println("<div class=\"tr\">");
             out.println("<div class=\"td\">Flight Number</div>");
@@ -38,7 +38,7 @@ public class DBDisplay {
                 String departureAirport = rset.getString("departure_airport");
                 //int availableSeats = rset.getInt("available_seats");
 
-                out.println("   <form class=\"tr\" method=\"post\" action=\"searchresult.jsp\">");
+                out.println("   <form class=\"tr\" method=\"post\" action=\"Flight_details\">");
                 out.println("       <span class=\"td\">"+flightnumber+"</span>");
                 out.println("       <span class=\"td\">"+dateOfDeparture+"</span>");
                 out.println("       <span class=\"td\">"+timeOfDeparture+"</span>");
