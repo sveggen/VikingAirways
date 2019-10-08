@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context path="/VikingAirways">
-    <Resource name="jdbc/localhostDS" type="javax.sql.DataSource" auth="Container"
-              username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3306/vikingairways">
-    </Resource>
-</Context>
