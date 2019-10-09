@@ -17,6 +17,11 @@ public class search_result extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Viking Airways - Cheap flights with comfort</title>");
+            out.println("<style>");
+            out.println("#table {display: table;padding: 5px; border: #000000 solid 1px;}");
+            out.println(".tr {display:table-row;padding: 5px; border: #000000 solid 1px;}");
+            out.println(".td {display:table-cell;padding: 5px; border: #000000 solid 1px;}");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
 
@@ -30,7 +35,7 @@ public class search_result extends HttpServlet {
             conn = dbconnect.connectToDB(out);
 
             DBDisplay dbdisplay = new DBDisplay();
-            dbdisplay.displayTables(conn, out, toAirprt);
+            dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
 
             out.println("</body>");
             out.println("</html>");

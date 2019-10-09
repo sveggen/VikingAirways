@@ -9,50 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style> /*type="text/css"*/
-        * {
-              box-sizing: border-box;
-          }
-          body {
-              height: 100%;
-              width: 100%;
-          }
-          form {
-              margin: auto;
-              max-width: 500px;
-              position: absolute;
-              top: 35%;
-              right: 0;
-              left: 0;
-          }
-        /*#flights {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-        }
-        #flights td, #flights th{
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #flights tbody:nth-child(even){background-color: #f2f2f2;}
-        #flights tbody:nth-child(odd){background-color: #FFFFFF;}
-        #flights tbody:hover{background-color: #ddd;}
-        #flights th{
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-        }*/
-    </style>
     <title>Choose a flight</title>
 </head>
 <body>
-   <div class="container">
-        <div class="jumbotron">
-            <h1 id="flights" style="text-align:center">Choose a flight</h1> 
+	<div class="jumbotron">
+            <h1 id="flights" style="text-align:center">Choose a flight</h1>
             <p id="flights" style="text-align:center">Date: <strong> 11.14.2019</strong></p>
          </div>
+   <div class="container">
     <table class="table"> <!--id="flights"-->
         <thead class="thead-light">
             <th>From</th>
@@ -126,7 +90,6 @@
         </tbody>
 
     </table>
-    </div>
     </div>
     </body>
 </html>
