@@ -11,12 +11,11 @@ public class Flight_details extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
-        out.println("It works!");
+        String selectedFlight = request.getParameter("selectedFlight");
+
+        out.println("Flight selected: " + selectedFlight);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-
-        out.println("It works!");
     }
 }

@@ -12,8 +12,8 @@ public class DBDisplay {
 
     public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport) {
 
-        String strSelect = "SELECT * FROM flight WHERE destination_airport = '"+destination
-                            +"' AND date_of_departure = '"+departureDate
+        String strSelect = "SELECT * FROM Flight WHERE arrival_airport = '"+destination
+                            +"' AND departure_date = '"+departureDate
                             +"' AND departure_airport ='"+dprtAirport+"';";
 
         try {
@@ -32,9 +32,9 @@ public class DBDisplay {
 
             while(rset.next()) {
                 int flightnumber = rset.getInt("flight_number");
-                String dateOfDeparture = rset.getString("date_of_departure");
-                String timeOfDeparture = rset.getString("time_of_departure");
-                String destinationAirport = rset.getString("destination_airport");
+                String dateOfDeparture = rset.getString("departure_date");
+                String timeOfDeparture = rset.getString("departure_time");
+                String destinationAirport = rset.getString("arrival_airport");
                 String departureAirport = rset.getString("departure_airport");
                 //int availableSeats = rset.getInt("available_seats");
 
