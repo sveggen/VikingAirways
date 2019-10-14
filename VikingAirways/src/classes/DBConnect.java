@@ -9,7 +9,7 @@ public class DBConnect {
 
     Connection conn;
 
-    public Connection connectToDB(PrintWriter out) {
+    public Connection connectToDB() {
         try {
             Context cont = new InitialContext();
             DataSource ds = (DataSource)cont.lookup("java:comp/env/jdbc/localhostDS");
@@ -19,10 +19,10 @@ public class DBConnect {
 
         }
         catch (SQLException ex ) {
-            out.println("Not connected to database " +ex);
+            System.out.println("Not connected to database " +ex);
         }
         catch (NamingException nex) {
-            out.println("Not correct naming" + nex);
+            System.out.println("Not correct naming" + nex);
         }
         return null;
     }
