@@ -32,7 +32,7 @@ public class search_result extends HttpServlet {
 
             Connection conn;
             DBConnect dbconnect = new DBConnect();
-            conn = dbconnect.connectToDB(out);
+            conn = dbconnect.connectToDB();
 
             DBDisplay dbdisplay = new DBDisplay();
             dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
