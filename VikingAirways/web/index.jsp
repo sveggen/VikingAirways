@@ -1,27 +1,33 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
   <head>
     <title>Viking Airways - Cheap flights with comfort</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-          * {
-              box-sizing: border-box;
-          }
-          body {
-              height: 100%;
-              width: 100%;
-          }
-          form {
-              margin: auto;
-              max-width: 500px;
-              position: absolute;
-              top: 35%;
-              right: 0;
-              left: 0;
-          }
-      </style>
+    <link rel="stylesheet" href="stylesheets/globalStyle.css">
   </head>
   <body>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.jsp">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Check In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Booking</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="#">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log In</a>
+      </li>
+    </ul>
+  </nav>
 
   <div class="jumbotron text-center">
     <h1>Welcome to Viking Airways!</h1>
@@ -54,6 +60,6 @@
   </form>
   </div>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
