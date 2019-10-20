@@ -8,7 +8,7 @@
   <body>
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="index.jsp">Home</a>
       </li>
@@ -18,6 +18,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#">My Booking</a>
       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
        <a class="nav-link" href="#">Register</a>
       </li>

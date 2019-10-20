@@ -6,7 +6,7 @@ public class Navbar {
 
     public static void loadNavBar(PrintWriter out) {
         out.println("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">");
-        out.println("  <ul class=\"navbar-nav\">");
+        out.println("  <ul class=\"navbar-nav mr-auto\">");
         out.println("    <li class=\"nav-item active\">");
         out.println("      <a class=\"nav-link\" href=\"index.jsp\">Home</a>");
         out.println("    </li>");
@@ -16,6 +16,8 @@ public class Navbar {
         out.println("    <li class=\"nav-item\">");
         out.println("      <a class=\"nav-link\" href=\"#\">My Booking</a>");
         out.println("    </li>");
+        out.println("  </ul>");
+        out.println("  <ul class=\"navbar-nav ml-auto\">");
         out.println("    <li class=\"nav-item\">");
         out.println("      <a class=\"nav-link\" href=\"#\">Register</a>");
         out.println("    </li>");
