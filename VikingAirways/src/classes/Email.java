@@ -20,7 +20,7 @@ public class Email {
 
             //Credentials
             String username = "vikingairways@gmail.com";
-            String password = "nerdherd2019";
+            String password = "x";
 
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");
