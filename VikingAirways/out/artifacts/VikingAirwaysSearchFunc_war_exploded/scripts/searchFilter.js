@@ -1,4 +1,12 @@
-function sortTable() {
+$(document).ready(function () {
+    $('#resultTable').on('click', '.btn', function () {
+        var flightnumber = $(this).attr('id');
+        $(this).attr('value', flightnumber);
+        $("#form"+flightnumber+"").submit();
+    });
+});
+
+    function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch, selectedFilter;
     table = document.getElementById("resultTable");
     selectedFilter = document.getElementById("selectedFilter").value;
@@ -12,13 +20,13 @@ function sortTable() {
             shouldSwitch = false;
 
             if (selectedFilter.includes("Price")) {
-                x = rows[i].getElementsByTagName("TD")[6];
+                x = rows[i].getElementsByTagName("TD")[7];
                 x = x.innerHTML.replace( /[^\d.]/g, '' );
-                y = rows[i + 1].getElementsByTagName("TD")[6];
+                y = rows[i + 1].getElementsByTagName("TD")[7];
                 y = y.innerHTML.replace( /[^\d.]/g, '' );
             } else if (selectedFilter.includes("Time")) {
-                x = rows[i].getElementsByTagName("TD")[3].innerHTML;
-                y = rows[i + 1].getElementsByTagName("TD")[3].innerHTML;
+                x = rows[i].getElementsByTagName("TD")[4].innerHTML;
+                y = rows[i + 1].getElementsByTagName("TD")[4].innerHTML;
             }
 
             if (parseInt(x) > parseInt(y)) {

@@ -12,6 +12,8 @@ public class DBDisplay {
 
     public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport) {
 
+
+
         String strSelect = "SELECT * FROM Flight WHERE arrival_airport = '"+destination
                             +"' AND departure_date = '"+departureDate
                             +"' AND departure_airport ='"+dprtAirport+"';";
@@ -20,22 +22,27 @@ public class DBDisplay {
             stmnt = conn.createStatement();
             ResultSet rset = stmnt.executeQuery(strSelect);
 
-            out.println("<h1>Available flights:</h1>" +"<br/><br/>");
+            out.println("<div class=\"jumbotron text-center\"><h1>Available flights:</h1>");
+            out.println("<h3>From: "+dprtAirport+" To: "+destination+"</h3></div><br/><br/>");
+            out.println("<div class=\"container\">");
             out.println("<label for=\"selectedFilter\">Order by:</label>");
             out.println("<select name=\"selectedFilter\" id=\"selectedFilter\">");
             out.println("<option value=\"Price\">Price</option>");
             out.println("<option value=\"Time\">Flight time</option>");
             out.println("</select>");
             out.println("<button onclick=\"sortTable()\">Sort</button><br/><br/>");
-            out.println("<table id=\"resultTable\" width=\"50%\" border=\"1\">");
+            out.println("<table id=\"resultTable\" class=\"table table-bordered\">");
+            out.println("<thead>");
             out.println("<tr>");
-            out.println("<td>Date of Departure</td>");
-            out.println("<td>Time of Departure</td>");
-            out.println("<td>Time of Arrival</td>");
-            out.println("<td>Flight time</td>");
-            out.println("<td>Destination Airport</td>");
-            out.println("<td>Departure Airport</td>");
-            out.println("<td>Price</td></tr>");
+            out.println("<th>Flight Number</th>");
+            out.println("<th>Date of Departure</th>");
+            out.println("<th>Time of Departure</th>");
+            out.println("<th>Time of Arrival</th>");
+            out.println("<th>Flight time</th>");
+            out.println("<th>Destination Airport</th>");
+            out.println("<th>Departure Airport</th>");
+            out.println("<th>Price</th></tr></thead>");
+            out.println("<tbody>");
 
 
             while(rset.next()) {
@@ -47,8 +54,9 @@ public class DBDisplay {
                 String departureAirport = rset.getString("departure_airport");
                 String priceEconomy = rset.getString("price_economy");
 
-                out.println("   <form method=\"post\" action=\"Flight_details\">");
+                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"Flight_details\">");
                 out.println("       <tr>");
+                out.println("       <td class=\"flightNumber\">"+flightnumber+"</td>");
                 out.println("       <td>"+dateOfDeparture+"</td>");
                 out.println("       <td>"+timeOfDeparture+"</td>");
                 out.println("       <td>"+timeOfArrival+"</td>");
@@ -56,11 +64,11 @@ public class DBDisplay {
                 out.println("       <td>"+destinationAirport+"</td>");
                 out.println("       <td>"+departureAirport+"</td>");
                 out.println("       <td>From: "+priceEconomy+"</td>");
-                out.println("       <td><button name=\"selectedFlight\" type=\"submit\" value=\""+flightnumber+"\">Select</button></td>");
+                out.println("       <td><button id=\""+flightnumber+"\" form=\"form"+flightnumber+"\" name=\"selectedFlight\" class=\"btn btn-success\" value=\""+flightnumber+"\">Select</button></td>");
                 out.println("       </tr>");
                 out.println("   </form>");
             }
-            out.println("</table>");
+            out.println("</tbody></table></div>");
         }
         catch (SQLException ex) {
             System.out.println("Error extracting data from database " +ex);

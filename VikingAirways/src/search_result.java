@@ -9,7 +9,7 @@ import java.sql.Connection;
 import classes.*;
 
 @WebServlet(name = "search_result", urlPatterns = {"/search_result"})
-public class search_result extends HttpServlet {
+public class Search_result extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -17,9 +17,14 @@ public class search_result extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Viking Airways - Cheap flights with comfort</title>");
-            out.println("<script defer type=\"text/javascript\" src=\"scripts/searchFilter.js\"></script>");
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
+            out.println("<link rel=\"stylesheet\" href=\"stylesheets/globalStyle.css\">");
+            out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js\"></script>");
+            out.println("<script src=\"scripts/searchFilter.js\"></script>");
             out.println("</head>");
             out.println("<body>");
+
+            Navbar.loadNavBar(out);
 
 
             String fromAirprt = request.getParameter("fromAirport");
@@ -32,6 +37,10 @@ public class search_result extends HttpServlet {
 
             DBDisplay dbdisplay = new DBDisplay();
             dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
+
+            //out.println("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>");
+            out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
+            out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
 
             out.println("</body>");
             out.println("</html>");
