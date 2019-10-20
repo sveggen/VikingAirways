@@ -1,11 +1,11 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $('#resultTable').on('click', '.btn', function () {
         var flightnumber = $(this).attr('id');
         $(this).attr('value', flightnumber);
         $("#form"+flightnumber+"").submit();
     });
 });
-
+*/
     function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch, selectedFilter;
     table = document.getElementById("resultTable");

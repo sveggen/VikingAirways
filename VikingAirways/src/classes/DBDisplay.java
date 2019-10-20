@@ -22,8 +22,8 @@ public class DBDisplay {
             stmnt = conn.createStatement();
             ResultSet rset = stmnt.executeQuery(strSelect);
 
-            out.println("<div class=\"jumbotron text-center\"><h1>Available flights:</h1>");
-            out.println("<h3>From: "+dprtAirport+" To: "+destination+"</h3></div><br/><br/>");
+            out.println("<div class=\"jumbotron text-center\"><h1>Available flights</h1>");
+            out.println("<h3>From: "+dprtAirport+"&emsp;To: "+destination+"</h3></div><br/><br/>");
             out.println("<div class=\"container\">");
             out.println("<label for=\"selectedFilter\">Order by:</label>");
             out.println("<select name=\"selectedFilter\" id=\"selectedFilter\">");
@@ -64,7 +64,7 @@ public class DBDisplay {
                 out.println("       <td>"+destinationAirport+"</td>");
                 out.println("       <td>"+departureAirport+"</td>");
                 out.println("       <td>From: "+priceEconomy+"</td>");
-                out.println("       <td><button id=\""+flightnumber+"\" form=\"form"+flightnumber+"\" name=\"selectedFlight\" class=\"btn btn-success\" value=\""+flightnumber+"\">Select</button></td>");
+                out.println("       <td><button form=\"form"+flightnumber+"\" name=\"selectedFlight\" class=\"btn btn-success\" value=\""+flightnumber+"\">Select</button></td>");
                 out.println("       </tr>");
                 out.println("   </form>");
             }
