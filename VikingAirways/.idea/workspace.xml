@@ -6,13 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Flight_details.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Flight_details.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Flight_details.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Flight_details.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Flight_details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Flight_details.java" afterDir="false" />
-    </list>
+    <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
@@ -90,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Flight_details.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="60" column="61" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
+            <state relative-caret-position="153">
+              <caret line="16" column="49" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,7 +200,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571603482942" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571605655667" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -324,27 +318,26 @@
       <workItem from="1570700352759" duration="1106000" />
       <workItem from="1570785005074" duration="2835000" />
       <workItem from="1571047089880" duration="1309000" />
-      <workItem from="1571057692636" duration="10614000" />
+      <workItem from="1571057692636" duration="12066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74078000" />
+    <option name="totallyTimeSpent" value="75530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47883597" visible="true" weight="0.13846155" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47957373" visible="true" weight="0.13846155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.521164" side_tool="true" visible="true" weight="0.13846155" />
+      <window_info id="Web" order="7" sideWeight="0.5204263" side_tool="true" visible="true" weight="0.13846155" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.36944938" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -506,13 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/search_result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -559,11 +545,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Flight_details.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="60" column="61" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
+        <state relative-caret-position="153">
+          <caret line="16" column="49" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
         </state>
       </provider>
     </entry>
