@@ -12,7 +12,6 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +29,19 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@db-mysql-lon1-73758-do-user-6591172-0.db.ondigitalocean.com" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vikingairways@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -130,6 +139,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> 4f9769fe9dcbb12ea465b395fbca5bc64659ef29
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -153,6 +164,7 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -174,6 +186,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 4f9769fe9dcbb12ea465b395fbca5bc64659ef29
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -181,6 +195,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+<<<<<<< HEAD
   <component name="MavenProjectNavigator">
     <treeState>
       <expand />
@@ -229,6 +244,9 @@
       </pane>
     </panes>
   </component>
+=======
+  <component name="ProjectId" id="1S1Jn46P5MJJmfGK6mJvIsypEHb" />
+>>>>>>> 4f9769fe9dcbb12ea465b395fbca5bc64659ef29
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -241,6 +259,12 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -328,6 +352,16 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -347,6 +381,7 @@
       <workItem from="1570484821289" duration="3954000" />
       <workItem from="1570489106306" duration="818000" />
       <workItem from="1570523394364" duration="776000" />
+<<<<<<< HEAD
       <workItem from="1570524200278" duration="3059000" />
       <workItem from="1570627533347" duration="1336000" />
       <workItem from="1570700352759" duration="1106000" />
@@ -409,6 +444,15 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
+=======
+      <workItem from="1570524200278" duration="2179000" />
+      <workItem from="1570725335041" duration="2705000" />
+      <workItem from="1570786324089" duration="768000" />
+      <workItem from="1571132045299" duration="1887000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> 4f9769fe9dcbb12ea465b395fbca5bc64659ef29
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -428,20 +472,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -466,6 +497,7 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/klasser/DBConnect.java" />
     <entry file="file://$PROJECT_DIR$/src/classes/SearchResult.java" />
@@ -672,4 +704,6 @@
       </state>
     </states>
   </component>
+=======
+>>>>>>> 4f9769fe9dcbb12ea465b395fbca5bc64659ef29
 </project>
