@@ -10,12 +10,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CreateUser</title>
+    <title>Register</title>
 </head>
 <body>
 <div>
     <h1> Create a new user </h1>
-    <form action="CreateUser">
+    <form action="Register">
         First name:<input type="text" name="FirstName"required>
         Last name:<input type="text" name="LastName"required><br>
         Date of birth:<input type="date" name="BirthDate"required><br>

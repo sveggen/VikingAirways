@@ -15,6 +15,8 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
 
         if (Validate.checkUser(email, password)){
+            HttpSession session = request.getSession();
+            session.setAttribute("user", email);
             RequestDispatcher rs = request.getRequestDispatcher("Welcome");
             rs.forward(request, response);
         }
@@ -24,7 +26,6 @@ public class Login extends HttpServlet {
             rs.include(request, response);
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

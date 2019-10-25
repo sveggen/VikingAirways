@@ -56,7 +56,7 @@
     <label for="departureDate">Departure date:</label>
     <input type="date" name="departureDate" id="departureDate" class="form-control">
     </div>
-    <input type="submit" name="submit" class="btn btn-success" value="Find flights">
+    <input type="submit" class="btn btn-success" value="Find flights">
   </form>
   </div>
 
