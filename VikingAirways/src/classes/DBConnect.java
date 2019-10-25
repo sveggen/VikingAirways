@@ -16,7 +16,6 @@ public class DBConnect {
 
             conn = ds.getConnection();
             return conn;
-
         }
         catch (SQLException ex ) {
             System.out.println("Not connected to database " +ex);

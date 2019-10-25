@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import java.sql.Connection;
 
 @WebServlet(name = "BookingConfirmation", urlPatterns = {"/BookingConfirmation"})
 public class BookingConfirmation extends HttpServlet {
@@ -20,7 +19,6 @@ public class BookingConfirmation extends HttpServlet {
 
             //Hent data fra form:
             String bookingNumber = request.getParameter("bookingNumber");
-
             String submit = request.getParameter("submit");
 
             //Koble til database
@@ -28,38 +26,46 @@ public class BookingConfirmation extends HttpServlet {
             DBConnect dbconnect = new DBConnect();
             conn = dbconnect.connectToDB();
 
+            String strSelect = "SELECT * FROM Customer WHERE customer_id = " + bookingNumber;
+            Statement stmnt;
+
             if (submit.contains("submit")) {
-
                 try {
-                    //Hent data fra database
-                    PreparedStatement ps = conn.prepareStatement("SELECT first_name FROM vikingairways_db.Customer WHERE customer_id=?;");
-                    ps.setString(1, bookingNumber);
-                    ResultSet name = ps.executeQuery();
+                    stmnt = conn.createStatement();
+                    ResultSet rset = stmnt.executeQuery(strSelect);
 
-                    Email email = new Email();
-                    String recipient = "m.sveggen@gmail.com";
-                    String subject = "Booking confirmation";
-                    String content = "Hi, your bookingnumber is " + bookingNumber + ".";
+                    if (rset.next()) {
+                        String firstName = rset.getString("first_name");
+                        String lastName = rset.getString("last_name");
+                        String departureAirport = "";
+                        String arrivalAirport = "";
 
-                    email.sendEmail(recipient, subject, content);
-                    RequestDispatcher rs = request.getRequestDispatcher("Welcome");
-                    rs.forward(request, response);
+                        //Declare variables to be used when sending an email.
+                        String recipient = "m.sveggen@gmail.com";
+                        String subject = "Booking confirmation";
+                        String content = "Hello " + firstName + " " + lastName + ". <br>" +
+                                "Your bookingnumber is " + bookingNumber + ", for your flight from " + departureAirport +
+                                " to " + arrivalAirport + "." + "<br><br>" +
+                                "Have a nice flight! <br>" +
+                                "<b>Viking Airways</b> <br>" +
+                                "NO-4635 Kristiansand, Norway <br>" +
+                                "Tel. +47 38 04 55 38 <br>";
+                        //Creates an email object.
+                        Email email = new Email();
+                        email.sendEmail(recipient, subject, content);
+                        RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+                        rs.forward(request, response);
+                    } else {
+                        out.println("Email was not sent");
+                        RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
+                        rs.include(request, response);
+                    }
                 } catch (SQLException e) {
                     e.printStackTrace();
-                } {
-
                 }
-            } else {
-                out.println("Email was not sent");
-                RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
-                rs.include(request, response);
             }
         }
     }
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
-
 }
