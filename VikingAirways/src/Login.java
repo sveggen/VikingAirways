@@ -1,3 +1,4 @@
+import classes.Navbar;
 import classes.Validate;
 
 import javax.servlet.*;
@@ -13,6 +14,8 @@ public class Login extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+        Navbar.loadNavBar(out);
 
         if (Validate.checkUser(email, password)){
             HttpSession session = request.getSession();
