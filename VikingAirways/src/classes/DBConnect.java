@@ -22,7 +22,7 @@ public class DBConnect {
         }
         catch (NamingException nex) {
             System.out.println("Not correct naming" + nex);
-        }
+        }git
         return null;
     }
 }
