@@ -39,6 +39,7 @@
         <option value="JavaScript File" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
@@ -83,6 +84,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web\META-INF" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web\WEB-INF" />
     </key>
