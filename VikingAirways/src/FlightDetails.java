@@ -12,9 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-@WebServlet(name = "Flight_details", urlPatterns = {"/Flight_details"})
+@WebServlet(name = "FlightDetails", urlPatterns = {"/FlightDetails"})
 
-public class Flight_details extends HttpServlet {
+public class FlightDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
