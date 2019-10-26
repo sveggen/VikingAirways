@@ -1,4 +1,5 @@
 import classes.DBConnect;
+import classes.Validate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,19 +26,18 @@ public class Register extends HttpServlet {
             String Password = request.getParameter("Password");
             String Email = request.getParameter("Email");
 
-            String register = request.getParameter("submit");
-
             // 2: CONNECTION TIL DATABASEN
             Connection conn;
             DBConnect dbconnect = new DBConnect();
             conn = dbconnect.connectToDB();
 
-            if (register.contains("submit")) {
+
+            if (!Validate.checkEmailExistence(Email)) {
                 newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
                 out.println("Registration was completed succesfully.");
                 response.sendRedirect("Login.jsp");
             }else{
-                out.println("User was not created.");
+                out.println("A user already exist with this email");
             }
         }
     }
@@ -45,7 +45,7 @@ public class Register extends HttpServlet {
     public void newUser(String FirstName, String LastName, String BirthDate, String Password, String Email, PrintWriter out, Connection conn) {
         PreparedStatement insertUserInfo;
         try {
-            String ins = "insert into vikingairways_db.Customer (first_name, last_name, date_of_birth, customer_password, email, account_created, loyalty_points)  values (?, ?, ?, ?, ?, NOW(), 0)";
+            String ins = "insert into vikingairways_db.Customer (first_name, last_name, date_of_birth, customer_password, email, account_created, loyalty_points, admin_priv)  values (?, ?, ?, ?, ?, NOW(), 0, false)";
 
             insertUserInfo = conn.prepareStatement(ins);
             insertUserInfo.setString(1, FirstName);

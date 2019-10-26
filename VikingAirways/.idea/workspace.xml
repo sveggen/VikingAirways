@@ -63,12 +63,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="520" />
-    <option name="y" value="40" />
-    <option name="width" value="2800" />
-    <option name="height" value="2000" />
-  </component>
+  <component name="ProjectId" id="1SkAWk7IbKeDNN8CGpKoySpYJXk" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -212,6 +207,7 @@
       <workItem from="1571392787519" duration="4144000" />
       <workItem from="1571571211468" duration="1421000" />
       <workItem from="1571577114136" duration="1376000" />
+      <workItem from="1572097259663" duration="3668000" />
     </task>
     <servers />
   </component>

@@ -17,10 +17,10 @@ public class Login extends HttpServlet {
 
         Navbar.loadNavBar(out);
 
-        if (Validate.checkUser(email, password)){
+        if (Validate.checkUserExistence(email, password)){
             HttpSession session = request.getSession();
             session.setAttribute("user", email);
-            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
+            RequestDispatcher rs = request.getRequestDispatcher("Profile.jsp");
             rs.forward(request, response);
         }
         else {
