@@ -10,13 +10,10 @@
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-mapping />
-<<<<<<< HEAD
-=======
     </data-source>
     <data-source name="MySQL - @localhost" uuid="d137240f-57de-4758-ad81-5bcf053841b8">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <schema-mapping />
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
     </data-source>
   </component>
 </project>
