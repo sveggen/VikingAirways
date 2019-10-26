@@ -1,3 +1,4 @@
+import classes.DBConnect;
 import classes.Navbar;
 import classes.Validate;
 
@@ -5,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
+import java.sql.Connection;
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
@@ -15,13 +17,11 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        Navbar.loadNavBar(out);
-
         if (Validate.checkUserExistence(email, password)){
             HttpSession session = request.getSession();
             session.setAttribute("user", email);
-            RequestDispatcher rs = request.getRequestDispatcher("Profile.jsp");
-            rs.forward(request, response);
+            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+
         }
         else {
             out.println("Email or password is incorrect. ");
