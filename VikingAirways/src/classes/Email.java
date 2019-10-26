@@ -6,7 +6,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Email {
-
         public void sendEmail(String recipient, String subject, String content) {
 
             //Email addresses
@@ -14,7 +13,7 @@ public class Email {
             String from = "vikingairways@gmail.com";
 
             //Credentials
-            String username = "vikingairways@gmail.com";
+            String username = from;
             String password = "x";
 
             Properties prop = new Properties();
