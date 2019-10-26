@@ -15,7 +15,11 @@ public class Email {
 
             //Credentials
             String username = "vikingairways@gmail.com";
+<<<<<<< HEAD
             String password = "nerdherd2019";
+=======
+            String password = "x";
+>>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
 
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -39,7 +43,10 @@ public class Email {
                 message.setSubject(subject);
                 message.setContent(content, "text/html");
                 Transport.send(message);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
                 System.out.println("Email was successfully sent");
 
             } catch (MessagingException e) {

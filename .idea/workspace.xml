@@ -6,16 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/search_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/search_result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" afterDir="false" />
-    </list>
-=======
     <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="" />
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,28 +30,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Tag Library Descriptor" />
         <option value="Jsp File" />
-        <option value="JavaScript File" />
         <option value="Class" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>date_</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-<<<<<<< HEAD
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="email-confirmation" />
-      </map>
-    </option>
-=======
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -69,33 +46,20 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="520" />
-    <option name="y" value="40" />
-    <option name="width" value="2800" />
-    <option name="height" value="2000" />
-  </component>
-=======
-  <component name="ProjectId" id="1STIH84orpeJqAmP3w1hyUdLdIz" />
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
+  <component name="ProjectId" id="1S1Jn46P5MJJmfGK6mJvIsypEHb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571580537891" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Temp/VikingAirways-email-confirmation/VikingAirways" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571048770957" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/SecureRolodex2" />
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570526436056" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/VikingAirways" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -115,34 +79,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24">
-    <configuration name="BookingNumberEmail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="classes.BookingNumberEmail" />
-      <module name="VikingAirways" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="classes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Email" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="classes.Email" />
-      <module name="VikingAirways" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="classes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="classes.Main" />
       <module name="VikingAirways" />
       <extension name="coverage">
         <pattern>
@@ -226,10 +164,12 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Email" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.24" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.BookingNumberEmail" />
         <item itemvalue="Application.Email" />
       </list>
     </recent_temporary>
@@ -241,27 +181,16 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d98496d4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@79e0958c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d98496d4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7acc0a1f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9ac680df" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
-    </option>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d98496d4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@9ac680df" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5f501e02" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -288,34 +217,17 @@
       <workItem from="1570484821289" duration="3954000" />
       <workItem from="1570489106306" duration="818000" />
       <workItem from="1570523394364" duration="776000" />
-      <workItem from="1570524200278" duration="3059000" />
-      <workItem from="1570627533347" duration="1336000" />
-      <workItem from="1570700352759" duration="1106000" />
-      <workItem from="1570785005074" duration="2835000" />
-<<<<<<< HEAD
-      <workItem from="1571047089880" duration="4514000" />
-      <workItem from="1571217527028" duration="1325000" />
-      <workItem from="1571220453555" duration="6614000" />
-      <workItem from="1571293895418" duration="1221000" />
-      <workItem from="1571295979392" duration="5705000" />
-      <workItem from="1571306336668" duration="6190000" />
-      <workItem from="1571323707439" duration="36000" />
-      <workItem from="1571326495119" duration="66000" />
-      <workItem from="1571340529848" duration="10377000" />
-      <workItem from="1571355447482" duration="58000" />
-      <workItem from="1571387754885" duration="1321000" />
-      <workItem from="1571392787519" duration="4144000" />
-      <workItem from="1571571211468" duration="1421000" />
-      <workItem from="1571577114136" duration="1376000" />
-=======
-      <workItem from="1571047089880" duration="1309000" />
-      <workItem from="1571581073524" duration="10318000" />
-      <workItem from="1571650333092" duration="11975000" />
-      <workItem from="1571769735595" duration="6172000" />
-      <workItem from="1571819245900" duration="2746000" />
-      <workItem from="1571911424921" duration="4770000" />
-      <workItem from="1571997014031" duration="1796000" />
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
+      <workItem from="1570524200278" duration="2179000" />
+      <workItem from="1570725335041" duration="2705000" />
+      <workItem from="1570786324089" duration="768000" />
+      <workItem from="1571132045299" duration="1887000" />
+      <workItem from="1571136599114" duration="12814000" />
+      <workItem from="1571216886244" duration="11072000" />
+      <workItem from="1571436239731" duration="23000" />
+      <workItem from="1571489014081" duration="21489000" />
+      <workItem from="1571519724487" duration="1001000" />
+      <workItem from="1571573719134" duration="238000" />
+      <workItem from="1571578946947" duration="537000" />
     </task>
     <servers />
   </component>
@@ -344,102 +256,14 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
-<<<<<<< HEAD
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>VikingAirwaysSearchFunc:war exploded</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>VikingAirways</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-  </component>
-=======
->>>>>>> 0012fe6b2ecaa511538497aeef8d369ea3167f98
 </project>
