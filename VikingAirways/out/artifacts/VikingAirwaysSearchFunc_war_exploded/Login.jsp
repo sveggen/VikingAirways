@@ -52,7 +52,6 @@
                 <input type="password" class="form-control" name="password" required/>
                 <a href="/VikingAirways/Register.jsp" class="hyperlink">Create a new account here</a><br>
                 <input class="btn btn-success" type="submit" name="submit" value="Log in">
-
 </form>
         </div>
     </div>

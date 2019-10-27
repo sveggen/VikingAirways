@@ -40,11 +40,11 @@
 <div class="jumbotron text-center">
     <h1>My Profile</h1>
 </div>
-<p>Your name: <%=request.getParameter("password")%></p>
+<p>Your email: <%=request.getParameter("email")%></p>
     <div class="col">
     <form class="justify-content-center">
         <a href="#" class="hyperlink">
-<p class="h3">My bookings</p>
+<p class="h3"></p>
         </a>
 </form>
 </div>
