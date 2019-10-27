@@ -35,11 +35,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="JavaScript File" />
         <option value="Class" />
         <option value="CSS File" />
         <option value="Tag Library Descriptor" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -79,8 +79,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web\META-INF" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web\META-INF" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web\WEB-INF" />
     </key>
   </component>
@@ -250,6 +250,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/web/RegistrationSuccessful.jsp</url>
+          <line>46</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

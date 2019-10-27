@@ -9,7 +9,7 @@ import java.sql.Connection;
 import classes.*;
 
 @WebServlet(name = "search_result", urlPatterns = {"/search_result"})
-public class Search_result extends HttpServlet {
+public class search_result extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

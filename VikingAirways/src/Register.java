@@ -19,23 +19,19 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            // 1: HEND DATA FRA FORMEN
             String FirstName = request.getParameter("FirstName");
             String LastName = request.getParameter("LastName");
             String BirthDate = request.getParameter("BirthDate");
             String Password = request.getParameter("Password");
             String Email = request.getParameter("Email");
 
-            // 2: CONNECTION TIL DATABASEN
             Connection conn;
             DBConnect dbconnect = new DBConnect();
             conn = dbconnect.connectToDB();
 
-
             if (!Validate.checkEmailExistence(Email)) {
                 newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
-                out.println("Registration was completed succesfully.");
-                response.sendRedirect("Login.jsp");
+                response.sendRedirect("RegistrationSuccessful.jsp");
             }else{
                 out.println("A user already exist with this email");
             }
@@ -54,7 +50,7 @@ public class Register extends HttpServlet {
             insertUserInfo.setString(4, Password);
             insertUserInfo.setString(5, Email);
             insertUserInfo.executeUpdate();
-            out.println("Ny bruker opprettet");
+            System.out.println("Ny bruker opprettet");
         } // end try
         catch (SQLException ex) {
             out.println("Ikke fått lagret navn" + ex);
