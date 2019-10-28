@@ -7,10 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/LoginUnsuccessful.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/RegistrationUnsuccessful.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/search_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/search_result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/Profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Profile.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,12 +56,13 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="email-confirmation" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -69,13 +77,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571580537891" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Temp/VikingAirways-email-confirmation/VikingAirways" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -170,6 +180,16 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -208,6 +228,7 @@
       <workItem from="1571571211468" duration="1421000" />
       <workItem from="1571577114136" duration="1376000" />
       <workItem from="1572097259663" duration="9624000" />
+      <workItem from="1572259436660" duration="2643000" />
     </task>
     <servers />
   </component>
@@ -250,17 +271,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/web/RegistrationSuccessful.jsp</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

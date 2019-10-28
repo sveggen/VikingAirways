@@ -40,7 +40,9 @@
 <div class="jumbotron text-center">
     <h1>My Profile</h1>
 </div>
+<div class="text-center">
 <p>Your email: <%=request.getParameter("email")%></p>
+</div>
     <div class="col">
     <form class="justify-content-center">
         <a href="#" class="hyperlink">
