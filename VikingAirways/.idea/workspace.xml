@@ -2,33 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="VikingAirwaysSearchFunc:war exploded" />
+      <artifact name="VikingAirways" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39ec1665-0baa-421e-9ef8-0d70ce5dd31d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VikingAirwaysSearchFunc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/VikingAirwaysSearchFunc_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/Validate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/Login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/LoginUnsuccessful.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/Profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/Register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/RegistrationSuccessful.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/RegistrationUnsuccessful.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/VikingAirwaysSearchFunc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/VikingAirways.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Flight_details.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/META-INF/VikingAirways.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/META-INF/VikingAirways.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/BookingNumberEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/BookingNumberEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/DBConnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/DBConnect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/DBDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/DBDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/Email$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/Email$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/classes/Email.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/search_result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Flight_details.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/META-INF/VikingAirways.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/META-INF/VikingAirways.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/classes/BookingNumberEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/classes/BookingNumberEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/classes/DBConnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/classes/DBConnect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/classes/DBDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/classes/DBDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/classes/Email$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/classes/Email$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/classes/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/classes/Email.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/search_result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/DBDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DBDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Navbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,13 +35,20 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/classes" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\src\classes" />
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\src" />
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
     </key>
@@ -70,12 +67,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/VikingAirwaysSearchFunc_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="VikingAirwaysSearchFunc:war exploded">
+        <artifact name="VikingAirways">
           <settings>
-            <option name="CONTEXT_PATH" value="/VikingAirwaysSearchFunc_war_exploded" />
+            <option name="CONTEXT_PATH" value="/VikingAirways" />
           </settings>
         </artifact>
       </deployment>
@@ -138,7 +134,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="VikingAirwaysSearchFunc:war exploded" />
+          <artifact name="VikingAirways" />
         </option>
       </method>
     </configuration>
@@ -165,7 +161,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
