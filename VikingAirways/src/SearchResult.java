@@ -8,8 +8,13 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import classes.*;
 
+<<<<<<< HEAD:VikingAirways/src/SearchResult.java
 @WebServlet(name = "SearchResult", urlPatterns = {"/SearchResult"})
 public class SearchResult extends HttpServlet {
+=======
+@WebServlet(name = "search_result", urlPatterns = {"/search_result"})
+public class search_result extends HttpServlet {
+>>>>>>> fb7ab140290e9621f895501e03842ce99aa5eaa1:VikingAirways/src/search_result.java
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
