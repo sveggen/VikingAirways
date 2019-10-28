@@ -54,7 +54,7 @@ public class DBDisplay {
                 String departureAirport = rset.getString("departure_airport");
                 String priceEconomy = rset.getString("price_economy");
 
-                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"Flight_details\">");
+                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"FlightDetails\">");
                 out.println("       <tr>");
                 out.println("       <td class=\"flightNumber\">"+flightnumber+"</td>");
                 out.println("       <td>"+dateOfDeparture+"</td>");
