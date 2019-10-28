@@ -35,7 +35,7 @@
   </div>
 
   <div class="container">
-  <form class="justify-content-center" action="search_result" method="post">
+  <form class="justify-content-center" action="SearchResult" method="post">
     <div class="form-group">
     <label for="fromAirport">Leaving from:</label>
     <select name="fromAirport" id="fromAirport" class="form-control">

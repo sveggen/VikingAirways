@@ -35,7 +35,7 @@
   </div>
 
   <div class="container">
-  <form class="justify-content-center" action="search_result" method="post">
+  <form class="justify-content-center" action="SearchResult" method="post">
     <div class="form-group">
     <label for="fromAirport">Leaving from:</label>
     <select name="fromAirport" id="fromAirport" class="form-control">
@@ -56,7 +56,7 @@
     <label for="departureDate">Departure date:</label>
     <input type="date" name="departureDate" id="departureDate" class="form-control">
     </div>
-    <input type="submit" name="submit" class="btn btn-success" value="Find flights">
+    <input type="submit" class="btn btn-success" value="Find flights">
   </form>
   </div>
 
