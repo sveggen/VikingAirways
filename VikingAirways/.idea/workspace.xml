@@ -6,19 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/LoginUnsuccessful.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/RegistrationUnsuccessful.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/Profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirwaysSearchFunc_war_exploded/WEB-INF/classes/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Profile.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="3e74efc1-46b1-4b3b-b8dd-5487e00e7ae7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +60,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1SkAWk7IbKeDNN8CGpKoySpYJXk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
