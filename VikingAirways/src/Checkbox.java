@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet(name = "Checkbox", urlPatterns = {"/Checkbox"})
-@MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
 public class Checkbox extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
@@ -75,8 +74,6 @@ public class Checkbox extends HttpServlet {
         String message = null;  // message will be sent back to client
 
         try {
-            // connects to the database
-            //DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
             // constructs SQL statement
             String sql = "INSERT INTO Optionalservices (Extra_Luggage, Extra_Carryon, Overweight_Luggage, Sport_Equipment, Digital_Equipment, Pet_CarryOn, Food_on_flight, WiFi_on_flight) VALUES (? ,? ,? ,? ,? ,? ,? ,? )";
@@ -95,34 +92,30 @@ public class Checkbox extends HttpServlet {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(3, inputStream);
             }
+        }
 
-            // sends the statement to the database server
-            int row = statement.executeUpdate();
-            if (row > 0) {
-                message = "File uploaded and saved into database";
-            }
-        } catch (SQLException ex) {
+        catch (SQLException ex) {
             message = "ERROR: " + ex.getMessage();
             ex.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (conn != null) {
                 // closes the database connection
                 try {
                     conn.close();
-                } catch (SQLException ex) {
+                }
+
+                catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
-            // sets the message in request scope
-            request.setAttribute("Message", message);
 
-            // forwards to the message page
-            try {
-                getServletContext().getRequestDispatcher("Message.jsp").forward(request, response);
-
-            } catch (ServletException e) {
+            catch (ServletException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
+            }
+
+            catch (IOException e) {
                 e.printStackTrace();
             }
 
