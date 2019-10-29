@@ -30,7 +30,7 @@ public class DeleteFlight extends HttpServlet {
 
             int i = stmt.executeUpdate();
 
-            
+
         }
         catch (SQLException ex) {
             out.println("Cannot remove flight " +ex);

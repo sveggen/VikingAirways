@@ -1,4 +1,6 @@
 import classes.DBConnect;
+import classes.Navbar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,11 @@ public class AdminSite extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        Navbar.loadNavBar(out);
+
+        out.println("<head>");
+        out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
+        out.println("</head>");
         out.println("<h1>Admin page</h1>" +"<br/><br/>");
 
         //oppretter connection med database
