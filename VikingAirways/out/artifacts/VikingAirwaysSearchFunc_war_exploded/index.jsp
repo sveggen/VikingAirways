@@ -21,6 +21,9 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <a class="nav-link" href="/VikingAirways/AdminSite">Admin</a>
+      </li>
+      <li class="nav-item">
        <a class="nav-link" href="#">Register</a>
       </li>
       <li class="nav-item">
@@ -56,7 +59,7 @@
     <label for="departureDate">Departure date:</label>
     <input type="date" name="departureDate" id="departureDate" class="form-control">
     </div>
-    <input type="submit" name="submit" class="btn btn-success" value="Find flights">
+    <input type="submit" class="btn btn-success" value="Find flights">
   </form>
   </div>
 
