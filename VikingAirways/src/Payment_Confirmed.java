@@ -16,6 +16,7 @@ public class Payment_Confirmed extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        //Ikke ferdig. Placeholderfil for betalingsbekreftelse.
         out.println("<html>");
         out.println("<body>");
         out.println("Thank you for your payment");

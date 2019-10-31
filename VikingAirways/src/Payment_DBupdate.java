@@ -18,6 +18,7 @@ import com.sun.org.apache.xpath.internal.objects.XNull;
 public class Payment_DBupdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //statisk booking number. Skal replaces med dynamisk booking number
         String booking_number = "25";
 
         Connection conn;
@@ -25,11 +26,11 @@ public class Payment_DBupdate extends HttpServlet {
         conn = dbconnect.connectToDB();
 
         String firstName, lastName, creditCard, expDate, cvc;
-        firstName=request.getParameter("firstName");
-        lastName=request.getParameter("lastName");
-        creditCard=request.getParameter("creditCard");
-        expDate=request.getParameter("expDate");
-        cvc=request.getParameter("cvc");
+        firstName = request.getParameter("firstName");
+        lastName = request.getParameter("lastName");
+        creditCard = request.getParameter("creditCard");
+        expDate = request.getParameter("expDate");
+        cvc = request.getParameter("cvc");
 
         String str = "UPDATE Booking SET customer_paid = '0' WHERE booking_number =" +booking_number;
         try {
@@ -54,7 +55,5 @@ public class Payment_DBupdate extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
     }
 }
