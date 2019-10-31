@@ -2,6 +2,7 @@ import classes.DBConnect;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,11 @@ public class FlightDetails extends HttpServlet {
 
         String selectedFlight = request.getParameter("selectedFlight");
 
+        out.println("<head>");
+        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js\"></script>");
+        out.println("<script src=\"scripts/searchFilter.js\"></script>");
+        out.println("</head>");
+
         out.println("<h1>Selected flight:</h1>" +"<br/><br/>");
 
         Connection conn;
@@ -36,7 +42,7 @@ public class FlightDetails extends HttpServlet {
 
 
             if(rset.next()) {
-                int flightnumber = rset.getInt("flight_number");
+                String flightnumber = rset.getString("flight_number");
                 String dateOfDeparture = rset.getString("departure_date");
                 String timeOfDeparture = rset.getString("departure_time");
                 String destinationAirport = rset.getString("arrival_airport");
@@ -49,6 +55,15 @@ public class FlightDetails extends HttpServlet {
                 int priceBusi = rset.getInt("price_business");
                 int priceFirst = rset.getInt("price_firstclass");
 
+                String[] nameArray = new String[] {"flightnumber", "dateofdeparture", "timeofdeparture", "destinationAirport", "departureairport", "arrivaltime"};
+                String[] valueArray = new String[] {flightnumber, dateOfDeparture, timeOfDeparture, destinationAirport, departureAirport, arrivalTime};
+
+                int i = 0;
+                for(String selected : nameArray){
+                    response.addCookie(new Cookie(nameArray[i], valueArray[i]));
+                    i++;
+                }
+
                 out.println("Flight selected: " + selectedFlight);
                 out.println("</br>Date og departure: " + dateOfDeparture);
                 out.println("</br>Time of departure: " + timeOfDeparture);
@@ -58,7 +73,7 @@ public class FlightDetails extends HttpServlet {
                 out.println("</br></br>");
 
                 out.println("<table style=\"width:30%\" border=\"1\">");
-                out.println(" <form method=\"post\" action=\"\"");
+                out.println(" <form method=\"post\" action=\"OptionalServices.jsp\" id=\"flightForm\"");
                 out.println("  <tr>");
                 out.println("    <th>Class</th>");
                 out.println("    <th>Seats</th>");
@@ -68,19 +83,19 @@ public class FlightDetails extends HttpServlet {
                 out.println("    <th>Economy: </th>");
                 out.println("    <td>"+availableSeatsEcon+"</td>");
                 out.println("    <td>"+priceEcon+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" value=\"Economy"+flightnumber+"\" type=\"submit\">Select</button></td>");
+                out.println("    <td><button name=\"SelectedClass\" id=\"economybtn\" value=\"Economy"+flightnumber+"\">Select</button></td>");
                 out.println("  </tr>");
                 out.println("  <tr>");
                 out.println("    <th>Business: </th>");
                 out.println("    <td>"+availableSeatsBusi+"</td>");
                 out.println("    <td>"+priceBusi+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" value=\"Business"+flightnumber+"\" type=\"submit\">Select</button></td>");
+                out.println("    <td><button name=\"SelectedClass\" id=\"businessbtn\" value=\"Business"+flightnumber+"\">Select</button></td>");
                 out.println("  </tr>");
                 out.println("  <tr>");
                 out.println("    <th>First class: </th>");
                 out.println("    <td>"+availableSeatsFirst+"</td>");
                 out.println("    <td>"+priceFirst+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" value=\"firstClass"+flightnumber+"\" type=\"submit\">Select</button></td>");
+                out.println("    <td><button name=\"SelectedClass\" id=\"firstbtn\" value=\"firstClass"+flightnumber+"\">Select</button></td>");
                 out.println("  </tr>");
                 out.println("  </form>");
                 out.println("</table>");

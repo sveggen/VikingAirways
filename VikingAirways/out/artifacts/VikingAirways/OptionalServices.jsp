@@ -17,7 +17,7 @@
 <body>
 <center>
     <h1>Value Upload to Database</h1>
-    <form method="post" action="uploadServlet" enctype="multipart/form-data">
+    <form method="post" action="Checkbox">
         <table border="0">
             <tr>
                 <td><input type="checkbox" name="Extra_Luggage" value="Yes">Extra Luggage </td>
@@ -26,13 +26,7 @@
                 <td><input type="checkbox" name="Extra_Carryon" value="Yes">Extra Carry-on</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="Overweight_Luggage" value="Yes">Overweight Luggage</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="Sport_Equipment" value="Yes">Sport Equipment</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="Digital_Equipment" value="Yes">Digital Equipment</td>
+                <td><input type="checkbox" name="Special_Equipment" value="Yes">Sport Equipment</td>
             </tr>
             <tr>
                 <td><input type="checkbox" name="Pet_CarryOn" value="Yes">Pet Carry-on</td>
