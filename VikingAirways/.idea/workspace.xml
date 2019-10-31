@@ -7,28 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39ec1665-0baa-421e-9ef8-0d70ce5dd31d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Checkbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Checkbox.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_Confirmed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_Confirmed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_DBupdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_DBupdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/payment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/payment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Checkbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Checkbox.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Payment_Confirmed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Payment_Confirmed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Payment_DBupdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Payment_DBupdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checkbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checkbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FlightDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlightDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/OptionalServices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/OptionalServices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/Personalinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/Personalinfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Personalinfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Personalinfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Personalinfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Personalinfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Personalinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Personalinfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/OptionalServices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/OptionalServices.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/Personalinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Personalinfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/searchFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripts/searchFilter.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,13 +56,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/META-INF" />
-      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\src\classes" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\src" />
+      <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/META-INF" />
       <recent name="C:\Users\Markus\java\github.com\sveggen\VikingAirways\VikingAirways\web" />
     </key>
   </component>
@@ -165,6 +165,7 @@
       <workItem from="1572275660900" duration="2232000" />
       <workItem from="1572385618049" duration="4785000" />
       <workItem from="1572551537724" duration="1034000" />
+      <workItem from="1572560177103" duration="5065000" />
     </task>
     <servers />
   </component>
