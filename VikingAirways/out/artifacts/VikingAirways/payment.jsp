@@ -65,7 +65,7 @@
 
   <div class="jumbotron text-center">
     <h1>Payment Details</h1>
-    <p>Please do not pay us for this. We are the Russian governement</p>
+    <p>Please do not pay us for this. We are the Russian government</p>
   </div>
 
 
@@ -76,7 +76,7 @@
     <input type="text" name="lastName" id="lastName" maxlength="45" required placeholder="Doe">
     <br><br>
     Credit Card: <br>
-    <input type="number" name="creditCard" id="creditCard" max="9999999999999999" min="100000000000" required placeholder="XXXX-XXXX-XXXX-XXXX">
+    <input type="number" name="creditCard" id="creditCard" required placeholder="XXXX-XXXX-XXXX-XXXX">
     <br><br>
     Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CVC:<br>
       <div class="row">

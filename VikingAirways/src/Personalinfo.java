@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,23 +25,8 @@ public class Personalinfo extends HttpServlet {
         String FirstName = request.getParameter("FirstName");
         String LastName = request.getParameter("LastName");
         String Address = request.getParameter("Address");
-        String Phone = request.getParameter("Phone");
         String Email = request.getParameter("Email");
         String DateofBirth = request.getParameter("DateofBirth");
-
-        InputStream inputStream = null; // input stream of the upload file
-
-        // obtains the upload file part in this multipart request
-        Part filePart = request.getPart("photo");
-        if (filePart != null) {
-            // prints out some information for debugging
-            System.out.println(filePart.getName());
-            System.out.println(filePart.getSize());
-            System.out.println(filePart.getContentType());
-
-            // obtains input stream of the upload file
-            inputStream = filePart.getInputStream();
-        }
 
 
         Connection conn; // connection to the database
@@ -48,7 +34,7 @@ public class Personalinfo extends HttpServlet {
         conn = dbconnect.connectToDB();
 
         // constructs SQL statement
-        String sql = "INSERT INTO passenger (FirstName, LastName, Address, Phone, Email, DateofBirth) values (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO passenger (FirstName, LastName, Address, Email, DateofBirth) values (?, ?, ?, ?, ?)";
         PreparedStatement statement = null;
         try {
             statement = conn.prepareStatement(sql);
@@ -75,40 +61,23 @@ public class Personalinfo extends HttpServlet {
             statement.setString(3, Address);
         }
 
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            statement.setString(4, Phone);
-        }
 
         catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            statement.setString(5, Email);
+            statement.setString(4, Email);
         }
 
         catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            statement.setString(6, DateofBirth);
+            statement.setString(5, DateofBirth);
         }
 
         catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        if (inputStream != null) {
-            // fetches input stream of the upload file for the blob column
-            try {
-                statement.setBlob(3, inputStream);
-            }
-
-            catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
 
         // sends the statement to the database server
@@ -132,6 +101,7 @@ public class Personalinfo extends HttpServlet {
             }
         }
 
-
+        RequestDispatcher req = request.getRequestDispatcher("payment.jsp");
+        req.forward(request, response);
     }
 }

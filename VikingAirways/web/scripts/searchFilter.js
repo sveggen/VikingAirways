@@ -1,10 +1,25 @@
-/*$(document).ready(function () {
-    $('#resultTable').on('click', '.btn', function () {
-        var flightnumber = $(this).attr('id');
-        $(this).attr('value', flightnumber);
-        $("#form"+flightnumber+"").submit();
-    });
+$(document).ready(function() {
+    $('#economybtn').click(function (){
+        document.cookie="class=economy";
+        document.getElementById("flightForm").submit();
+    })
 });
+
+/*
+    function setCookie() {
+    document.getElementById('economybtn').onclick = function() {
+        document.cookie="class=economy";
+        document.getElementById("flightForm").submit();
+    };
+    document.getElementById('businessbtn').onclick = function() {
+        document.cookie="class=business";
+        document.getElementById("flightForm").submit();
+    };
+    document.getElementById('firstbtn').onclick = function() {
+        document.cookie="class=firstclass";
+        document.getElementById("flightForm").submit();
+    };
+}
 */
     function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch, selectedFilter;

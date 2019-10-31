@@ -7,9 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39ec1665-0baa-421e-9ef8-0d70ce5dd31d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Payment_Confirmed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payment_Confirmed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payment_DBupdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payment_DBupdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/payment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/payment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Checkbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Checkbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_Confirmed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_Confirmed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_DBupdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/WEB-INF/classes/Payment_DBupdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VikingAirways/payment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VikingAirways/payment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Checkbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Checkbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Payment_Confirmed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Payment_Confirmed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VikingAirways/Payment_DBupdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VikingAirways/Payment_DBupdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checkbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checkbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FlightDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlightDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personalinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Personalinfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/OptionalServices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/OptionalServices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Personalinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Personalinfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripts/searchFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripts/searchFilter.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../JavaX/javax.mail.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -151,6 +164,7 @@
       <updated>1572275656720</updated>
       <workItem from="1572275660900" duration="2232000" />
       <workItem from="1572385618049" duration="4785000" />
+      <workItem from="1572551537724" duration="1034000" />
     </task>
     <servers />
   </component>
