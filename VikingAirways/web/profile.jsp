@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Markus
-  Date: 27.10.2019
-  Time: 21:19
+  Date: 19.10.2019
+  Time: 15:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
@@ -11,7 +11,6 @@
 <head>
     <html>
     <head>
-        <meta http-equiv="Refresh" content="6; url=http://localhost:8080/VikingAirways/Login.jsp" />
         <title>Viking Airways - Cheap flights with comfort</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="stylesheets/globalStyle.css">
@@ -31,21 +30,25 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Register</a>
+            <a class="nav-link" href="register.jsp">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Login.jsp">Log In</a>
+            <a class="nav-link" href="login.jsp">Log In</a>
         </li>
     </ul>
 </nav>
 <div class="jumbotron text-center">
-    <div class="jumbotron text-center">
-        <h1>Registration was successful!</h1>
-    </div>
+    <h1>My Profile</h1>
 </div>
-<form class="text-center">
-<p>Please wait for a few seconds and you will be taken to the login page.</p>
+<div class="text-center">
+<p>Your email: <%=request.getParameter("email")%></p>
+</div>
+    <div class="col">
+    <form class="justify-content-center">
+        <a href="#" class="hyperlink">
+<p class="h3"></p>
+        </a>
 </form>
+</div>
 </body>
 </html>
-

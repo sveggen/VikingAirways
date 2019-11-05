@@ -104,7 +104,7 @@ public class Checkbox extends HttpServlet {
 
 
         }
-        RequestDispatcher req = request.getRequestDispatcher("Personalinfo.jsp");
+        RequestDispatcher req = request.getRequestDispatcher("personalInfo.jsp");
         req.forward(request, response);
     }
 }

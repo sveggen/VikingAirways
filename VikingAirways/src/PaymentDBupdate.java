@@ -14,8 +14,8 @@ import java.sql.SQLException;
 import classes.Navbar;
 import com.sun.org.apache.xpath.internal.objects.XNull;
 
-@WebServlet(name = "Payment_DBupdate", urlPatterns = {"/Payment_DBupdate"})
-public class Payment_DBupdate extends HttpServlet {
+@WebServlet(name = "PaymentDBupdate", urlPatterns = {"/PaymentDBupdate"})
+public class PaymentDBupdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //statisk booking number. Skal replaces med dynamisk booking number

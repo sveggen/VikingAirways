@@ -24,7 +24,7 @@ Flight selected: " + selectedFlight
 </br></br>
 
 <table style=width:30 border=1
- <form method=post action=OptionalServices.jsp id=flightForm>
+ <form method=post action=optionalServices.jsp id=flightForm>
     <th>Class</th>
     <th>Seats</th>
     <th>Price</th>

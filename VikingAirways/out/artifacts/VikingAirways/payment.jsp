@@ -55,10 +55,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-       <a class="nav-link" href="Register.jsp">Register</a>
+       <a class="nav-link" href="register.jsp">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Login.jsp">Log In</a>
+        <a class="nav-link" href="login.jsp">Log In</a>
       </li>
     </ul>
   </nav>
@@ -69,7 +69,7 @@
   </div>
 
 
-<form action="Payment_DBupdate" method="post">
+<form action="PaymentDBupdate" method="post">
     First name: <br>
     <input type="text" name ="firstName" id="firstName" maxlength="45" required placeholder="John"> <br> <br>
     Last name: <br>

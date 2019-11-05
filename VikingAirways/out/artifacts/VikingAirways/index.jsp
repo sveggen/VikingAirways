@@ -21,10 +21,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-       <a class="nav-link" href="Register.jsp">Register</a>
+       <a class="nav-link" href="register.jsp">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Login.jsp">Log In</a>
+        <a class="nav-link" href="login.jsp">Log In</a>
       </li>
     </ul>
   </nav>

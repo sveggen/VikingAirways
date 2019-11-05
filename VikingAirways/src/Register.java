@@ -31,9 +31,9 @@ public class Register extends HttpServlet {
 
             if (!Validate.checkEmailExistence(Email)) {
                 newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
-                response.sendRedirect("RegistrationSuccessful.jsp");
+                response.sendRedirect("registrationSuccessful.jsp");
             }else{
-                response.sendRedirect("RegistrationUnsuccessful.jsp");
+                response.sendRedirect("registrationUnsuccessful.jsp");
             }
         }
     }

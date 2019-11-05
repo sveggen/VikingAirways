@@ -31,10 +31,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Register</a>
+            <a class="nav-link" href="register.jsp">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Login.jsp">Log In</a>
+            <a class="nav-link" href="login.jsp">Log In</a>
         </li>
     </ul>
 </nav>
@@ -50,7 +50,7 @@
                 <input type="email" class="form-control" name="email" required/><br/>
     Password
                 <input type="password" class="form-control" name="password" required/>
-                <a href="/VikingAirways/Register.jsp" class="hyperlink">Create a new account here</a><br>
+                <a href="/VikingAirways/register.jsp" class="hyperlink">Create a new account here</a><br>
                 <input class="btn btn-success" type="submit" name="submit" value="Log in">
 
 </form>
