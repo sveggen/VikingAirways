@@ -1,5 +1,7 @@
 package classes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,8 +12,7 @@ public class DBDisplay {
 
     Statement stmnt;
 
-    public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport) {
-
+    public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport, HttpServletResponse response) {
 
 
         String strSelect = "SELECT * FROM Flight WHERE arrival_airport = '"+destination

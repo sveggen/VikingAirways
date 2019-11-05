@@ -22,7 +22,7 @@ public class Checkbox extends HttpServlet {
         ArrayList<String> nameArrayList = new ArrayList();
 
         // gets values of text fields
-        String Extra_Luggage = request.getParameter("Extra_Luggage");
+        String Extra_Luggage = request.getParameter("Checked_in_luggage");
         if(Extra_Luggage==null) {
             Extra_Luggage = new String("No");
         } else
@@ -71,39 +71,7 @@ public class Checkbox extends HttpServlet {
         conn = dbconnect.connectToDB();
         String message = null;  // message will be sent back to client
 
-        try {
 
-            // constructs SQL statement
-            String sql = "INSERT INTO Optionalservices (Extra_Luggage, Extra_Carryon, Special_Equipment, Pet_CarryOn, Food_on_flight, WiFi_on_flight) VALUES (? ,? ,? ,? ,? ,? ,? ,? )";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, Extra_Luggage);
-            statement.setString(2, Extra_Carryon);
-            statement.setString(3, Special_Equipment);
-            statement.setString(4, Pet_CarryOn);
-            statement.setString(5, Food_on_flight);
-            statement.setString(6, WiFi_on_flight);
-
-        }
-
-        catch (SQLException ex) {
-            message = "ERROR: " + ex.getMessage();
-            ex.printStackTrace();
-        }
-
-        finally {
-            if (conn != null) {
-                // closes the database connection
-                try {
-                    conn.close();
-                }
-
-                catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-
-        }
         RequestDispatcher req = request.getRequestDispatcher("Personalinfo.jsp");
         req.forward(request, response);
     }
