@@ -3,25 +3,18 @@ $(document).ready(function() {
         document.cookie="class=economy";
         document.getElementById("flightForm").submit();
     })
-});
-
-/*
-    function setCookie() {
-    document.getElementById('economybtn').onclick = function() {
-        document.cookie="class=economy";
-        document.getElementById("flightForm").submit();
-    };
-    document.getElementById('businessbtn').onclick = function() {
+    $('#businessbtn').click(function (){
         document.cookie="class=business";
         document.getElementById("flightForm").submit();
-    };
-    document.getElementById('firstbtn').onclick = function() {
+    })
+    $('#firstbtn').click(function (){
         document.cookie="class=firstclass";
         document.getElementById("flightForm").submit();
-    };
-}
-*/
-    function sortTable() {
+    })
+});
+
+
+function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch, selectedFilter;
     table = document.getElementById("resultTable");
     selectedFilter = document.getElementById("selectedFilter").value;

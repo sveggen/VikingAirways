@@ -38,8 +38,6 @@
             flex-wrap: wrap;
             margin: 0 -16px;
         }
-
-
     </style>
 </head>
 <body>
@@ -67,26 +65,26 @@
 <div class="jumbotron text-center">
     <h1>Enter your Personal Information</h1>
 </div>
-    <form action="Personalinfo" method="post">
-            First Name: <br>
-            <input type="text" name="FirstName" required placeholder="John"> <br>
+<form action="Personalinfo" method="post">
+    First Name: <br>
+    <input type="text" name="FirstName" required placeholder="John"> <br>
 
-            Last Name:<br>
-            <input type="text" name="LastName" required placeholder="Doe"><br>
+    Last Name:<br>
+    <input type="text" name="LastName" required placeholder="Doe"><br>
 
-            Address:<br>
-            <input type="text" name="Address" required placeholder="Kallevangen 1"><br>
+    Address:<br>
+    <input type="text" name="Address" required placeholder="Kallevangen 1"><br>
 
-            Email Address:<br>
-            <input type="text" name="Email" required placeholder="john@doe.com"><br>
+    Email Address:<br>
+    <input type="text" name="Email" required placeholder="john@doe.com"><br>
 
-            Date of Birth:<br>
-            <input type="text" name="DateofBirth" required placeholder="14-03-1980"><br><br>
-
-
-            <input type="submit" value="Continue" class="btn-success">
+    Date of Birth:<br>
+    <input type="text" name="DateofBirth" required placeholder="14-03-1980"><br><br>
 
 
-    </form>
+    <input type="submit" value="Continue" class="btn-success">
+
+
+</form>
 </body>
 </html>

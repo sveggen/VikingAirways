@@ -5,6 +5,13 @@
   Time: 18.04
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+  Created by IntelliJ IDEA.
+  User: stian
+  Date: 13.10.2019
+  Time: 18.04
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -65,7 +72,7 @@
             position: absolute;
             display: none;
         }
-
+      
         /* Show the checkmark when checked */
         .container input:checked ~ .checkmark:after {
             display: block;
@@ -111,33 +118,34 @@
     <h1>Extra Accommodations</h1>
     <p>Please select your desired add-ons for your trip </p>
 </div>
-    <form method="post" action="Checkbox">
-        <table>
-            <tr>
-                <td><label class="container">Extra Luggage <input type="checkbox" name="Extra_Luggage" value="Yes"><span class="checkmark"></span> </label></td>
-            </tr>
-            <tr>
-                <td><label class="container">Extra Carry-on<input type="checkbox" name="Extra_Carryon" value="Yes"><span class="checkmark"></span> </label></td>
-            </tr>
-            <tr>
-                <td><label class="container"> Sport Equipment<input type="checkbox" name="Special_Equipment" value="Yes"> <span class="checkmark" </td></label>
-            </tr>
-            <tr>
-                <td><label class="container">Pet Carry-on<input type="checkbox" name="Pet_CarryOn" value="Yes"><span class="checkmark" </td></label>
-            </tr>
-            <tr>
-                <td><label class="container">Food on flight<input type="checkbox" name="Food_on_flight" value="Yes"><span class="checkmark" </td></label>
-            </tr>
-            <tr>
-                <td><label class="container">WiFi on flight<input type="checkbox" name="WiFi_on_flight" value="Yes"><span class="checkmark" </td></label>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Continue" class="btn btn-success">
-                </td>
-            </tr>
-        </table>
-    </form>
+<form method="post" action="Checkbox">
+    <table>
+        <tr>
+            <td><label class="container">Extra Luggage <input type="checkbox" name="Extra_Luggage" value="Yes"><span class="checkmark"></span> </label></td>
+        </tr>
+        <tr>
+            <td><label class="container">Extra Carry-on<input type="checkbox" name="Extra_Carryon" value="Yes"><span class="checkmark"></span> </label></td>
+        </tr>
+        <tr>
+            <td><label class="container">Special Equipment<input type="checkbox" name="Special_Equipment" value="Yes"> <span class="checkmark" </td></label>
+        </tr>
+        <tr>
+            <td><label class="container">Pet Carry-on<input type="checkbox" name="Pet_CarryOn" value="Yes"><span class="checkmark" </td></label>
+        </tr>
+        <tr>
+            <td><label class="container">Food on flight<input type="checkbox" name="Food_on_flight" value="Yes"><span class="checkmark" </td></label>
+        </tr>
+        <tr>
+            <td><label class="container">WiFi on flight<input type="checkbox" name="WiFi_on_flight" value="Yes"><span class="checkmark" </td></label>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Continue" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+</form>
+
 
 </body>
 </html>
