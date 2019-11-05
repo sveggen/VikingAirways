@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Markus
-  Date: 06.10.2019
-  Time: 19:41
+  Date: 01.11.2019
+  Time: 22:28
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="stylesheets/globalStyle.css">
     </head>
 <body>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -39,19 +40,16 @@
 </nav>
 <div class="jumbotron text-center">
     <h1>Login</h1>
-    <p>Please enter your email and password below.</p>
+    <p>Please enter your email below to reset your account password.</p>
 </div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <form class="justify-content-center" action="Login" method="post">
+            <form class="justify-content-center" action="ForgotPassword" method="post">
                 Email
-                <input type="email" class="form-control" name="email" required/><br/>
-                Password
-                <input type="password" class="form-control" name="password" required/><br>
-                <input class="btn btn-success" type="submit" name="submit" value="Log in"><br>
-                <a href="/VikingAirways/forgotPassword.jsp" class="hyperlink">Forgot your password? Click here</a><br>
-                <a href="/VikingAirways/Register.jsp" class="hyperlink">Create a new account here</a><br>
+                <input type="email" class="form-control" name="email" required/><br>
+                <input class="btn btn-success" type="submit" name="submit" value="Reset Password">
+
             </form>
         </div>
     </div>
