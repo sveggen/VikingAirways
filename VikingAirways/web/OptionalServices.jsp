@@ -36,6 +36,7 @@
             -ms-user-select: none;
             user-select: none;
         }
+
         /* Hide the browser's default checkbox */
         .container input {
             position: absolute;
@@ -44,6 +45,7 @@
             height: 0;
             width: 0;
         }
+
         /* Create a custom checkbox */
         .checkmark {
             position: absolute;
@@ -53,24 +55,29 @@
             width: 25px;
             background-color: #eee;
         }
+
         /* On mouse-over, add a grey background color */
         .container:hover input ~ .checkmark {
             background-color: #ccc;
         }
+
         /* When the checkbox is checked, add a blue background */
         .container input:checked ~ .checkmark {
             background-color: #28a745;
         }
+
         /* Create the checkmark/indicator (hidden when not checked) */
         .checkmark:after {
             content: "";
             position: absolute;
             display: none;
         }
+
         /* Show the checkmark when checked */
         .container input:checked ~ .checkmark:after {
             display: block;
         }
+
         /* Style the checkmark/indicator */
         .container .checkmark:after {
             left: 10px;
@@ -111,6 +118,7 @@
     <h1>Extra Accommodations</h1>
     <p>Please select your desired add-ons for your trip </p>
 </div>
+
 <form method="post" action="Checkbox">
     <table>
         <tr>
