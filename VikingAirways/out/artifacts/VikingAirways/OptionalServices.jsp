@@ -72,7 +72,7 @@
             position: absolute;
             display: none;
         }
-      
+
         /* Show the checkmark when checked */
         .container input:checked ~ .checkmark:after {
             display: block;
@@ -118,10 +118,11 @@
     <h1>Extra Accommodations</h1>
     <p>Please select your desired add-ons for your trip </p>
 </div>
+
 <form method="post" action="Checkbox">
     <table>
         <tr>
-            <td><label class="container">Extra Luggage <input type="checkbox" name="Extra_Luggage" value="Yes"><span class="checkmark"></span> </label></td>
+            <td><label class="container">Checked In Luggage <input type="checkbox" name="Checked_in_luggage" value="Yes"><span class="checkmark"></span> </label></td>
         </tr>
         <tr>
             <td><label class="container">Extra Carry-on<input type="checkbox" name="Extra_Carryon" value="Yes"><span class="checkmark"></span> </label></td>
@@ -145,7 +146,6 @@
         </tr>
     </table>
 </form>
-
 
 </body>
 </html>
