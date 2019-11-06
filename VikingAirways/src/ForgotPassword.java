@@ -2,7 +2,6 @@ import classes.Email;
 import classes.Validate;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
 
         String email = request.getParameter("email");
@@ -38,7 +37,7 @@ public class ForgotPassword extends HttpServlet {
         }
     }
 
-    public String generateTempPass(){
+    private String generateTempPass(){
         String alphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
                 + "abcdefghijklmnopqrstuvxyz";
@@ -46,13 +45,12 @@ public class ForgotPassword extends HttpServlet {
         StringBuilder sbr = new StringBuilder(8);
         for (int i = 0; i <8; i++) {
             int index = (int) (alphaNumericString.length() * Math.random());
-
             sbr.append(alphaNumericString.charAt(index));
         }
         return sbr.toString();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response){
 
     }
 }
