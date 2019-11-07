@@ -33,6 +33,7 @@ public class FlightDetails extends HttpServlet {
         conn = dbconnect.connectToDB();
 
         String strSelect = "SELECT * FROM Flight WHERE flight_number = "+ selectedFlight;
+        String classesForFlight = "SELECT * FROM Class WHERE class_flight_fk = " + selectedFlight;
 
         Statement stmnt;
 
@@ -40,20 +41,15 @@ public class FlightDetails extends HttpServlet {
             stmnt = conn.createStatement();
             ResultSet rset = stmnt.executeQuery(strSelect);
 
+            String flightnumber = null;
 
             if(rset.next()) {
-                String flightnumber = rset.getString("flight_number");
+                flightnumber = rset.getString("flight_number");
                 String dateOfDeparture = rset.getString("departure_date");
                 String timeOfDeparture = rset.getString("departure_time");
                 String destinationAirport = rset.getString("arrival_airport");
                 String departureAirport = rset.getString("departure_airport");
                 String arrivalTime = rset.getString("arrival_time");
-                int availableSeatsEcon = rset.getInt("available_seats_economy");
-                int availableSeatsBusi = rset.getInt("available_seats_business");
-                int availableSeatsFirst = rset.getInt("available_seats_firstclass");
-                int priceEcon = rset.getInt("price_economy");
-                int priceBusi = rset.getInt("price_business");
-                int priceFirst = rset.getInt("price_firstclass");
 
                 String[] nameArray = new String[] {"flightnumber", "dateofdeparture", "timeofdeparture", "destinationAirport", "departureairport", "arrivaltime"};
                 String[] valueArray = new String[] {flightnumber, dateOfDeparture, timeOfDeparture, destinationAirport, departureAirport, arrivalTime};
@@ -79,27 +75,26 @@ public class FlightDetails extends HttpServlet {
                 out.println("    <th>Seats</th>");
                 out.println("    <th>Price</th>");
                 out.println("  </tr>");
-                out.println("  <tr>");
-                out.println("    <th>Economy: </th>");
-                out.println("    <td>"+availableSeatsEcon+"</td>");
-                out.println("    <td>"+priceEcon+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" id=\"economybtn\" value=\"Economy"+flightnumber+"\">Select</button></td>");
-                out.println("  </tr>");
-                out.println("  <tr>");
-                out.println("    <th>Business: </th>");
-                out.println("    <td>"+availableSeatsBusi+"</td>");
-                out.println("    <td>"+priceBusi+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" id=\"businessbtn\" value=\"Business"+flightnumber+"\">Select</button></td>");
-                out.println("  </tr>");
-                out.println("  <tr>");
-                out.println("    <th>First class: </th>");
-                out.println("    <td>"+availableSeatsFirst+"</td>");
-                out.println("    <td>"+priceFirst+"</td>");
-                out.println("    <td><button name=\"SelectedClass\" id=\"firstbtn\" value=\"firstClass"+flightnumber+"\">Select</button></td>");
-                out.println("  </tr>");
-                out.println("  </form>");
-                out.println("</table>");
             }
+            rset.close();
+            ResultSet classRset = stmnt.executeQuery(classesForFlight);
+            int c = 1;
+            while(classRset.next()) {
+                String classType = classRset.getString("class_type");
+                String classCapacity = classRset.getString("class_capacity");
+                String classPrice = classRset.getString("class_price");
+
+                out.println("  <tr>");
+                out.println("    <th>"+classType+"</th>");
+                out.println("    <td>" + classCapacity + "</td>");
+                out.println("    <td>" + classPrice + "</td>");
+                out.println("    <td><button name=\"SelectedClass\" id=\""+c+"btn\" value=\"Economy" + flightnumber + "\">Select</button></td>");
+                out.println("  </tr>");
+                out.println("  <tr>");
+                c++;
+            }
+            out.println("  </form>");
+            out.println("</table>");
         }
         catch (SQLException ex) {
             out.println("Error extracting data from database " +ex);

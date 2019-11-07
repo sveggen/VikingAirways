@@ -1,13 +1,13 @@
 $(document).ready(function() {
-    $('#economybtn').click(function (){
+    $('#1btn').click(function (){
         document.cookie="class=economy";
         document.getElementById("flightForm").submit();
     })
-    $('#businessbtn').click(function (){
+    $('#2btn').click(function (){
         document.cookie="class=business";
         document.getElementById("flightForm").submit();
     })
-    $('#firstbtn').click(function (){
+    $('#3btn').click(function (){
         document.cookie="class=firstclass";
         document.getElementById("flightForm").submit();
     })
