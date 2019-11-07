@@ -72,9 +72,6 @@
     Last Name:<br>
     <input type="text" name="LastName" required placeholder="Doe"><br>
 
-    Address:<br>
-    <input type="text" name="Address" required placeholder="Kallevangen 1"><br>
-
     Email Address:<br>
     <input type="text" name="Email" required placeholder="john@doe.com"><br>
 
