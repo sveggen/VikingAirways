@@ -17,7 +17,10 @@ public class DBDisplay {
 
         String strSelect = "SELECT * FROM Flight WHERE arrival_airport = '"+destination
                             +"' AND departure_date = '"+departureDate
-                            +"' AND departure_airport ='"+dprtAirport+"';";
+                            +"' AND departure_airport ='"+dprtAirport
+                            //+"' AND Flight.flight_number = Class.class_flight_fk"
+                           // +"  AND Class.class_type = 'Economy'"
+                            +"';";
 
         try {
             stmnt = conn.createStatement();
@@ -53,7 +56,7 @@ public class DBDisplay {
                 String timeOfArrival = rset.getString("arrival_time");
                 String destinationAirport = rset.getString("arrival_airport");
                 String departureAirport = rset.getString("departure_airport");
-                String priceEconomy = rset.getString("price_economy");
+                //String priceEconomy = rset.getString("class_price");
 
                 out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"FlightDetails\">");
                 out.println("       <tr>");
@@ -64,7 +67,7 @@ public class DBDisplay {
                 out.println("       <td>"+timeDiff(timeOfDeparture, timeOfArrival)+" minutes</td>");
                 out.println("       <td>"+destinationAirport+"</td>");
                 out.println("       <td>"+departureAirport+"</td>");
-                out.println("       <td>From: "+priceEconomy+"</td>");
+                //out.println("       <td>From: "+priceEconomy+"</td>");
                 out.println("       <td><button form=\"form"+flightnumber+"\" name=\"selectedFlight\" class=\"btn btn-success\" value=\""+flightnumber+"\">Select</button></td>");
                 out.println("       </tr>");
                 out.println("   </form>");
