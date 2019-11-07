@@ -1,11 +1,4 @@
-import classes.DBConnect;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -30,7 +23,7 @@ public class Checkbox extends HttpServlet {
 
         String Extra_Carryon = request.getParameter("Extra_Carryon");
         if(Extra_Carryon==null) {
-            Extra_Carryon = new String("No");
+            Extra_Carryon = "No";
         } else
             nameArrayList.add("extracarryon");
 
@@ -58,19 +51,11 @@ public class Checkbox extends HttpServlet {
         } else
             nameArrayList.add("wifionflight");
 
-
         int i = 0;
         for(String selected : nameArrayList){
             response.addCookie(new Cookie(nameArrayList.get(i), "Yes"));
             i++;
         }
-
-
-        Connection conn; // connection to the database
-        DBConnect dbconnect = new DBConnect();
-        conn = dbconnect.connectToDB();
-        String message = null;  // message will be sent back to client
-
 
         RequestDispatcher req = request.getRequestDispatcher("Personalinfo.jsp");
         req.forward(request, response);
