@@ -7,25 +7,25 @@ import java.sql.SQLException;
 
 public class Validate {
     public static boolean checkUserExistence(String email, String password){
-      boolean empw = false;
+        boolean empw = false;
 
-      try{
-          Connection conn;
-          DBConnect dbconnect = new DBConnect();
-          conn = dbconnect.connectToDB();
+        try{
+            Connection conn;
+            DBConnect dbconnect = new DBConnect();
+            conn = dbconnect.connectToDB();
 
 
-          PreparedStatement ps = conn.prepareStatement("SELECT * FROM Customer WHERE email=? AND customer_password=?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Customer WHERE email=? AND customer_password=?");
 
-          ps.setString(1, email);
-          ps.setString(2, password);
-          ResultSet rs = ps.executeQuery();
-          empw = rs.next();
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            empw = rs.next();
 
-      } catch (Exception e) {
-          e.printStackTrace();
-      }
-      return empw;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return empw;
     }
 
     public static boolean checkEmailExistence(String email){
@@ -47,6 +47,23 @@ public class Validate {
             e.printStackTrace();
         }
         return em;
+    }
+
+    public static void changePassword(String password, String email){
+        try{
+            Connection conn;
+            DBConnect dbconnect = new DBConnect();
+            conn = dbconnect.connectToDB();
+
+            PreparedStatement ps = conn.prepareStatement("UPDATE Customer SET customer_password = ? WHERE email = ?;");
+
+            ps.setString(1, password);
+            ps.setString(2, email);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

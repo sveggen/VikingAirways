@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="stylesheets/globalStyle.css">
     </head>
 <body>
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -46,14 +45,14 @@
     <div class="row">
         <div class="col">
             <form class="justify-content-center" action="Login" method="post">
-    Email
+                Email
                 <input type="email" class="form-control" name="email" required/><br/>
-    Password
-                <input type="password" class="form-control" name="password" required/>
+                Password
+                <input type="password" class="form-control" name="password" required/><br>
+                <input class="btn btn-success" type="submit" name="submit" value="Log in"><br>
+                <a href="/VikingAirways/forgotPassword.jsp" class="hyperlink">Forgot your password? Click here</a><br>
                 <a href="/VikingAirways/Register.jsp" class="hyperlink">Create a new account here</a><br>
-                <input class="btn btn-success" type="submit" name="submit" value="Log in">
-
-</form>
+            </form>
         </div>
     </div>
 </div>
