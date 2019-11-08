@@ -56,7 +56,9 @@ public class FlightDetails extends HttpServlet {
 
                 int i = 0;
                 for(String selected : nameArray){
-                    response.addCookie(new Cookie(nameArray[i], valueArray[i]));
+                    Cookie newCookie = new Cookie(nameArray[i], valueArray[i]);
+                    newCookie.setMaxAge(1800);
+                    response.addCookie(newCookie);
                     i++;
                 }
 
