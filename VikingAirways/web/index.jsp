@@ -16,7 +16,7 @@
         <a class="nav-link" href="#">Check In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">My Booking</a>
+        <a class="nav-link" href="myBookingSearch.jsp">My Booking</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
