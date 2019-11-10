@@ -44,11 +44,7 @@ public class Payment_DBupdate extends HttpServlet {
                 for (Cookie cookie : cookies) {
                     cookieHash.put(cookie.getName(), cookie.getValue());
                     response.addCookie(cookie);
-                    if ((!(cookie.getName() == "firstname" || cookie.getName() == "lastname" ))) {
-                        cookie.setMaxAge(0);
-                    }else{
-                        return;
-                    }
+                    cookie.setMaxAge(0);
                 }
 
                 //Creates object of class PreparedStatement.
