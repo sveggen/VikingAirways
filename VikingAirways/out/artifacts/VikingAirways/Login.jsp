@@ -45,6 +45,7 @@
     <div class="row">
         <div class="col">
             <form class="justify-content-center" action="Login" method="post">
+                <div style="color: #FF0000;">${errorMessage}</div>
                 Email
                 <input type="email" class="form-control" name="email" required/><br/>
                 Password

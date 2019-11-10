@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="stylesheets/formValidation.css">
     </head>
 <body>
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -49,21 +48,18 @@
     <div class="row">
         <div class="col">
     <form class="justify-content-center" action="Register" method="post">
+        <div style="color: #FF0000;">${errorMessage}</div><br>
         First name
             <input type="text" class="form-control" name="FirstName"required><br>
         Last name
             <input type="text" class="form-control" name="LastName"required><br>
         Date of birth
         <input type="date" class="form-control" name="BirthDate"required><br>
-
         Email address
         <input type="email" class="form-control" name="Email"required><br>
-
         Password
         <input type="password" class="form-control" name="Password"required><br>
-
             <input class="btn btn-success" type="submit" name="submit" value="Register">
-
     </form>
 </div>
 </div>

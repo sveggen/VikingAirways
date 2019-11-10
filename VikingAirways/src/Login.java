@@ -16,10 +16,10 @@ public class Login extends HttpServlet {
         if (Validate.checkUserExistence(email, password)){
             HttpSession session = request.getSession();
             session.setAttribute("user", email);
-            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+            response.sendRedirect("Profile.jsp");
         } else {
-            RequestDispatcher rs = request.getRequestDispatcher("LoginUnsuccessful.jsp");
-            rs.include(request, response);
+            request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
+            request.getRequestDispatcher("/Login.jsp").forward(request, response);
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

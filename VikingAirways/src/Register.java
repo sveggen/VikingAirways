@@ -33,7 +33,8 @@ public class Register extends HttpServlet {
                 newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
                 response.sendRedirect("RegistrationSuccessful.jsp");
             }else{
-                response.sendRedirect("RegistrationUnsuccessful.jsp");
+                request.setAttribute("errorMessage", "Email is already in use, account was not created");
+                request.getRequestDispatcher("/Register.jsp").forward(request, response);
             }
         }
     }
