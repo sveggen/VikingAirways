@@ -53,12 +53,11 @@ public class Checkbox extends HttpServlet {
 
         int i = 0;
         for(String selected : nameArrayList){
-            Cookie newCookie = new Cookie(nameArrayList.get(i), "Yes");
+            Cookie newCookie = new Cookie(nameArrayList.get(i), "1");
             newCookie.setMaxAge(1800);
             response.addCookie(newCookie);
             i++;
         }
-
         RequestDispatcher req = request.getRequestDispatcher("Personalinfo.jsp");
         req.forward(request, response);
     }

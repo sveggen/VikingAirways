@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BookingNumberEmail {
-    public void sendEmail(Connection conn, String bookingNumber)  {
+    public static void sendEmail(Connection conn, String bookingNumber)  {
             String strSelect = "SELECT * FROM Customer, Flight, Booking WHERE Booking.customer_id_fk = Customer.customer_id " +
                     "AND Booking.flight_number_fk = Flight.flight_number AND Booking.booking_number= "+bookingNumber;
 
