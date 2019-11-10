@@ -18,7 +18,6 @@ public class ForgotPassword extends HttpServlet {
 
         try{
             if (Validate.checkEmailExistence(email)){
-
                 Validate.changePassword(tmppass, email);
 
                 Email em = new Email();
@@ -27,11 +26,11 @@ public class ForgotPassword extends HttpServlet {
                 String content = "Your new password is " + tmppass;
 
                 em.sendEmail(recipient, subject, content);
-                RequestDispatcher rs = request.getRequestDispatcher("passwordReset.jsp");
-                rs.forward(request, response);
+                request.setAttribute("successMessage", "Password was succesfully reset, please check your mail inbox.");
             }else{
-                System.out.println("This email does not exist");
+                request.setAttribute("errorMessage", "Password was not reset. Email does not exist.");
             }
+            request.getRequestDispatcher("/forgotPassword.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
