@@ -15,8 +15,10 @@ public class Login extends HttpServlet {
 
         if (Validate.checkUserExistence(email, password)){
             HttpSession session = request.getSession();
-            session.setAttribute("user", email);
-            request.getRequestDispatcher("Profile.jsp").forward(request, response);
+            session.setAttribute("email", email);
+            session.setAttribute("password", password);
+            //request.getRequestDispatcher("Profile.jsp").forward(request, response);
+            response.sendRedirect("Profile.jsp");
         } else {
             RequestDispatcher rs = request.getRequestDispatcher("LoginUnsuccessful.jsp");
             rs.include(request, response);
