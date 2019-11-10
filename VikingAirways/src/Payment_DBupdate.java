@@ -33,8 +33,6 @@ public class Payment_DBupdate extends HttpServlet {
         cvc = request.getParameter("cvc");
 
         try {
-
-            if (firstName != null && lastName != null && creditCard != null && expDate != null && cvc != null) {
                 //Creates a HashMap
                 HashMap<String, String> cookieHash = new HashMap<>();
                 //Retrieves cookies and adds them to an Array
@@ -43,10 +41,9 @@ public class Payment_DBupdate extends HttpServlet {
                 //Loops through the cookies and adds them to the HashMap and the Response, and finally deletes them.
                 for (Cookie cookie : cookies) {
                     cookieHash.put(cookie.getName(), cookie.getValue());
-                    response.addCookie(cookie);
                     cookie.setMaxAge(0);
+                    response.addCookie(cookie);
                 }
-
                 //Creates object of class PreparedStatement.
                 PreparedStatement insertUserInfo;
 
@@ -67,7 +64,6 @@ public class Payment_DBupdate extends HttpServlet {
                     insertUserInfo.setString(2, cookieHash.get("lastname"));
                     insertUserInfo.setString(3, cookieHash.get("email"));
                     insertUserInfo.executeUpdate();
-
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -82,7 +78,6 @@ public class Payment_DBupdate extends HttpServlet {
                     insertUserInfo.setString(6, cookieHash.get("wifionflight"));
                     insertUserInfo.setString(7, cookieHash.get("flightnumber"));
                     insertUserInfo.executeUpdate();
-
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -96,16 +91,15 @@ public class Payment_DBupdate extends HttpServlet {
                         bookingnumber = resultSet.getString("booking_number");
                         request.setAttribute("bookingnumber", bookingnumber);
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-        } finally {
-            //Sends email to the customer with the correct booking number.
-            BookingNumberEmail.sendEmail(conn, bookingnumber );
-            RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
-            rd.forward(request, response);
+                //Sends email to the customer with the correct booking number.
+                BookingNumberEmail.sendEmail(conn, bookingnumber );
+                RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
+                rd.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

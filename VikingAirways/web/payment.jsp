@@ -70,6 +70,7 @@
 
 
 <form action="Payment_DBupdate" method="post">
+    <div style="color: #FF0000;">${errorMessage}</div><br>
     First name: <br>
     <input type="text" name ="firstName" id="firstName" maxlength="45" required placeholder="John"> <br> <br>
     Last name: <br>
@@ -81,7 +82,7 @@
     Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CVC:<br>
       <div class="row">
       <div class="col-50">
-        <input type="month" name="expDate" id="expDate" min="2019-10" max="2023-12"required>
+        <input type="month" name="expDate" id="expDate" min="2019-10" max="2023-12">
       </div>
     <!--CVC: <br>-->
     <div class="col-50">
