@@ -69,7 +69,7 @@
   </div>
 
 
-<form action="Payment_DBupdate" method="post">
+<form action="CompleteBooking" method="post">
     <div style="color: #FF0000;">${errorMessage}</div><br>
     First name: <br>
     <input type="text" name ="firstName" id="firstName" maxlength="45" required placeholder="John"> <br> <br>
