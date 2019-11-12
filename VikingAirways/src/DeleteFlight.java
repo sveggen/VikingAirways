@@ -24,18 +24,24 @@ public class DeleteFlight extends HttpServlet {
         try {
             String selectedFlight = request.getParameter("flightnumber");
 
-            String strSelect = "delete from Flight where flight_number= "+selectedFlight+"";
+            String dlFlight = "delete from Flight where flight_number=(?);";
+            String dlClass = "delete from Class where class_flight_fk=(?);";
 
-            PreparedStatement stmt = conn.prepareStatement(strSelect);
-
-            int i = stmt.executeUpdate();
-
-
+            conn.setAutoCommit(false);
+            try (PreparedStatement dlFlightStmt = conn.prepareStatement(dlFlight)) {
+                dlFlightStmt.setString(1, selectedFlight);
+                dlFlightStmt.executeUpdate();
+                try (PreparedStatement dlClassstmt = conn.prepareStatement(dlClass)) {
+                    dlClassstmt.setString(1, selectedFlight);
+                    dlClassstmt.executeUpdate();
+                    conn.commit();
+                }
+            } catch (Exception e) {
+                conn.rollback();
+            }
+        } catch (SQLException ex) {
+            System.out.println("Cannot remove flight " + ex);
         }
-        catch (SQLException ex) {
-            out.println("Cannot remove flight " +ex);
-        }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
