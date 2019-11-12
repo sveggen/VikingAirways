@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.SignStyle;
 import java.util.HashMap;
 
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
@@ -39,14 +40,13 @@ public class CompleteBooking extends HttpServlet {
                 //Retrieves cookies and adds them to an Array
                 Cookie[] cookies = request.getCookies();
 
-                //Loops through the cookies and adds them to the HashMap and the Response, and finally deletes them.
+                //Loops through the cookie Array and adds them to the HashMap and finally deletes them.
+                // Adds the deleted cookies to the response.
                 for (Cookie cookie : cookies) {
                     cookieHash.put(cookie.getName(), cookie.getValue());
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);
                 }
-                //Creates object of class PreparedStatement.
-
                 String customerInfo = "INSERT INTO Customer (first_name, last_name, email) " +
                         "VALUES(?, ?, ?);";
 
@@ -54,14 +54,15 @@ public class CompleteBooking extends HttpServlet {
                         "special_equipment, pet_carryon, food_on_flight, wifi_on_flight, flight_number_fk, customer_id_fk, class_id_fk) " +
                         "VALUES('1', ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID(), ?);";
 
-                String getBN = "SELECT booking_number FROM Booking WHERE customer_id_fk = (LAST_INSERT_ID()) AND flight_number_fk = (?);";
+                String getBN = "SELECT booking_number FROM Booking WHERE customer_id_fk = LAST_INSERT_ID() AND flight_number_fk = (?);";
 
-                String getClassID = "SELECT class_id FROM Class WHERE class_type = () AND class_flight_fk = ();";
+                String getClassID = "SELECT class_id FROM Class WHERE class_type = (?) AND class_flight_fk = (?);";
 
-                //String rmSeat = "Fjern sete i den klassen i den flyvninger kunden har valgt";
+                String removeSeat = "UPDATE Class SET class_capacity = class_capacity - 1 WHERE class_id = (?);";
 
                 conn.setAutoCommit(false);
 
+                //explicit commit
                 try (PreparedStatement insertCustomerInfo = conn.prepareStatement(customerInfo)) {
                     insertCustomerInfo.setString(1, cookieHash.get("firstname"));
                     insertCustomerInfo.setString(2, cookieHash.get("lastname"));
@@ -88,19 +89,27 @@ public class CompleteBooking extends HttpServlet {
                             insertBookingInfo.setString(8, classID);
                             insertBookingInfo.executeUpdate();
 
-                            try (PreparedStatement retrieveBN = conn.prepareStatement(getBN)) {
-                                retrieveBN.setString(1, cookieHash.get("flightnumber"));
-                                ResultSet bnRS = retrieveBN.executeQuery();
-
-                                while (bnRS.next()) {
-                                    bookingnumber = bnRS.getString("booking_number");
-                                    request.setAttribute("bookingnumber", bookingnumber);
-                                }
+                            try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)){
+                                seatRemoval.setString(1, classID);
+                                seatRemoval.executeUpdate();
+                            }
+                                //Commit transaction if no error occurs
                                 conn.commit();
                             }
                         }
+                    try (PreparedStatement retrieveBN = conn.prepareStatement(getBN)) {
+                        retrieveBN.setString(1, cookieHash.get("flightnumber"));
+                        System.out.println(retrieveBN);
+                        ResultSet bnRS = retrieveBN.executeQuery();
+
+                        while (bnRS.next()) {
+                            bookingnumber = bnRS.getString("booking_number");
+                            request.setAttribute("bookingnumber", bookingnumber);
+                        }
+                        conn.commit();
                     }
                 }
+                //Rollback if error occurs
                 catch (SQLException e) {
                     System.out.println("Transaction did not commit");
                     conn.rollback();
@@ -113,6 +122,7 @@ public class CompleteBooking extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("error");
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
