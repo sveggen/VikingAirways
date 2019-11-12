@@ -8,8 +8,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import classes.*;
 
-@WebServlet(name = "search_result", urlPatterns = {"/search_result"})
-public class Search_result extends HttpServlet {
+@WebServlet(name = "SearchResult", urlPatterns = {"/SearchResult"})
+public class SearchResult extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -26,7 +26,6 @@ public class Search_result extends HttpServlet {
 
             Navbar.loadNavBar(out);
 
-
             String fromAirprt = request.getParameter("fromAirport");
             String toAirprt = request.getParameter("toAirport");
             String departrDate = request.getParameter("departureDate");
@@ -36,15 +35,13 @@ public class Search_result extends HttpServlet {
             conn = dbconnect.connectToDB();
 
             DBDisplay dbdisplay = new DBDisplay();
-            dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
+            dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt, response);
 
-            //out.println("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>");
             out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
             out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
 
             out.println("</body>");
             out.println("</html>");
-
         }
     }
 
