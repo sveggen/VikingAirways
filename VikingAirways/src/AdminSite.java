@@ -68,6 +68,7 @@ public class AdminSite extends HttpServlet {
                 String destinationAirport = rset.getString("arrival_airport");
                 String departureAirport = rset.getString("departure_airport");
                 String arrivalTime = rset.getString("arrival_time");
+/*
                 int availableSeatsEcon = rset.getInt("available_seats_economy");
                 int availableSeatsBusi = rset.getInt("available_seats_business");
                 int availableSeatsFirst = rset.getInt("available_seats_firstclass");
@@ -75,6 +76,7 @@ public class AdminSite extends HttpServlet {
                 int priceBusi = rset.getInt("price_business");
                 int priceFirst = rset.getInt("price_firstclass");
 
+*/
                 out.println("  <tr>");
                 out.println("    <td>"+flightnumber+"</td>");
                 out.println("    <td>"+dateOfDeparture+"</td>");

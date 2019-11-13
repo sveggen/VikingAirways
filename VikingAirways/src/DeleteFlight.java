@@ -27,20 +27,21 @@ public class DeleteFlight extends HttpServlet {
             String dlFlight = "delete from Flight where flight_number=(?);";
             String dlClass = "delete from Class where class_flight_fk=(?);";
 
-            conn.setAutoCommit(false);
-            try (PreparedStatement dlFlightStmt = conn.prepareStatement(dlFlight)) {
-                dlFlightStmt.setString(1, selectedFlight);
-                dlFlightStmt.executeUpdate();
-                try (PreparedStatement dlClassstmt = conn.prepareStatement(dlClass)) {
-                    dlClassstmt.setString(1, selectedFlight);
-                    dlClassstmt.executeUpdate();
-                    conn.commit();
-                }
-            } catch (Exception e) {
-                conn.rollback();
+            try (PreparedStatement dlClassStmt = conn.prepareStatement(dlClass)) {
+                dlClassStmt.setString(1, selectedFlight);
+                int i = dlClassStmt.executeUpdate();
+                System.out.println("Number of entries updated in class: " + i);
+
+                PreparedStatement dlFlightstmt = conn.prepareStatement(dlFlight);
+                dlFlightstmt.setString(1, selectedFlight);
+                int v = dlFlightstmt.executeUpdate();
+                System.out.println("Number of entries updated in flight: " + v);
+            } catch (SQLException ex) {
+                out.println("Cannot remove flight: " + selectedFlight + " because there are bookings connected " +
+                        "to this flight that are not cancelled.");
             }
-        } catch (SQLException ex) {
-            System.out.println("Cannot remove flight " + ex);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
