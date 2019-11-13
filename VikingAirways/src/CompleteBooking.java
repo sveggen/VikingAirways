@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.format.SignStyle;
 import java.util.HashMap;
 
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
@@ -47,6 +46,7 @@ public class CompleteBooking extends HttpServlet {
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);
                 }
+
                 String customerInfo = "INSERT INTO Customer (first_name, last_name, email) " +
                         "VALUES(?, ?, ?);";
 
@@ -92,23 +92,26 @@ public class CompleteBooking extends HttpServlet {
                             try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)){
                                 seatRemoval.setString(1, classID);
                                 seatRemoval.executeUpdate();
+
+                                try (PreparedStatement retrieveBN = conn.prepareStatement(getBN)) {
+                                    retrieveBN.setString(1, cookieHash.get("flightnumber"));
+                                    System.out.println(retrieveBN);
+                                    ResultSet bnRS = retrieveBN.executeQuery();
+
+                                    while (bnRS.next()) {
+                                        bookingnumber = bnRS.getString("booking_number");
+                                        request.setAttribute("bookingnumber", bookingnumber);
+                                    }
+                                    BookingNumberEmail.sendEmail(conn, "42");
+                                    RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
+                                    rd.forward(request, response);
+                                }
                             }
-                                //Commit transaction if no error occurs
                                 conn.commit();
                             }
+                            }
                         }
-                    try (PreparedStatement retrieveBN = conn.prepareStatement(getBN)) {
-                        retrieveBN.setString(1, cookieHash.get("flightnumber"));
-                        System.out.println(retrieveBN);
-                        ResultSet bnRS = retrieveBN.executeQuery();
 
-                        while (bnRS.next()) {
-                            bookingnumber = bnRS.getString("booking_number");
-                            request.setAttribute("bookingnumber", bookingnumber);
-                        }
-                        conn.commit();
-                    }
-                }
                 //Rollback if error occurs
                 catch (SQLException e) {
                     System.out.println("Transaction did not commit");
@@ -116,9 +119,6 @@ public class CompleteBooking extends HttpServlet {
                 }
 
                 //Sends an email to the customer with the correct booking number.
-                BookingNumberEmail.sendEmail(conn, bookingnumber);
-                RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
-                rd.forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
