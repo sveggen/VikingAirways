@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="/templates/navbar.jsp" />
 <html>
 <head>
     <title>Viking Airways - My Booking</title>
@@ -25,28 +26,6 @@
         if(options[i] > 0) { checked[i] = "checked"; }
     }
 %>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Check In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="myBookingSearch.jsp">My Booking</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Log In</a>
-        </li>
-    </ul>
-</nav>
 
 <div class="jumbotron text-center">
     <h1>My Booking</h1>

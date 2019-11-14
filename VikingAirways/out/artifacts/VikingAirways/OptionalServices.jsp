@@ -14,6 +14,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<jsp:include page="/templates/navbar.jsp" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -93,27 +94,6 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Check In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">My Booking</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Login.jsp">Log In</a>
-        </li>
-    </ul>
-</nav>
 <div class="jumbotron text-center">
     <h1>Extra Accommodations</h1>
     <p>Please select your desired add-ons for your trip </p>

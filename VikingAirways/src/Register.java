@@ -31,10 +31,10 @@ public class Register extends HttpServlet {
 
             if (!Validate.checkEmailExistence(Email)) {
                 newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
-                response.sendRedirect("RegistrationSuccessful.jsp");
+                response.sendRedirect("registrationSuccessful.jsp");
             }else{
                 request.setAttribute("errorMessage", "Email is already in use, account was not created");
-                request.getRequestDispatcher("/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/register.jsp").forward(request, response);
             }
         }
     }

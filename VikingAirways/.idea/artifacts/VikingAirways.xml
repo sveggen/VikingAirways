@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="javax.mail" />
           <element id="file-copy" path="$USER_HOME$/Downloads/javax.mail.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/jstl-1.2.jar" />
         </element>
       </element>
     </root>
