@@ -31,8 +31,8 @@ public class DBDisplay {
             out.println("<div class=\"container\">");
             out.println("<label for=\"selectedFilter\">Order by:</label>");
             out.println("<select name=\"selectedFilter\" id=\"selectedFilter\">");
-            out.println("<option value=\"Price\">Price</option>");
             out.println("<option value=\"Time\">Flight time</option>");
+            out.println("<option value=\"Price\">Price</option>");
             out.println("</select>");
             out.println("<button onclick=\"sortTable()\">Sort</button><br/><br/>");
             out.println("<table id=\"resultTable\" class=\"table table-bordered\">");
@@ -45,7 +45,7 @@ public class DBDisplay {
             out.println("<th>Flight time</th>");
             out.println("<th>Destination Airport</th>");
             out.println("<th>Departure Airport</th>");
-            out.println("<th>Price</th></tr></thead>");
+            out.println("<th></th></tr></thead>");
             out.println("<tbody>");
 
 
@@ -58,7 +58,10 @@ public class DBDisplay {
                 String departureAirport = rset.getString("departure_airport");
                 //String priceEconomy = rset.getString("class_price");
 
-                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"FlightDetails\">");
+                timeOfArrival = timeOfArrival.substring(0, timeOfArrival.length() - 3);
+                timeOfDeparture = timeOfDeparture.substring(0, timeOfDeparture.length() - 3);
+
+                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"FlightDetailsNew\">");
                 out.println("       <tr>");
                 out.println("       <td class=\"flightNumber\">"+flightnumber+"</td>");
                 out.println("       <td>"+dateOfDeparture+"</td>");
