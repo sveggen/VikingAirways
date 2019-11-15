@@ -71,7 +71,7 @@ public class FlightDetails extends HttpServlet {
                 out.println("</br></br>");
 
                 out.println("<table style=\"width:30%\" border=\"1\">");
-                out.println(" <form method=\"post\" action=\"OptionalServices.jsp\" id=\"flightForm\"");
+                out.println(" <form method=\"post\" action=\"optionalServices.jsp\" id=\"flightForm\"");
                 out.println("  <tr>");
                 out.println("    <th>Class</th>");
                 out.println("    <th>Seats</th>");

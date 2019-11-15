@@ -7,6 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<jsp:include page="/templates/navbar.jsp" />
 <!DOCTYPE>
 <html>
 <head>
@@ -41,27 +42,6 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Check In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">My Booking</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Login.jsp">Log In</a>
-        </li>
-    </ul>
-</nav>
 <div class="jumbotron text-center">
     <h1>Enter your Personal Information</h1>
 </div>
