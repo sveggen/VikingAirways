@@ -24,7 +24,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javax.mail.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../Java Libs/javax.mail.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -33,7 +33,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jstl-1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../Java Libs/jstl-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
