@@ -21,13 +21,26 @@
     <h1>My Profile</h1>
 </div>
 <div class="text-center">
-<p>Your email: <%=request.getParameter("email")%></p>
+    <p>Name: ${firstname} ${lastname}</p>
+    <p>Email: ${email}</p>
+    <p>Customer ID: ${customerID}</p>
+    <p>Date of birth: ${dateOfBirth}</p>
 </div>
     <div class="col">
     <form class="justify-content-center">
         <a href="#" class="hyperlink">
 <p class="h3"></p>
         </a>
+    </form>
+        <form class="justify-content-center" onsubmit="return checkforMatchingPasswords(this)" action="Profile" method="post">
+            <div class="text-center">
+                <div style="color: #FF0000;">${errorMessage}</div><br>
+                <div style="color: #25ff53;">${successMessage}</div><br>
+            </div>
+            <input type="password" class="form-control" name="oldpassword" value="" placeholder="Current password" required/><br>
+            <input type="password" class="form-control" name="newpassword" value="" placeholder="New password" required/><br>
+            <input type="password" class="form-control" name="newpassword2" value="" placeholder="New password" required/><br>
+            <input class="btn btn-success" type="submit" name="submit" value="Change password"><br>
 </form>
 </div>
 </body>
