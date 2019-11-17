@@ -10,7 +10,7 @@ public class UserData {
     private String firstname;
     private String lastname;
     private int dateOfBirth;
-    private boolean adminPriv;
+    private int adminPriv;
 
 
     public int getCustomerID() {
@@ -45,11 +45,11 @@ public class UserData {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isAdminPriv() {
+    public int getAdminPriv() {
         return adminPriv;
     }
 
-    public void setAdminPriv(boolean adminPriv) {
+    public void setAdminPriv(int adminPriv) {
         this.adminPriv = adminPriv;
     }
 
@@ -70,7 +70,7 @@ public class UserData {
                 setFirstname(rs.getString("first_name"));
                 setLastname(rs.getString("last_name"));
                 setDateOfBirth(rs.getInt("date_of_birth"));
-                setAdminPriv(rs.getBoolean("admin_priv"));
+                setAdminPriv(rs.getInt("admin_priv"));
             }
         } catch (Exception e) {
             e.printStackTrace();

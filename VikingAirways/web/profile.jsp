@@ -6,7 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/templates/navbar.jsp" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +27,7 @@
     <p>Email: ${email}</p>
     <p>Customer ID: ${customerID}</p>
     <p>Date of birth: ${dateOfBirth}</p>
+    <p>Priv: ${adminPriv}</p>
 </div>
     <div class="col">
     <form class="justify-content-center">
