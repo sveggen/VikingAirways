@@ -27,7 +27,6 @@
     <p>Email: ${email}</p>
     <p>Customer ID: ${customerID}</p>
     <p>Date of birth: ${dateOfBirth}</p>
-    <p>Priv: ${adminPriv}</p>
 </div>
     <div class="col">
     <form class="justify-content-center">
@@ -35,14 +34,13 @@
 <p class="h3"></p>
         </a>
     </form>
-        <form class="justify-content-center" onsubmit="return checkforMatchingPasswords(this)" action="Profile" method="post">
+        <form class="justify-content-center" action="Profile" method="post">
             <div class="text-center">
                 <div style="color: #FF0000;">${errorMessage}</div><br>
                 <div style="color: #25ff53;">${successMessage}</div><br>
             </div>
             <input type="password" class="form-control" name="oldpassword" value="" placeholder="Current password" required/><br>
             <input type="password" class="form-control" name="newpassword" value="" placeholder="New password" required/><br>
-            <input type="password" class="form-control" name="newpassword2" value="" placeholder="New password" required/><br>
             <input class="btn btn-success" type="submit" name="submit" value="Change password"><br>
 </form>
 </div>

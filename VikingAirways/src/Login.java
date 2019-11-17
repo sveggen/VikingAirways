@@ -26,8 +26,6 @@ public class Login extends HttpServlet {
             session.setAttribute("customerID", ud.getCustomerID());
             session.setAttribute("dateOfBirth", ud.getDateOfBirth());
             session.setAttribute("adminPriv", ud.getAdminPriv());
-            session.setAttribute("loggedIn", true);
-
 
             response.sendRedirect("profile.jsp");
         } else {

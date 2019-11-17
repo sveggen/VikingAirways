@@ -30,7 +30,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/VikingAirways/AdminSite">My Profile</a>
+            <a class="nav-link" href="/VikingAirways/AdminSite">Admin overview</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/VikingAirways/Logout">Log Out</a>
