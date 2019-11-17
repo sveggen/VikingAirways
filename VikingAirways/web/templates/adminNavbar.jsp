@@ -33,7 +33,7 @@
             <a class="nav-link" href="/VikingAirways/AdminSite">My Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/VikingAirways/login.jsp">Log Out</a>
+            <a class="nav-link" href="/VikingAirways/Logout">Log Out</a>
         </li>
     </ul>
 </nav>
