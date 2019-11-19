@@ -18,7 +18,7 @@
 </div>
 <div class="text-center">
     <p> Thank you for choosing Viking Airways </p>
-    <p>An email containing your booking information has been sent to your email address</p>
+    <p> An email containing your booking information has been sent to your email address </p>
 </div>
 </body>
 </html>

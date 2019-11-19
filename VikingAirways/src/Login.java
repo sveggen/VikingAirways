@@ -1,3 +1,4 @@
+import classes.UserData;
 import classes.Validate;
 
 import javax.servlet.*;
@@ -14,8 +15,18 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
 
         if (Validate.checkUserExistence(email, password)){
+            UserData ud = new UserData();
+            ud.getPersonalData(email);
+
             HttpSession session = request.getSession();
-            session.setAttribute("user", email);
+            session.setAttribute("email", email);
+            session.setAttribute("password", password);
+            session.setAttribute("firstname", ud.getFirstname());
+            session.setAttribute("lastname", ud.getLastname());
+            session.setAttribute("customerID", ud.getCustomerID());
+            session.setAttribute("dateOfBirth", ud.getDateOfBirth());
+            session.setAttribute("adminPriv", ud.getAdminPriv());
+
             response.sendRedirect("profile.jsp");
         } else {
             request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
@@ -23,5 +34,7 @@ public class Login extends HttpServlet {
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
     }
 }
