@@ -32,10 +32,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/VikingAirways/profile.jsp">My Profile</a>
         </li>
-        <form class="navbar-nav ml-auto" action="Logout" name="Logout" method="post">
-            <input type="submit" class="btn nav-link" name="../Logout" value="Log out"><br>
-        </form>
-
+        <li class="nav-item">
+            <a class="nav-link" href="/VikingAirways/Logout">Log Out</a>
+        </li>
     </ul>
 </nav>
 </body>
