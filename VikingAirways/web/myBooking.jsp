@@ -32,7 +32,7 @@
     <p>The current details registered to your booking can be seen below.</p>
 </div>
 
-<h3 class="text-center">Personal Information</h3>
+<h3 class="text-center">Passenger Information</h3>
 <br/>
 
 <form class="justify-content-center" action="MyBookingUpdate" method="post">

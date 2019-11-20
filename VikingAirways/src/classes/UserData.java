@@ -1,24 +1,25 @@
 package classes;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserData {
 
-    private int customerID;
+    private int userID;
     private String firstname;
     private String lastname;
-    private int dateOfBirth;
+    private Date dateOfBirth;
     private int adminPriv;
 
 
-    public int getCustomerID() {
-        return customerID;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setUserID(int customerID) {
+        this.userID = customerID;
     }
 
     public String getFirstname() {
@@ -37,11 +38,11 @@ public class UserData {
         this.lastname = lastname;
     }
 
-    public int getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(int dateOfBirth) {
+    public void setDateOfBirth( Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -60,23 +61,20 @@ public class UserData {
             DBConnect dbconnect = new DBConnect();
             conn = dbconnect.connectToDB();
 
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Customer WHERE email =?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email =?");
 
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()) {
-                setCustomerID(rs.getInt("customer_id"));
+                setUserID(rs.getInt("registered_user_id"));
                 setFirstname(rs.getString("first_name"));
                 setLastname(rs.getString("last_name"));
-                setDateOfBirth(rs.getInt("date_of_birth"));
+                setDateOfBirth(rs.getDate("date_of_birth"));
                 setAdminPriv(rs.getInt("admin_priv"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

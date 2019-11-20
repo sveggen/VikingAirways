@@ -25,36 +25,13 @@ public class Register extends HttpServlet {
             String Password = request.getParameter("Password");
             String Email = request.getParameter("Email");
 
-            Connection conn;
-            DBConnect dbconnect = new DBConnect();
-            conn = dbconnect.connectToDB();
-
             if (!Validate.checkEmailExistence(Email)) {
-                newUser(FirstName, LastName, BirthDate, Password, Email, out, conn);
+                Validate.newUser(FirstName, LastName, BirthDate, Password, Email);
                 response.sendRedirect("registrationSuccessful.jsp");
             }else{
                 request.setAttribute("errorMessage", "Email is already in use, account was not created");
                 request.getRequestDispatcher("/register.jsp").forward(request, response);
             }
-        }
-    }
-
-    public void newUser(String FirstName, String LastName, String BirthDate, String Password, String Email, PrintWriter out, Connection conn) {
-        PreparedStatement insertUserInfo;
-        try {
-            String ins = "insert into vikingairways_db.Customer (first_name, last_name, date_of_birth, customer_password, email, account_created, loyalty_points, admin_priv)  values (?, ?, ?, ?, ?, NOW(), 0, false)";
-
-            insertUserInfo = conn.prepareStatement(ins);
-            insertUserInfo.setString(1, FirstName);
-            insertUserInfo.setString(2, LastName);
-            insertUserInfo.setString(3, BirthDate);
-            insertUserInfo.setString(4, Password);
-            insertUserInfo.setString(5, Email);
-            insertUserInfo.executeUpdate();
-            System.out.println("Ny bruker opprettet");
-        } // end try
-        catch (SQLException ex) {
-            out.println("Ikke fått lagret navn" + ex);
         }
     }
 
