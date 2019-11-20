@@ -25,7 +25,7 @@
 <div class="text-center">
     <p>Name: ${firstname} ${lastname}</p>
     <p>Email: ${email}</p>
-    <p>Customer ID: ${customerID}</p>
+    <p>User ID: ${userID}</p>
     <p>Date of birth: ${dateOfBirth}</p>
 </div>
     <div class="col">
@@ -37,7 +37,7 @@
         <form class="justify-content-center" action="Profile" method="post">
             <div class="text-center">
                 <div style="color: #FF0000;">${errorMessage}</div><br>
-                <div style="color: #25ff53;">${successMessage}</div><br>
+                <div style="color: #008F11;">${successMessage}</div><br>
             </div>
             <input type="password" class="form-control" name="oldpassword" value="" placeholder="Current password" required/><br>
             <input type="password" class="form-control" name="newpassword" value="" placeholder="New password" required/><br>

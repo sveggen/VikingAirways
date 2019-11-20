@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
             session.setAttribute("password", password);
             session.setAttribute("firstname", ud.getFirstname());
             session.setAttribute("lastname", ud.getLastname());
-            session.setAttribute("customerID", ud.getCustomerID());
+            session.setAttribute("userID", ud.getUserID());
             session.setAttribute("dateOfBirth", ud.getDateOfBirth());
             session.setAttribute("adminPriv", ud.getAdminPriv());
 

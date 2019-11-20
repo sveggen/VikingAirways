@@ -56,7 +56,7 @@
     <input type="text" name="Email" required placeholder="john@doe.com"><br>
 
     Date of Birth:<br>
-    <input type="text" name="DateofBirth" required placeholder="14-03-1980"><br><br>
+    <input type="date" name="DateofBirth" required placeholder="14-03-1980"><br><br>
 
 
     <input type="submit" value="Continue" class="btn-success">

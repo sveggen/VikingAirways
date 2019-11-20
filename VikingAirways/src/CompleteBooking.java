@@ -1,17 +1,12 @@
 import classes.BookingNumberEmail;
 import classes.DBConnect;
-import java.sql.Connection;
+
+import java.sql.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
@@ -43,19 +38,20 @@ public class CompleteBooking extends HttpServlet {
                 // Adds the deleted cookies to the response.
                 for (Cookie cookie : cookies) {
                     cookieHash.put(cookie.getName(), cookie.getValue());
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
+                    if(!cookie.getName().equals("JSESSIONID")) {
+                        cookie.setMaxAge(0);
+                        response.addCookie(cookie);
+                    }
                 }
 
-                String customerInfo = "INSERT INTO Customer (first_name, last_name, email) " +
-                        "VALUES(?, ?, ?);";
+                String customerInfo = "INSERT INTO Customer (first_name, last_name, email, date_of_birth) " +
+                        "VALUES(?, ?, ?, ?);";
 
                 String bookinginfo = "INSERT INTO Booking (customer_paid, checked_in_baggage, extra_carryon, " +
-                        "special_equipment, pet_carryon, food_on_flight, wifi_on_flight, flight_number_fk, customer_id_fk, class_id_fk) " +
-                        "VALUES('1', ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID(), ?);";
+                        "special_equipment, pet_carryon, food_on_flight, wifi_on_flight, flight_number_fk, customer_id_fk, class_id_fk, registered_user_fk) " +
+                        "VALUES('1', ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID(), ?, ?);";
 
                 String getBN = "SELECT * FROM Customer WHERE customer_id = (SELECT LAST_INSERT_ID());";
-
 
                 String getClassID = "SELECT class_id FROM Class WHERE class_type = (?) AND class_flight_fk = (?);";
 
@@ -63,11 +59,11 @@ public class CompleteBooking extends HttpServlet {
 
                 conn.setAutoCommit(false);
 
-                //explicit commit
                 try (PreparedStatement insertCustomerInfo = conn.prepareStatement(customerInfo)) {
                     insertCustomerInfo.setString(1, cookieHash.get("firstname"));
                     insertCustomerInfo.setString(2, cookieHash.get("lastname"));
                     insertCustomerInfo.setString(3, cookieHash.get("email"));
+                    insertCustomerInfo.setDate(4, Date.valueOf(cookieHash.get("dateofBirth")));
                     insertCustomerInfo.executeUpdate();
 
                     try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
@@ -88,6 +84,13 @@ public class CompleteBooking extends HttpServlet {
                             insertBookingInfo.setString(6, cookieHash.get("wifionflight"));
                             insertBookingInfo.setString(7, cookieHash.get("flightnumber"));
                             insertBookingInfo.setString(8, classID);
+
+                            HttpSession session = request.getSession();
+                            if(session.getAttribute("userID") != null){
+                                insertBookingInfo.setInt(9, (Integer) session.getAttribute("userID"));
+                                } else {
+                                insertBookingInfo.setNull(9, java.sql.Types.INTEGER);
+                            }
                             insertBookingInfo.executeUpdate();
 
                             try (PreparedStatement getCustomerInfostmt = conn.prepareStatement(getBN)) {
@@ -99,14 +102,13 @@ public class CompleteBooking extends HttpServlet {
                                 try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)) {
                                     seatRemoval.setString(1, classID);
                                     seatRemoval.executeUpdate();
-
-                                        BookingNumberEmail.sendEmail(conn, bookingnumber);
-                                        RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
-                                        rd.forward(request, response);
                                     }
                                 }
-                                conn.commit();
-                            }
+                            conn.commit();
+                            BookingNumberEmail.sendEmail(conn, bookingnumber);
+                            RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
+                            rd.forward(request, response);
+                        }
                     }
                 }
                 //Rollback if error occurs
