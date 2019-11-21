@@ -43,6 +43,18 @@
             <input type="password" class="form-control" name="newpassword" value="" placeholder="New password" required/><br>
             <input class="btn btn-success" type="submit" name="submit" value="Change password"><br>
 </form>
+
+<c:forEach items="${x}" var="item">
+    <div class="text-center">
+    <h1>Mine bookinger:</h1><br>
+        Bookingnummer: ${item.value}
+        Fra - til: ${bookingnumber} ${bookingnumber}
+        Flight: ${bookingnumber}
+        Dato: ${bookingnumber}
+        Tidspunkt: ${bookingnumber}
+        <a class="nav-link" href="/VikingAirways/myBookingSearch?">Endre Booking</a>
+</c:forEach>
+    </div>
 </div>
 </body>
 </html>
