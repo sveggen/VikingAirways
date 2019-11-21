@@ -14,26 +14,33 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if (Validate.checkUserExistence(email, password)){
-            UserData ud = new UserData();
-            ud.getPersonalData(email);
+        try {
+            if (Validate.checkUserExistence(email, password)) {
+                UserData ud = new UserData();
+                ud.getPersonalData(email);
 
-            HttpSession session = request.getSession();
-            session.setAttribute("email", email);
-            session.setAttribute("password", password);
-            session.setAttribute("firstname", ud.getFirstname());
-            session.setAttribute("lastname", ud.getLastname());
-            session.setAttribute("userID", ud.getUserID());
-            session.setAttribute("dateOfBirth", ud.getDateOfBirth());
-            session.setAttribute("adminPriv", ud.getAdminPriv());
+                HttpSession session = request.getSession();
+                session.setAttribute("email", email);
+                session.setAttribute("password", password);
+                session.setAttribute("firstname", ud.getFirstname());
+                session.setAttribute("lastname", ud.getLastname());
+                session.setAttribute("userID", ud.getUserID());
+                session.setAttribute("dateOfBirth", ud.getDateOfBirth());
+                session.setAttribute("adminPriv", ud.getAdminPriv());
 
-            response.sendRedirect("profile.jsp");
-        } else {
-            request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+                String referrer = request.getHeader("referer");
+                System.out.println(referrer);
+
+                response.sendRedirect("profile.jsp");
+            } else {
+                request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+            }
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
         }
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
     }

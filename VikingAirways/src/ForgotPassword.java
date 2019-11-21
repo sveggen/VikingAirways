@@ -1,12 +1,10 @@
 import classes.Email;
 import classes.Validate;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {

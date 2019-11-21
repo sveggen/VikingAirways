@@ -29,7 +29,7 @@
                 <input type="password" class="form-control" name="password" required/><br>
                 <input class="btn btn-success" type="submit" name="submit" value="Log in"><br>
                 <a href="/VikingAirways/forgotPassword.jsp" class="hyperlink">Forgot your password? Click here</a><br>
-                <a href="/VikingAirways/Register.jsp" class="hyperlink">Create a new account here</a><br>
+                <a href="/VikingAirways/register.jsp" class="hyperlink">Create a new account here</a><br>
             </form>
         </div>
     </div>

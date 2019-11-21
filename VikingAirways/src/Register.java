@@ -1,4 +1,3 @@
-import classes.DBConnect;
 import classes.Validate;
 
 import javax.servlet.ServletException;
@@ -7,18 +6,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 
 @WebServlet(name = "Register", urlPatterns = {"/Register"})
 public class Register extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-
+        try {
             String FirstName = request.getParameter("FirstName");
             String LastName = request.getParameter("LastName");
             String BirthDate = request.getParameter("BirthDate");
@@ -28,10 +23,12 @@ public class Register extends HttpServlet {
             if (!Validate.checkEmailExistence(Email)) {
                 Validate.newUser(FirstName, LastName, BirthDate, Password, Email);
                 response.sendRedirect("registrationSuccessful.jsp");
-            }else{
+            } else {
                 request.setAttribute("errorMessage", "Email is already in use, account was not created");
                 request.getRequestDispatcher("/register.jsp").forward(request, response);
             }
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
         }
     }
 

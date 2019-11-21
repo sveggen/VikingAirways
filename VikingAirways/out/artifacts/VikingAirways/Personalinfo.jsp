@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: stian
@@ -46,6 +47,7 @@
     <h1>Enter your Personal Information</h1>
 </div>
 <form action="Personalinfo" method="post">
+
     First Name: <br>
     <input type="text" name="FirstName" required placeholder="John"> <br>
 
@@ -53,14 +55,20 @@
     <input type="text" name="LastName" required placeholder="Doe"><br>
 
     Email Address:<br>
-    <input type="text" name="Email" required placeholder="john@doe.com"><br>
+    <input type="text" name="Email" value="sks"><br>
 
     Date of Birth:<br>
     <input type="date" name="DateofBirth" required placeholder="14-03-1980"><br><br>
-
-
+<div class="text-center">
+    <a class="nav-link" href="/VikingAirways/login.jsp">Log In or Create a new account</a>
+</div>
     <input type="submit" value="Continue" class="btn-success">
-
+    <c:forEach items="${cookie}" var="currentCookie">
+        Cookie name as map entry key: ${currentCookie.key}<br/>
+        Cookie object as map entry value: ${currentCookie.value}<br/>
+        Name property of Cookie object: ${currentCookie.value.name}<br/>
+        Value property of Cookie object: ${currentCookie.value.value}<br/>
+    </c:forEach>
 
 </form>
 </body>
