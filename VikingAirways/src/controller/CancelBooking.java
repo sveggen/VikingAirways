@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 @WebServlet(name = "CancelBooking")
 public class CancelBooking extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String booking_number = request.getParameter("booking_number");
         String customer_id = request.getParameter("customer_id");
@@ -41,10 +41,15 @@ public class CancelBooking extends HttpServlet {
                 //legg til failmessage
             }
         }
-
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        cancelBooking(request, response);
+    }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        cancelBooking(request, response);
     }
 }

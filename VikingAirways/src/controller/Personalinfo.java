@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "/Personalinfo", urlPatterns = {"/Personalinfo"})
 public class Personalinfo extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void personalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // gets values of text fields
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
@@ -29,5 +29,15 @@ public class Personalinfo extends HttpServlet {
         }
         RequestDispatcher req = request.getRequestDispatcher("payment.jsp");
         req.forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        personalInfo(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        personalInfo(request, response);
     }
 }

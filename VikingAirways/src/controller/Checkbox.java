@@ -10,8 +10,7 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "Checkbox", urlPatterns = {"/Checkbox"})
 public class Checkbox extends HttpServlet {
-
-    protected void doPost(HttpServletRequest request,
+    protected void registerOptionalServices(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
         ArrayList<String> yesArrayList = new ArrayList<>();
@@ -72,4 +71,16 @@ public class Checkbox extends HttpServlet {
         RequestDispatcher req = request.getRequestDispatcher("personalinfo.jsp");
         req.forward(request, response);
     }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        registerOptionalServices(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        registerOptionalServices(request, response);
+    }
+}
+
 }

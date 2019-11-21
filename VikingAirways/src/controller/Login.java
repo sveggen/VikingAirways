@@ -10,7 +10,7 @@ import java.io.*;
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         String email = request.getParameter("email");
@@ -32,9 +32,6 @@ public class Login extends HttpServlet {
                 session.setAttribute("dateOfBirth", ud.getDateOfBirth());
                 session.setAttribute("adminPriv", ud.getAdminPriv());
 
-                String referrer = request.getHeader("referer");
-                System.out.println(referrer);
-
                 response.sendRedirect("profile.jsp");
             } else {
                 request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
@@ -44,8 +41,13 @@ public class Login extends HttpServlet {
             e.printStackTrace();
         }
     }
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        login(request, response);
+    }
 
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        login(request, response);
     }
 }

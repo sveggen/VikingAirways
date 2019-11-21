@@ -13,7 +13,7 @@ import DBConnection.DBConnect;
 
 @WebServlet(name = "SearchResult", urlPatterns = {"/SearchResult"})
 public class SearchResult extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void searchResult(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
@@ -49,6 +49,10 @@ public class SearchResult extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        searchResult(request, response);
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        searchResult(request, response);
     }
 }

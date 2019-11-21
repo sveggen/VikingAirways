@@ -12,7 +12,6 @@ import java.io.IOException;
 @WebServlet(name = "DeleteFlight", urlPatterns = {"/DeleteFlight"})
 public class DeleteFlight extends HttpServlet {
     private void deleteFlight(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             String selectedFlight = request.getParameter("flightnumber");
             FlightDao flightDao = new FlightDao();

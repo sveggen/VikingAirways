@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @WebServlet(name = "MyBookingUpdate", urlPatterns = {"/MyBookingUpdate"})
 public class MyBookingUpdate extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void updateBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Cookie[] cookies = request.getCookies();
         int bookingNumber = 0;
@@ -77,7 +77,14 @@ public class MyBookingUpdate extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        updateBooking(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        updateBooking(request, response);
     }
 }
