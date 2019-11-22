@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="jumbotron text-center">
-    <h1>Login</h1>
+    <h1>Forgot Password</h1>
     <p>Please enter your email below to reset your account password.</p>
 </div>
 <div class="container">
