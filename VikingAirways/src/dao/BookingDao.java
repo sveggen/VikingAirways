@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class BookingDao implements Dao {
 
-    DBConnect dbconnect = new DBConnect();
+    private DBConnect dbconnect = new DBConnect();
 
     @Override
     public Optional get(long id) {
