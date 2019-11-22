@@ -19,7 +19,7 @@ public class Navbar {
         out.println("  </ul>");
         out.println("  <ul class=\"navbar-nav ml-auto\">");
         out.println("    <li class=\"nav-item\">");
-        out.println("      <a class=\"nav-link\" href=\"register.jsp\">controller.Register</a>");
+        out.println("      <a class=\"nav-link\" href=\"register.jsp\">Register</a>");
         out.println("    </li>");
         out.println("    <li class=\"nav-item\">");
         out.println("      <a class=\"nav-link\" href=\"login.jsp\">Log In</a>");
