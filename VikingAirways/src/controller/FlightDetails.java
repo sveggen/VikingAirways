@@ -16,9 +16,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-@WebServlet(name = "FlightDetailsNew", urlPatterns = {"/FlightDetailsNew"})
+@WebServlet(name = "FlightDetails", urlPatterns = {"/FlightDetails"})
 
-public class FlightDetailsNew extends HttpServlet {
+public class FlightDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 

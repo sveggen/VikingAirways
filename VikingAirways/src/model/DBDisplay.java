@@ -60,7 +60,7 @@ public class DBDisplay {
                 timeOfArrival = timeOfArrival.substring(0, timeOfArrival.length() - 3);
                 timeOfDeparture = timeOfDeparture.substring(0, timeOfDeparture.length() - 3);
 
-                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"controller.FlightDetailsNew\">");
+                out.println("   <form id=\"form"+flightnumber+"\" class=\"justify-content-center\" method=\"post\" action=\"FlightDetails\">");
                 out.println("       <tr>");
                 out.println("       <td class=\"flightNumber\">"+flightnumber+"</td>");
                 out.println("       <td>"+dateOfDeparture+"</td>");
