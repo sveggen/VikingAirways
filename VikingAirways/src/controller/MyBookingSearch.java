@@ -1,6 +1,7 @@
 package controller;
 
 import DBConnection.DBConnect;
+import sun.misc.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,6 +56,9 @@ public class MyBookingSearch extends HttpServlet {
                 petCarryon = rset.getInt("pet_carryon");
                 foodOnFlight = rset.getInt("food_on_flight");
                 wifiOnFlight = rset.getInt("wifi_on_flight");
+            } else {
+                RequestDispatcher req = request.getRequestDispatcher("/bookingNotFound.jsp");
+                req.forward(request, response);
             }
             rset.close();
 

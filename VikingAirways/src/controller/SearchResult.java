@@ -38,7 +38,7 @@ public class SearchResult extends HttpServlet {
             conn = dbconnect.connectToDB();
 
             DBDisplay dbdisplay = new DBDisplay();
-            dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt, response);
+            dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
 
             out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
             out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
