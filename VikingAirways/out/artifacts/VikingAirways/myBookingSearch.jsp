@@ -8,7 +8,7 @@
 <body>
 <div class="jumbotron text-center">
     <h1>My Booking</h1>
-    <p>Please enter your booking number below to find your booking.</p>
+    <p>Please enter your booking number below to change your booking or get your boarding pass.</p>
 </div>
 
 <div class="container">
@@ -17,7 +17,7 @@
             <input type="text" class="form-control" name="bookingNumber" placeholder="Enter your booking number...">
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-success">
+            <input type="submit" value="Change Booking" class="btn btn-success">
         </div>
     </form>
 </div>
