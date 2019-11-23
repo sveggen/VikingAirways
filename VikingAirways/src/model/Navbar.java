@@ -11,7 +11,7 @@ public class Navbar {
         out.println("      <a class=\"nav-link\" href=\"index.jsp\">Home</a>");
         out.println("    </li>");
         out.println("    <li class=\"nav-item\">");
-        out.println("      <a class=\"nav-link\" href=\"#\">Check In</a>");
+        out.println("      <a class=\"nav-link\" href=\"checkIn.jsp\">Check In</a>");
         out.println("    </li>");
         out.println("    <li class=\"nav-item\">");
         out.println("      <a class=\"nav-link\" href=\"myBookingSearch.jsp\">My Booking</a>");

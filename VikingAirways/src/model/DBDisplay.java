@@ -7,11 +7,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class acts as a part of the SearchResult servlet and is
+ * responsible for formatting and printing out the different flights
+ * in a table.
+ *
+ * @author Jørgen Lindbøl
+ * @version 23.11.2019
+ */
 public class DBDisplay {
 
     Statement stmnt;
 
-    public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport, HttpServletResponse response) {
+    /**
+     * Takes the three selections the customer has made, collects relevant data from
+     * the database and displays it in a table.
+     *
+     * @param conn The connection object with connection to the database
+     * @param out The PrintWriter object from the Servlet that allows printing to the response object
+     * @param destination String containing destination the customer selected
+     * @param departureDate String containing departure date the customer selected
+     * @param dprtAirport String containing departure airport the customer selected
+     */
+    public void displayTables(Connection conn, PrintWriter out, String destination, String departureDate, String dprtAirport) {
 
 
         String strSelect = "SELECT * FROM Flight WHERE arrival_airport = '"+destination
@@ -57,6 +75,7 @@ public class DBDisplay {
                 String departureAirport = rset.getString("departure_airport");
                 //String priceEconomy = rset.getString("class_price");
 
+                //fjerne de siste 3 tegnene i strengene, som tilsvarer :00 da det ikke er nødvendig å se sekunder her
                 timeOfArrival = timeOfArrival.substring(0, timeOfArrival.length() - 3);
                 timeOfDeparture = timeOfDeparture.substring(0, timeOfDeparture.length() - 3);
 
@@ -82,6 +101,14 @@ public class DBDisplay {
 
     }
 
+    /**
+     * Takes two strings containing timestamps, converts them to int
+     * and returns the difference between them.
+     *
+     * @param timeDeparture Departure time of the selected flight
+     * @param timeArrival Arrival time of the selected flight
+     * @return Returns the difference between departure time and arrival time as an integer
+     */
     private int timeDiff (String timeDeparture, String timeArrival) {
         String[] hourMinFirst = timeDeparture.split(":");
         String[] hourMinSecond = timeArrival.split(":");
