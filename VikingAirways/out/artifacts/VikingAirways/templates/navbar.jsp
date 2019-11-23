@@ -17,6 +17,5 @@
     </c:when>
     <c:otherwise>
         <jsp:include page="/templates/standardNavbar.jsp" />
-        <br />
     </c:otherwise>
 </c:choose>

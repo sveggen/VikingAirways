@@ -99,7 +99,7 @@ public class BoardingPassPDF {
             }
         }
 
-        File newPDF = new File(baseDirectory+"\\VA-Boarding-Card-"+passengerFirstName+"-"+passengerLastName+"-"+bNumber+".pdf");
+        File newPDF = new File(baseDirectory+"\\VA-Boarding-Pass-"+passengerFirstName+"-"+passengerLastName+"-"+bNumber+".pdf");
 
         if(!newPDF.isFile()) {
 
@@ -107,7 +107,7 @@ public class BoardingPassPDF {
             int i = 1;
             while (newPDF.isFile()) {
                 String appendix = "new" + i;
-                newPDF = new File(baseDirectory + "\\VA-Boarding-Card-" + passengerFirstName + "-" + passengerLastName + "-" + bNumber + "-" + appendix + ".pdf");
+                newPDF = new File(baseDirectory + "\\VA-Boarding-Pass-" + passengerFirstName + "-" + passengerLastName + "-" + bNumber + "-" + appendix + ".pdf");
                 //System.out.println("File already exists. New file name: " + newPDF.getName());
                 i++;
             }
