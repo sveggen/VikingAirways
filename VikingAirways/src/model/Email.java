@@ -1,11 +1,22 @@
 package model;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class Email {
+
+    /**
+     *
+     * @param recipient
+     * @param subject
+     * @param content
+     */
         public void sendEmail(String recipient, String subject, String content) {
 
             //Email addresses
@@ -36,10 +47,24 @@ public class Email {
                         Message.RecipientType.TO,
                         InternetAddress.parse(to));
                 message.setSubject(subject);
-                message.setContent(content, "text/html");
-                Transport.send(message);
+                //message.setContent(content, "text/html");
 
-            } catch (MessagingException e) {
+
+                Multipart multipart = new MimeMultipart();
+                MimeBodyPart messageBodyPart = new MimeBodyPart();
+                messageBodyPart.setText(content, "utf-8", "html");
+                multipart.addBodyPart(messageBodyPart);
+
+
+                //attachment
+                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+                attachmentBodyPart.attachFile(new File(""+"/"+""), "application/pdf", null);
+                multipart.addBodyPart(attachmentBodyPart);
+                message.setContent(multipart);
+                Transport.send(message);
+                System.out.println("");
+
+            } catch (MessagingException | IOException e) {
                 e.printStackTrace();
             }
         }

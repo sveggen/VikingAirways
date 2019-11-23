@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
 
 @WebServlet(name = "Register", urlPatterns = {"/Register"})
 public class Register extends HttpServlet {

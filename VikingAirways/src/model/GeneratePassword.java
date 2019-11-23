@@ -1,6 +1,17 @@
 package model;
 
+/**
+ * This class generates a random temporary password.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
 public class GeneratePassword {
+
+    /**
+     * @return a String containing a random password consisting of
+     * numbers and letters in lower and upper case.
+     */
      public static String generateTempPass(){
         String alphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"

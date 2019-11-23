@@ -1,12 +1,21 @@
 package controller;
 
 import dao.UserDao;
+import model.User;
 import model.UserData;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
+
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
@@ -19,6 +28,7 @@ public class Login extends HttpServlet {
         UserDao userDao = new UserDao();
 
         try {
+
             if (userDao.checkUserExistence(email, password)) {
                 UserData ud = new UserData();
                 ud.getPersonalData(email);

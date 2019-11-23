@@ -54,6 +54,13 @@
         Tidspunkt: ${bookingnumber}
         <a class="nav-link" href="/VikingAirways/myBookingSearch?">Endre Booking</a>
 </c:forEach>
+
+<c:forEach items="${firstname}" var="name">
+    <tr>
+    <td>${user.firstName}</td>
+    <td>${user.lastname}</td>
+    <td>${user.email}</td>
+    </tr>
     </div>
 </div>
 </body>

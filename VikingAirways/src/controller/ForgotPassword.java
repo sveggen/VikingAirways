@@ -11,6 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
+
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
     private void generatePassword(HttpServletRequest request, HttpServletResponse response) {
@@ -20,6 +28,7 @@ public class ForgotPassword extends HttpServlet {
         String tmppass = GeneratePassword.generateTempPass();
 
         UserDao userDao = new UserDao();
+
         try{
             if (userDao.checkEmailExistence(email)){
                 userDao.changePassword(tmppass, email);
@@ -27,7 +36,7 @@ public class ForgotPassword extends HttpServlet {
                 Email em = new Email();
                 String recipient = email;
                 String subject = "Password Reset";
-                String content = "Your new password is " + tmppass;
+                String content = "The new password for your user on Viking Airways is " + tmppass;
 
                 em.sendEmail(recipient, subject, content);
                 request.setAttribute("successMessage", "Password was succesfully reset, please check your mail inbox.");
@@ -37,6 +46,7 @@ public class ForgotPassword extends HttpServlet {
             request.getRequestDispatcher("/forgotPassword.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("emailCatch", "Email-server error. Email could not be sent.");
         }
     }
 

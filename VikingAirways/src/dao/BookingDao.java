@@ -44,6 +44,7 @@ public class BookingDao implements Dao {
             String dlt = "DELETE FROM Booking WHERE booking_number = (?);";
 
             try (PreparedStatement deleteBooking = conn.prepareStatement(dlt)){
+                deleteBooking.setString(1, bookingnumber);
                 deleteBooking.executeUpdate();
             }
         } catch (Exception e) {
@@ -70,6 +71,22 @@ public class BookingDao implements Dao {
 
             } catch (SQLException ex) {
                 ex.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBookingandCustomerID(String bookingnumber, String customerID){
+        try {
+            Connection conn = dbconnect.connectToDB();
+
+            String cstmrDlt = "DELETE FROM Customer, Booking WHERE customer_id =  (?)"
+                    +"AND booking_number = (?);";
+
+            try (PreparedStatement deleteBookingandID = conn.prepareStatement(cstmrDlt)){
+                deleteBookingandID.setString(1, customerID);
+                deleteBookingandID.setString(2, bookingnumber);
             }
         } catch (Exception e) {
             e.printStackTrace();

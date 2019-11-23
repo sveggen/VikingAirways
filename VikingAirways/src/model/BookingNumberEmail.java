@@ -4,6 +4,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
+
+
 public class BookingNumberEmail {
     public static void sendEmail(Connection conn, String bookingNumber)  {
             String strSelect = "SELECT * FROM Customer, Flight, Booking WHERE Booking.customer_id_fk = Customer.customer_id " +

@@ -11,6 +11,14 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
+
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
 public class CompleteBooking extends HttpServlet {
 
