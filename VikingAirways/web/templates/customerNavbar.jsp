@@ -22,7 +22,7 @@
             <a class="nav-link" href="/VikingAirways/index.jsp">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Check In</a>
+            <a class="nav-link" href="/VikingAirways/checkIn.jsp">Check In</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/VikingAirways/myBookingSearch.jsp">My Booking</a>
