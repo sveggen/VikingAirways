@@ -10,7 +10,6 @@
 <c:choose>
     <c:when test="${adminPriv == 1}">
         <jsp:include page="/templates/adminNavbar.jsp" />
-        <br />
     </c:when>
     <c:when test="${adminPriv == 0}">
         <jsp:include page="/templates/customerNavbar.jsp" />
