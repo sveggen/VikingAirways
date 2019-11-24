@@ -17,17 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @WebServlet(name = "FlightDetails", urlPatterns = {"/FlightDetails"})
-public class FlightDetails extends HttpServlet {
-    private String dateOfDeparture;
-    private String flightnumber;
-    private String timeOfDeparture;
-    private String destinationAirport;
-    private String departureAirport;
-    private String arrivalTime;
-    private String classType;
-    private String classCapacity;
-    private String classPrice;
 
+public class FlightDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
@@ -54,21 +45,33 @@ public class FlightDetails extends HttpServlet {
             stmnt = conn.createStatement();
             ResultSet rset = stmnt.executeQuery(strSelect);
 
+            String flightnumber = null;
+
             if(rset.next()) {
                 flightnumber = rset.getString("flight_number");
-                dateOfDeparture = rset.getString("departure_date");
-                timeOfDeparture = rset.getString("departure_time");
-                destinationAirport = rset.getString("arrival_airport");
-                departureAirport = rset.getString("departure_airport");
-                arrivalTime = rset.getString("arrival_time");
+                String dateOfDeparture = rset.getString("departure_date");
+                String timeOfDeparture = rset.getString("departure_time");
+                String destinationAirport = rset.getString("arrival_airport");
+                String departureAirport = rset.getString("departure_airport");
+                String arrivalTime = rset.getString("arrival_time");
 
                 arrivalTime = arrivalTime.substring(0, arrivalTime.length() - 3);
                 timeOfDeparture = timeOfDeparture.substring(0, timeOfDeparture.length() - 3);
 
+                String[] nameArray = new String[] {"flightnumber", "dateofdeparture", "timeofdeparture", "destinationAirport", "departureairport", "arrivaltime"};
+                String[] valueArray = new String[] {flightnumber, dateOfDeparture, timeOfDeparture, destinationAirport, departureAirport, arrivalTime};
+
+                int i = 0;
+                for(String selected : nameArray){
+                    Cookie newCookie = new Cookie(nameArray[i], valueArray[i]);
+                    newCookie.setMaxAge(1800);
+                    response.addCookie(newCookie);
+                    i++;
+                }
                 out.println("<body>");
                 out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
                 out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
-               // out.println("<tr>");
+                // out.println("<tr>");
                 out.println("<div class=\"jumbotron text-center\" >");
                 out.println("<h1>Selected Flight</h1><br></div>");
                 out.println("<div class=\"container text-center\" >");
@@ -97,9 +100,9 @@ public class FlightDetails extends HttpServlet {
             ResultSet classRset = stmnt.executeQuery(classesForFlight);
             int c = 1;
             while(classRset.next()) {
-                classType = classRset.getString("class_type");
-                classCapacity = classRset.getString("class_capacity");
-                classPrice = classRset.getString("class_price");
+                String classType = classRset.getString("class_type");
+                String classCapacity = classRset.getString("class_capacity");
+                String classPrice = classRset.getString("class_price");
 
                 out.println("  <tr>");
                 out.println("    <th>"+classType+"</th>");
@@ -118,17 +121,6 @@ public class FlightDetails extends HttpServlet {
         catch (SQLException ex) {
             out.println("Error extracting data from database " +ex);
         }
-        String[] nameArray = new String[] {"flightnumber", "dateofdeparture", "timeofdeparture", "destinationAirport", "departureairport", "arrivaltime", "classType", "classPrice", "classCapacity"};
-        String[] valueArray = new String[] {flightnumber, dateOfDeparture, timeOfDeparture, destinationAirport, departureAirport, arrivalTime, classType, classPrice, classCapacity};
-
-        int i = 0;
-        for(String selected : nameArray){
-            Cookie newCookie = new Cookie(nameArray[i], valueArray[i]);
-            newCookie.setMaxAge(1800);
-            response.addCookie(newCookie);
-            i++;
-        }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

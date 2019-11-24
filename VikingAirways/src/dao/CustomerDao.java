@@ -13,5 +13,4 @@ public class CustomerDao implements Dao {
     public List getAll() {
         return null;
     }
-
 }

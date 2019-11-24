@@ -54,8 +54,7 @@
     <input type="text" name="LastName" required placeholder="Doe"><br>
 
     Email Address:<br>
-    <input type="text" name="Email" value="sks"><br>
-
+    <input type="text" name="Email" required placeholder="john@doe.com"><br>
     Date of Birth:<br>
     <input type="date" name="DateofBirth" required placeholder="14-03-1980"><br>
 <div class="text-center">

@@ -25,24 +25,25 @@ public class UserDao implements Dao {
     }
 
 
-    public boolean checkUserExistence(String email, String password){
-            boolean userExistence = false;
+    public boolean checkUserExistence(String email, String password) {
+        boolean userExistence = false;
 
-            try{
-                Connection conn = dbconnect.connectToDB();
-                PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email=? AND registered_user_password=?");
+        try {
+            Connection conn = dbconnect.connectToDB();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email=? AND registered_user_password=?");
 
-                ps.setString(1, email);
-                ps.setString(2, password);
-                ResultSet rs = ps.executeQuery();
-                userExistence = rs.next();
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            userExistence = rs.next();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return userExistence;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    public boolean checkEmailExistence(String email){
+        return userExistence;
+    }
+
+    public boolean checkEmailExistence(String email) {
         boolean emailExistence = false;
         try {
             Connection conn = dbconnect.connectToDB();
@@ -93,6 +94,25 @@ public class UserDao implements Dao {
         }
     }
 
+    public HashMap<String, Object> getPersonalData(String email) {
+        HashMap<String, Object> user = new HashMap<>();
+        try {
+            Connection conn = dbconnect.connectToDB();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email =?");
 
-}
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user.put("userid", rs.getInt("registered_user_id"));
+                user.put("firstname", rs.getString("first_name"));
+                user.put("lastname", rs.getString("last_name"));
+                user.put("dateofbirth", rs.getDate("date_of_birth"));
+                user.put("adminpriv", rs.getInt("admin_priv"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+    }
 
