@@ -11,8 +11,27 @@ import java.sql.Connection;
 import model.*;
 import DBConnection.DBConnect;
 
+/**
+ * This servlet handles connection to the database to retrieve details about
+ * all flights that fit the parameters specified by the user in index.jsp
+ *
+ * @author Jørgen Lindbøl
+ * @version 24.11.2019
+ */
 @WebServlet(name = "SearchResult", urlPatterns = {"/SearchResult"})
 public class SearchResult extends HttpServlet {
+
+    /**
+     * This class processes the request from index.jsp.
+     * It writes HTML directly through the PrintWriter from the response object
+     * and calls on the DBDislay class to print the table with information from
+     * the database.
+     *
+     * @param request Request object received from the user, currently index.jsp
+     * @param response Response object sent back to the user, currently displayed directly without dedicated jsp/html file
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void searchResult(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -48,11 +67,28 @@ public class SearchResult extends HttpServlet {
         }
     }
 
+    /**
+     * Standard servlet Post method called if specified in connecting Form.
+     * Used in this project to handle request from index.jsp
+     *
+     * @param request Request object received from user
+     * @param response Response object received from user
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         searchResult(request, response);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+
+    /**
+     * Standard servlet Get method called if specified in connecting Form.
+     *
+     * @param request Request object received from user
+     * @param response Response object received from user
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         searchResult(request, response);
     }
 }
