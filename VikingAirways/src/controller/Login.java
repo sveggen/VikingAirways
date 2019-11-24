@@ -24,13 +24,17 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+        //Creates a instance of the UserDao in order to retrieve data from the DB.
         UserDao userDao = new UserDao();
 
         try {
 
+            //Uses an external method to check whether the user exists in the DB.
             if (userDao.checkUserExistence(email, password)) {
+                //calls the getPersonalData-method and creates a new HM with the returning data from the method.
                 HashMap<String, Object> kv = userDao.getPersonalData(email);
 
+                //Creates a new session and passes the following parameters to the Session-object.
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("password", password);
@@ -42,6 +46,7 @@ public class Login extends HttpServlet {
 
                 response.sendRedirect("profile.jsp");
             } else {
+                //Displays error message if user does not exist.
                 request.setAttribute("errorMessage", "Login unsuccessful. Password or email was wrong.");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }

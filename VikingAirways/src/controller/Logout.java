@@ -32,7 +32,7 @@ public class Logout extends HttpServlet {
         if (logout != null){
             try {
                 HttpSession session = request.getSession();
-                session.invalidate();
+                session.invalidate(); //Terminates the session.
                 response.sendRedirect("login.jsp");
             }catch (Exception e){
                 e.printStackTrace();
