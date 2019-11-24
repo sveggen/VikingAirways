@@ -54,10 +54,16 @@ public class AddFlight  extends HttpServlet {
             flightdao.addClass(class_type2, class_capacity2, class_price2, class_flight_fk2);
             flightdao.addClass(class_type3, class_capacity3, class_price3, class_flight_fk3);
 
+            request.setAttribute("flightAdded", "Flight was successfully added.");
+            request.getRequestDispatcher("/addFlight.jsp").forward(request, response);
+
         }
 
         catch (Exception e) {
             e.printStackTrace();
+
+            request.setAttribute("flightNotAdded", "Flight could not be added. ");
+            request.getRequestDispatcher("/addFlight.jsp").forward(request, response);
         }
         }
     }

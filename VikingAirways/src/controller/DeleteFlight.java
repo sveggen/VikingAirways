@@ -17,8 +17,13 @@ public class DeleteFlight extends HttpServlet {
             FlightDao flightDao = new FlightDao();
             flightDao.deleteFlight(selectedFlight);
 
+            request.setAttribute("flightDeleted", "Flight was successfully deleted.");
+            request.getRequestDispatcher("/deleteFlight.jsp").forward(request, response);
+
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("flightNotDeleted", "Flight could not be deleted. ");
+            request.getRequestDispatcher("/deleteFlight.jsp").forward(request, response);
         }
     }
 

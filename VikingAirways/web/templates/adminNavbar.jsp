@@ -33,6 +33,12 @@
             <a class="nav-link" href="/VikingAirways/AdminSite">Admin overview</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/VikingAirways/addFlight.jsp">Add flight</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/VikingAirways/deleteFlight.jsp">Delete flight</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/VikingAirways/Logout">Log Out</a>
         </li>
     </ul>
