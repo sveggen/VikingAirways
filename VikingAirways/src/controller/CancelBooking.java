@@ -9,13 +9,13 @@ import java.io.IOException;
 
 import dao.BookingDao;
 
-@WebServlet(name = "CancelBooking")
+@WebServlet(name = "CancelBooking", urlPatterns = {"/CancelBooking"})
 public class CancelBooking extends HttpServlet {
     BookingDao bookingDao = new BookingDao();
 
     private void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String booking_number = request.getParameter("booking_number");
+        String booking_number = request.getParameter("bookingNumber");
         String customer_id = request.getParameter("customer_id");
         String hasPass = request.getParameter("customer_password");
 

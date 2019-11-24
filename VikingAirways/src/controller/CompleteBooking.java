@@ -65,7 +65,6 @@ public class CompleteBooking extends HttpServlet {
                 insertCustomerInfo.setDate(4, Date.valueOf(cookieHash.get("dateofBirth")));
                 insertCustomerInfo.executeUpdate();
 
-                //comment
                 try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
                     retrieveClassID.setString(1, cookieHash.get("class"));
                     retrieveClassID.setString(2, cookieHash.get("flightnumber"));
