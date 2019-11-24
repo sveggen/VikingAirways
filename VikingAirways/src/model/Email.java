@@ -31,6 +31,7 @@ public class Email {
             String username = from;
             String password = "nerdherd99";
 
+            //Technical details are put into the prop HM in order to get the right email-server settings.
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");
             prop.put("mail.smtp.port", "465");

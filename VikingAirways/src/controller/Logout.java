@@ -18,12 +18,12 @@ import java.io.IOException;
 @WebServlet(name = "Logout", urlPatterns = {"/Logout"})
 public class Logout extends HttpServlet {
 
-    /**
+    /** This servlet terminates the session of the logged in user - by altering the Session-object.
      *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * @param request Request object received from user, currently logout.jsp
+     * @param response Response object sent back to the user, currently login.jsp
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
      */
     private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,7 +31,7 @@ public class Logout extends HttpServlet {
 
         if (logout != null){
             try {
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(); //Gets the session object
                 session.invalidate(); //Terminates the session.
                 response.sendRedirect("login.jsp");
             }catch (Exception e){
