@@ -31,7 +31,7 @@
     <div id="pdf1"></div>
     </div>
 </div>
-
+<br/>
 <div class="container">
     <div class="row">
     <a href="boardingpasses/${fileName}" download><button class="btn btn-success center-block">Download</button></a>
