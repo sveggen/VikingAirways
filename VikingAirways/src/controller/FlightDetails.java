@@ -119,6 +119,7 @@ public class FlightDetails extends HttpServlet {
             out.println("</table>");
             out.println("</body>");
             out.println("</html>");
+            conn.close();
         }
         catch (SQLException ex) {
             out.println("Error extracting data from database " +ex);

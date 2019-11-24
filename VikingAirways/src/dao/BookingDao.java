@@ -32,6 +32,7 @@ public class BookingDao implements Dao {
                 deleteBooking.setString(1, bookingnumber);
                 deleteBooking.executeUpdate();
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,6 +49,7 @@ public class BookingDao implements Dao {
                 deleteBookingandID.setString(1, customerID);
                 deleteBookingandID.setString(2, bookingnumber);
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -36,7 +36,7 @@ public class UserDao implements Dao {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             userExistence = rs.next();
-
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,6 +56,7 @@ public class UserDao implements Dao {
             if (rs.next()) {
                 emailExistence = true;
             }
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,6 +72,7 @@ public class UserDao implements Dao {
             ps.setString(1, password);
             ps.setString(2, email);
             ps.executeUpdate();
+            conn.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,6 +91,7 @@ public class UserDao implements Dao {
             insertUserInfo.setString(4, Password);
             insertUserInfo.setString(5, Email);
             insertUserInfo.executeUpdate();
+            conn.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -109,6 +112,7 @@ public class UserDao implements Dao {
                 user.put("dateofbirth", rs.getDate("date_of_birth"));
                 user.put("adminpriv", rs.getInt("admin_priv"));
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -70,6 +70,7 @@ public class FlightDao implements Dao {
             statement1.setString(6, arrival_time);
 
             statement1.executeUpdate();
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,7 +101,7 @@ public class FlightDao implements Dao {
             statement2.setString(4, class_flight_fk);
 
             statement2.executeUpdate();
-
+            conn.close();
         }
 
         catch (SQLException e) {

@@ -87,7 +87,7 @@ public class AdminSite extends HttpServlet {
             }
 
 
-
+            conn.close();
         } catch (SQLException e)
         {
             e.printStackTrace();
