@@ -18,7 +18,7 @@ public class GeneratePassword extends Email{
                 + "abcdefghijklmnopqrstuvxyz";
 
         StringBuilder sbr = new StringBuilder(8);
-        for (int i = 0; i <8; i++) {
+        for (int i = 0; i <8; i++) { //Loops over the alphaNumericString and creates a random 8-char random String.
             int index = (int) (alphaNumericString.length() * Math.random());
             sbr.append(alphaNumericString.charAt(index));
         }
@@ -37,6 +37,7 @@ public class GeneratePassword extends Email{
          String subject = "Password Reset";
          String content = "The new password for your user on Viking Airways is " + tmppass;
 
-         super.sendEmail(recipient, subject, content);
+         super.sendEmail(recipient, subject, content); //Initiate the sendEmail method from the Email-superclass, and
+        //sends the email.
     }
 }
