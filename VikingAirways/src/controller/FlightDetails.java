@@ -72,7 +72,7 @@ public class FlightDetails extends HttpServlet {
                 out.println("<body>");
                 out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
                 out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
-               // out.println("<tr>");
+                // out.println("<tr>");
                 out.println("<div class=\"jumbotron text-center\" >");
                 out.println("<h1>Selected Flight</h1><br></div>");
                 out.println("<div class=\"container text-center\" >");

@@ -21,19 +21,6 @@ public class FlightDao implements Dao {
         return null;
     }
 
-    @Override
-    public void create(Object o) {
-    }
-
-    @Override
-    public void update(Object o) {
-
-    }
-
-    @Override
-    public void delete(Object o) {
-
-    }
 
     public void deleteFlight(String selectedFlight) {
 

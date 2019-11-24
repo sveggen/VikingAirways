@@ -6,13 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDao implements Dao {
 
     DBConnect dbconnect = new DBConnect();
-
 
     @Override
     public Optional get(long id) {
@@ -24,36 +24,26 @@ public class UserDao implements Dao {
         return null;
     }
 
-    @Override
-    public void create(Object o) { }
 
-    @Override
-    public void update(Object o) { }
+    public boolean checkUserExistence(String email, String password) {
+        boolean userExistence = false;
 
+        try {
+            Connection conn = dbconnect.connectToDB();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email=? AND registered_user_password=?");
 
-    @Override
-    public void delete(Object o) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            userExistence = rs.next();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userExistence;
     }
 
-
-    public boolean checkUserExistence(String email, String password){
-            boolean userExistence = false;
-
-            try{
-                Connection conn = dbconnect.connectToDB();
-                PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email=? AND registered_user_password=?");
-
-                ps.setString(1, email);
-                ps.setString(2, password);
-                ResultSet rs = ps.executeQuery();
-                userExistence = rs.next();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return userExistence;
-        }
-    public boolean checkEmailExistence(String email){
+    public boolean checkEmailExistence(String email) {
         boolean emailExistence = false;
         try {
             Connection conn = dbconnect.connectToDB();
@@ -99,10 +89,30 @@ public class UserDao implements Dao {
             insertUserInfo.setString(4, Password);
             insertUserInfo.setString(5, Email);
             insertUserInfo.executeUpdate();
-            System.out.println("Ny bruker opprettet");
         } catch (SQLException ex) {
-            System.out.println("Ny bruker kunne ikke opprettes");
+            ex.printStackTrace();
         }
     }
-}
+
+    public HashMap<String, Object> getPersonalData(String email) {
+        HashMap<String, Object> user = new HashMap<>();
+        try {
+            Connection conn = dbconnect.connectToDB();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM RegisteredUser WHERE email =?");
+
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user.put("userid", rs.getInt("registered_user_id"));
+                user.put("firstname", rs.getString("first_name"));
+                user.put("lastname", rs.getString("last_name"));
+                user.put("dateofbirth", rs.getDate("date_of_birth"));
+                user.put("adminpriv", rs.getInt("admin_priv"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+    }
 

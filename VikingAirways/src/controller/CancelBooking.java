@@ -5,17 +5,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;import DBConnection.DBConnect;
-import dao.BookingDao;
-import dao.MultipleTablesDao;
+import java.io.IOException;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import dao.BookingDao;
 
 @WebServlet(name = "CancelBooking")
 public class CancelBooking extends HttpServlet {
-    protected void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    BookingDao bookingDao = new BookingDao();
+
+    private void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String booking_number = request.getParameter("booking_number");
         String customer_id = request.getParameter("customer_id");
@@ -23,7 +21,6 @@ public class CancelBooking extends HttpServlet {
 
         if (hasPass != null) {
             try {
-                BookingDao bookingDao = new BookingDao();
                 bookingDao.deleteBooking(booking_number);
             }
             catch (Exception e) {
@@ -33,8 +30,7 @@ public class CancelBooking extends HttpServlet {
         }
         else{
             try {
-                MultipleTablesDao multipleTablesDao = new MultipleTablesDao();
-                multipleTablesDao.deleteBooking(booking_number, customer_id);
+                bookingDao.deleteBookingandCustomerID(booking_number, customer_id);
             }
             catch (Exception e) {
                 e.printStackTrace();
