@@ -20,7 +20,8 @@ import java.util.*;
 public class AdminSite extends HttpServlet {
 
     /**
-     *
+     * The servlet for the admin site. Displays two tables: list of flights and list of classes
+     * directly from the database.
      * @param request Defines an object to provide client request information to a servlet.
      * @param response Defines an object to assist a servlet in sending a response to the client.
      */
