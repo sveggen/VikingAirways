@@ -1,12 +1,20 @@
 package controller;
 
 import dao.UserDao;
-import model.UserData;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.HashMap;
+
+/**
+ * This servlet handles the input from the login.jsp, and creates a session for a user,
+ * after the user has typed in their credentials.
+ *
+ * @author Markus Sveggen
+ * @version 3.11.2019
+ */
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
@@ -19,18 +27,18 @@ public class Login extends HttpServlet {
         UserDao userDao = new UserDao();
 
         try {
+
             if (userDao.checkUserExistence(email, password)) {
-                UserData ud = new UserData();
-                ud.getPersonalData(email);
+                HashMap<String, Object> kv = userDao.getPersonalData(email);
 
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("password", password);
-                session.setAttribute("firstname", ud.getFirstname());
-                session.setAttribute("lastname", ud.getLastname());
-                session.setAttribute("userID", ud.getUserID());
-                session.setAttribute("dateOfBirth", ud.getDateOfBirth());
-                session.setAttribute("adminPriv", ud.getAdminPriv());
+                session.setAttribute("firstname", kv.get("firstname"));
+                session.setAttribute("lastname", kv.get("lastname"));
+                session.setAttribute("userID", kv.get("userid"));
+                session.setAttribute("dateOfBirth", kv.get("dateofbirth"));
+                session.setAttribute("adminPriv", kv.get("adminpriv"));
 
                 response.sendRedirect("profile.jsp");
             } else {

@@ -23061,115 +23061,95 @@ VARIABLE_NAME</ColNames>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4239" parent="633" name="account_created">
-      <Position>6</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="4240" parent="633" name="customer_password">
-      <Position>7</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="4241" parent="633" name="loyalty_points">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="4242" parent="633" name="admin_priv">
-      <Position>9</Position>
-      <DataType>tinyint(4)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="4243" parent="633" name="PRIMARY">
+    <key id="4239" parent="633" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>customer_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="4244" parent="634" name="flight_number">
+    <column id="4240" parent="634" name="flight_number">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4245" parent="634" name="departure_airport">
+    <column id="4241" parent="634" name="departure_airport">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4246" parent="634" name="arrival_airport">
+    <column id="4242" parent="634" name="arrival_airport">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4247" parent="634" name="departure_date">
+    <column id="4243" parent="634" name="departure_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4248" parent="634" name="departure_time">
+    <column id="4244" parent="634" name="departure_time">
       <Position>5</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4249" parent="634" name="arrival_time">
+    <column id="4245" parent="634" name="arrival_time">
       <Position>6</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="4250" parent="634" name="PRIMARY">
+    <key id="4246" parent="634" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>flight_number</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="4251" parent="635" name="registered_user_id">
+    <column id="4247" parent="635" name="registered_user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4252" parent="635" name="first_name">
+    <column id="4248" parent="635" name="first_name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4253" parent="635" name="last_name">
+    <column id="4249" parent="635" name="last_name">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4254" parent="635" name="email">
+    <column id="4250" parent="635" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4255" parent="635" name="date_of_birth">
+    <column id="4251" parent="635" name="date_of_birth">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4256" parent="635" name="account_created">
+    <column id="4252" parent="635" name="registered_user_password">
       <Position>6</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="4257" parent="635" name="registered_user_password">
-      <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="4258" parent="635" name="admin_priv">
+    <column id="4253" parent="635" name="admin_priv">
+      <Position>7</Position>
+      <DataType>tinyint(4)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="4254" parent="635" name="account_created">
       <Position>8</Position>
       <DataType>tinyint(4)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="4259" parent="635" name="PRIMARY">
+    <key id="4255" parent="635" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>registered_user_id</ColNames>
       <Primary>1</Primary>
