@@ -66,7 +66,7 @@ public class CompleteBooking extends HttpServlet {
                 insertCustomerInfo.executeUpdate();
 
                 try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
-                    retrieveClassID.setString(1, "Economy");
+                    retrieveClassID.setString(1, cookieHash.get("class"));
                     retrieveClassID.setString(2, cookieHash.get("flightnumber"));
                     ResultSet classRS = retrieveClassID.executeQuery();
 
