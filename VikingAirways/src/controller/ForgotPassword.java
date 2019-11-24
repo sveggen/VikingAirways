@@ -1,7 +1,6 @@
 package controller;
 
 import dao.UserDao;
-import model.Email;
 import model.GeneratePassword;
 
 import javax.servlet.ServletException;
@@ -33,12 +32,9 @@ public class ForgotPassword extends HttpServlet {
             if (userDao.checkEmailExistence(email)){
                 userDao.changePassword(tmppass, email);
 
-                Email em = new Email();
-                String recipient = email;
-                String subject = "Password Reset";
-                String content = "The new password for your user on Viking Airways is " + tmppass;
+                GeneratePassword gp = new GeneratePassword();
+                gp.sendEmail(email);
 
-                em.sendEmail(recipient, subject, content);
                 request.setAttribute("successMessage", "Password was succesfully reset, please check your mail inbox.");
             }else{
                 request.setAttribute("errorMessage", "Password was not reset. Email does not exist.");

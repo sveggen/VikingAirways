@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
 
 public class UserData {
 
@@ -67,7 +68,7 @@ public class UserData {
 
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
-
+            HashMap <String, String> user = new HashMap<>();
             while(rs.next()) {
                 setUserID(rs.getInt("registered_user_id"));
                 setFirstname(rs.getString("first_name"));

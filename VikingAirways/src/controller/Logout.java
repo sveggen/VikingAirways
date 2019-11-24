@@ -9,8 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
+ * This servlet handles the input from the logout.jsp, and terminates the session of a logged in user.
  *
  * @author Markus Sveggen
  * @version 23.11.2019
@@ -18,6 +17,14 @@ import java.io.IOException;
 
 @WebServlet(name = "Logout", urlPatterns = {"/Logout"})
 public class Logout extends HttpServlet {
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String logout = request.getRequestURI();

@@ -5,16 +5,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
+ * This class extends the Email-class, and sends an email with booking information to a customer.
  *
  * @author Markus Sveggen
  * @version 23.11.2019
  */
 
+public class BookingNumberEmail extends Email{
 
-public class BookingNumberEmail {
-    public static void sendEmail(Connection conn, String bookingNumber)  {
+    protected String recipient;
+    protected String subject;
+    protected String content;
+
+    /**
+     * This method sends an email to the customer with booking information.
+     *
+     * @param conn             connection to the database
+     * @param bookingNumber    the customers bookingnumber
+     */
+    public void sendEmail(Connection conn, String bookingNumber)  {
+
             String strSelect = "SELECT * FROM Customer, Flight, Booking WHERE Booking.customer_id_fk = Customer.customer_id " +
                     "AND Booking.flight_number_fk = Flight.flight_number AND Booking.booking_number= "+bookingNumber;
 
@@ -31,9 +41,9 @@ public class BookingNumberEmail {
                     String departure_date = rset.getString("departure_date");
 
                     //Creates variables to be used when sending an email.
-                    String recipient = rset.getString("email");
-                    String subject = "Booking confirmation";
-                    String content = "Hello " + firstName + " " + lastName + ". <br>" +
+                    recipient = rset.getString("email");
+                    subject = "Booking confirmation";
+                    content = "Hello " + firstName + " " + lastName + ". <br>" +
                             "Your bookingnumber is " + bookingNumber + ", for your flight from " + departureAirport +
                             " to " + arrivalAirport + " on the "+ departure_date + "."+"<br><br>" +
                             "Have a nice flight! <br>" +
@@ -41,9 +51,7 @@ public class BookingNumberEmail {
                             "NO-4635 Kristiansand, Norway <br>" +
                             "Tel. +47 38 04 55 38 <br>";
 
-                    //Creates an email object and sends the email to the recipient.
-                    Email email = new Email();
-                    email.sendEmail(recipient, subject, content);
+                    super.sendEmail(recipient, subject, content);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

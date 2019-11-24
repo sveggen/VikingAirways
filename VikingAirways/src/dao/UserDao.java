@@ -6,13 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDao implements Dao {
 
     DBConnect dbconnect = new DBConnect();
-
 
     @Override
     public Optional get(long id) {
@@ -22,17 +22,6 @@ public class UserDao implements Dao {
     @Override
     public List getAll() {
         return null;
-    }
-
-    @Override
-    public void create(Object o) { }
-
-    @Override
-    public void update(Object o) { }
-
-
-    @Override
-    public void delete(Object o) {
     }
 
 
@@ -99,10 +88,11 @@ public class UserDao implements Dao {
             insertUserInfo.setString(4, Password);
             insertUserInfo.setString(5, Email);
             insertUserInfo.executeUpdate();
-            System.out.println("Ny bruker opprettet");
         } catch (SQLException ex) {
-            System.out.println("Ny bruker kunne ikke opprettes");
+            ex.printStackTrace();
         }
     }
+
+
 }
 

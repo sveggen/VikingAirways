@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
+ * This servlet handles the input from register.jsp, and adds a new user to the database.
  *
  * @author Markus Sveggen
  * @version 23.11.2019

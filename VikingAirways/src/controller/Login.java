@@ -1,7 +1,6 @@
 package controller;
 
 import dao.UserDao;
-import model.User;
 import model.UserData;
 
 import javax.servlet.*;
@@ -10,11 +9,11 @@ import javax.servlet.http.*;
 import java.io.*;
 
 /**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
+ * This servlet handles the input from the login.jsp, and creates a session for a user,
+ * after the user has typed in their credentials.
  *
  * @author Markus Sveggen
- * @version 23.11.2019
+ * @version 3.11.2019
  */
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})

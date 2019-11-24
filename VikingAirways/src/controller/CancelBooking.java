@@ -13,7 +13,7 @@ import dao.BookingDao;
 public class CancelBooking extends HttpServlet {
     BookingDao bookingDao = new BookingDao();
 
-    protected void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String booking_number = request.getParameter("booking_number");
         String customer_id = request.getParameter("customer_id");
