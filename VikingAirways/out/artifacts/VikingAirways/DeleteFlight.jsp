@@ -16,6 +16,8 @@
     <div style="padding : 10px;">
         <form action="DeleteFlight" method="post">
             <div class="text-center">
+                <div style="color: #008f11;">${flightDeleted}</div><br>
+                <div style="color: #FF0000;">${flightNotDeleted}</div><br>
             <h5>Enter the correct flightnumber to remove a flight.</h5>
             <br>
             <h5>If you want to delete a flight with bookings, you have to remove the bookings first.</h5>
