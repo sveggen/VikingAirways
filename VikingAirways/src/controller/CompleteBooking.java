@@ -25,6 +25,16 @@ public class CompleteBooking extends HttpServlet {
     private String bookingnumber = null; //The customers booking number.
     private String classID = null; //The class ID.
 
+
+    /** This method handles all the DB operations, when the booking is completed.
+     * The method starts a transaction and commits the transaction if all the
+     * booking details are correct.
+     *
+     * @param request Request object received from user, currently payment.jsp
+     * @param response Response object sent back to the user.
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //Connects to the DB.
@@ -90,7 +100,7 @@ public class CompleteBooking extends HttpServlet {
                         insertBookingInfo.setString(8, classID);
 
                         //Checks if the customer is logged in with a user. If that is the case, the User is
-                        //added as a FK to the booking table.
+                        //added as a FK to the booking table in the DB.
                         HttpSession session = request.getSession();
                         if (session.getAttribute("userID") != null) {
                             insertBookingInfo.setInt(9, (Integer) session.getAttribute("userID"));
@@ -120,13 +130,15 @@ public class CompleteBooking extends HttpServlet {
                         bn.sendEmail(conn, bookingnumber);
                         conn.close();
 
-                        //Iterates over all the 
+                        //Iterates over all the cookies in the HM and if the cookie is not the Session-object
+                        // it gets deleted and passes to the response.
                         for (Cookie cookie : cookies) {
                             if (!cookie.getName().equals("JSESSIONID")) {
                                 cookie.setMaxAge(0);
                                 response.addCookie(cookie);
                             }
                         }
+                                //Redirects to the confirmation page if transaction was successfull.
                                 RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
                                 rd.forward(request, response);
                     }
@@ -135,12 +147,12 @@ public class CompleteBooking extends HttpServlet {
             //Rollback if error occurs
             catch (SQLException e) {
                 e.printStackTrace();
-                System.out.println("Transaction did not commit");
                 conn.rollback();
                 conn.close();
             }
             //Sends an email to the customer with the correct booking number.
         } catch (Exception e) {
+            //Redirects to the failed page if transaction was unsuccessful.
             response.sendRedirect("bookingFailed.jsp");
             e.printStackTrace();
         }
