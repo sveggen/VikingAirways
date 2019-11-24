@@ -45,6 +45,7 @@ public class CompleteBooking extends HttpServlet {
         try {
             //Creates a HashMap
             HashMap<String, String> cookieHash = new HashMap<>();
+
             //Retrieves cookies and adds them to an Array
             Cookie[] cookies = request.getCookies();
 
