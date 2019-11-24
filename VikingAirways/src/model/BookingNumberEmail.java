@@ -45,7 +45,7 @@ public class BookingNumberEmail extends Email{
                     subject = "Booking confirmation";
                     content = "Hello " + firstName + " " + lastName + ". <br>" +
                             "Your bookingnumber is " + bookingNumber + ", for your flight from " + departureAirport +
-                            " to " + arrivalAirport + " on the "+ departure_date + "."+"<br><br>" +
+                            " to " + arrivalAirport + " on the "+ departure_date + "."+"<br>" + "You can retrieve your boarding pass <a href=\"http://localhost:8080/VikingAirways/checkIn.jsp\">here.</a><br><br>" +
                             "Have a nice flight! <br>" +
                             "<b>Viking Airways</b> <br>" +
                             "NO-4635 Kristiansand, Norway <br>" +

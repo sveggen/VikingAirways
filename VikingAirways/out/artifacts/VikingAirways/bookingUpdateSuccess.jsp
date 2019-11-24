@@ -12,6 +12,5 @@
 <h3 class="text-center">Your booking has been successfully updated with the details you provided.</h3>
 <p class="text-center">To see the updated information, please click "My Booking" on the navigation bar at the top left corner and enter your booking number.</p>
 <br/><br/><br/>
-<p class="text-center">For debugging: ${rowsUpdated} rows were updated in the database.</p>
 </body>
 </html>
