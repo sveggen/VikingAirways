@@ -13,6 +13,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This servlet
+ */
+
 @WebServlet(name = "CancelBooking")
 public class CancelBooking extends HttpServlet {
     protected void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +32,6 @@ public class CancelBooking extends HttpServlet {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                //legg til failmessage
             }
         }
         else{
@@ -38,7 +41,6 @@ public class CancelBooking extends HttpServlet {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                //legg til failmessage
             }
         }
     }

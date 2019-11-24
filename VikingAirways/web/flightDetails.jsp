@@ -13,7 +13,8 @@
 <head>
     <title>Viking Airways - Cheap flights with comfort</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="stylesheets/globalStyle.css">-->
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script defer src="scripts/searchFilter.js"></script>
     <style>
         form {
             margin: auto;
@@ -22,6 +23,9 @@
             padding: 10px;
             border: 1px solid black;
             border-collapse: collapse;
+        }
+        table{
+            max-width: 600px;
         }
     </style>
 </head>
@@ -47,13 +51,9 @@
     </ul>
 </nav>
 
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="jumbotron text-center" >
     <h1>Selected Flight</h1><br></div>
-</body>
 <div class="text-center">
-    <form action="FlightDetails" method="get">
         <table align="center" class="table table-bordered">
             <thead>
             <tr>
@@ -67,46 +67,49 @@
             </thead>
             <tbody>
             <tr>
-                <TD align="center"><A HREF="flightDetails.jsp">
-                </A></tr>
-
-            <c:forEach items="${flight}" var="flight" varStatus="myIndex">
+                <TD align="center">
+            </tr>
                 <tr>
                     <td>${flight}</td>
-                    <td>${ddate[myIndex.index]}</td>
-                    <td>${dept[myIndex.index]}</td>
-                    <td>${arra[myIndex.index]}</td>
-                    <td>${depa[myIndex.index]}</td>
-                    <td>${arrt[myIndex.index]}</td>
+                    <td>${ddate}</td>
+                    <td>${dept}</td>
+                    <td>${arra}</td>
+                    <td>${depa}</td>
+                    <td>${arrt}</td>
                 </tr>
-            </c:forEach>
             </tbody>
         </table>
-    </form>
 </div>
-
+<br><br>
 <div class="text-center">
-        <table align="center">
+    <form action="optionalServices.jsp" id="flightForm" method="post">
+        <table align="center" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Class type</th>
                     <th>Class capacity</th>
                     <th>Class price</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <TD align="center"><A HREF="adminSite.jsp">
-                    </A>
+                    <TD align="center">
                 </tr>
-                <c:forEach items="${ctype}" var="ctype" varStatus="myIndex2">
-                    <tr>
-                        <td>${ctype[myIndex2.index]}</td>
-                        <td>${ccap[myIndex2.index]}</td>
-                        <td>${cprice[myIndex2.index]}</td>
-                    </tr>
+                <c:forEach items="${ctype}" var="ctype" varStatus="myIndex">
+                        <tr>
+                            <td>${ctype}</td>
+                            <td>${ccap[myIndex.index]}</td>
+                            <td>${cprice[myIndex.index]}</td>
+                            <td><button name="SelectedClass" id="${myIndex.index}btn" class="btn btn-success">Select</button></td>
+                        </tr>
                 </c:forEach>
                 </tbody>
             </table>
-        </div>
+        </form>
+    </div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>
