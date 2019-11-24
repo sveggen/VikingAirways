@@ -54,9 +54,7 @@ public class Summary extends HttpServlet {
             String arrTime = cookieHash.get("arrivaltime");
             request.setAttribute("arrTime", arrTime);
 
-        System.out.println(depAirport + depDate);
-
-
+            System.out.println(depAirport + depDate);
 
             RequestDispatcher req = request.getRequestDispatcher("summary.jsp");
             req.forward(request, response);
