@@ -54,15 +54,14 @@
     <input type="text" name="LastName" required placeholder="Doe"><br>
 
     Email Address:<br>
-    <input type="text" name="Email" required placeholder="john@doe.com"><br>
+    <input type="text" name="Email" value="sks"><br>
+
     Date of Birth:<br>
-    <input type="date" name="DateofBirth" required placeholder="14-03-1980"><br>
+    <input type="date" name="DateofBirth" required placeholder="14-03-1980"><br><br>
 <div class="text-center">
-    <a class="nav-link" href="/VikingAirways/login.jsp">Log In </a>
-    <a class="nav-link" href="/VikingAirways/register.jsp">Register a new account</a>
-    </a>
+    <a class="nav-link" href="/VikingAirways/login.jsp">Log In or Create a new account</a>
 </div>
-    <input type="submit" value="Continue as a guest" class="btn-success">
+    <input type="submit" value="Continue" class="btn-success">
 
 
 

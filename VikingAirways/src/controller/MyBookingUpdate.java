@@ -14,26 +14,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * This class is responsible for updating the database with the data the user has entered.
- * It takes all input from myBooking.jsp, puts them into a SQL statement and runs it on
- * the database, then forwards the user to bookingUpdateSuccess.jsp
- *
- * @author Jorgen Lindbol
- * @version 24.11.2019
- */
 @WebServlet(name = "MyBookingUpdate", urlPatterns = {"/MyBookingUpdate"})
 public class MyBookingUpdate extends HttpServlet {
-
-    /**
-     * Responsible for updating the dabatase with the new information entered
-     * by the user.
-     *
-     * @param request A request object from the Servlet calling this method
-     * @param response A response object from the Servlet calling this method
-     * @throws ServletException Thrown if exceptions related to calling the servlet occur
-     * @throws IOException Thrown if an I/O exception of some sort has occurred
-     */
     protected void updateBooking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Cookie[] cookies = request.getCookies();
@@ -95,29 +77,12 @@ public class MyBookingUpdate extends HttpServlet {
 
     }
 
-    /**
-     * Standard servlet Get method called if specified in connecting Form.
-     * Not currently used in this project.
-     *
-     * @param request Request object received from user
-     * @param response Response object returned to user
-     * @throws ServletException Thrown if exceptions related to calling the servlet occur
-     * @throws IOException Thrown if an I/O exception of some sort has occurred
-     */
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         updateBooking(request, response);
     }
 
-    /**
-     * Standard servlet Post method called if specified in connecting Form.
-     * In this system, currently this is called from myBooking.jsp.
-     *
-     * @param request Request object received from user
-     * @param response Response object returned to user
-     * @throws ServletException Thrown if exceptions related to calling the servlet occur
-     * @throws IOException Thrown if an I/O exception of some sort has occurred
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         updateBooking(request, response);

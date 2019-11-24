@@ -1,6 +1,7 @@
 package controller;
 
 import dao.UserDao;
+import model.Email;
 import model.GeneratePassword;
 
 import javax.servlet.ServletException;
@@ -9,14 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-/**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
- *
- * @author Markus Sveggen
- * @version 23.11.2019
- */
 
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
@@ -27,14 +20,16 @@ public class ForgotPassword extends HttpServlet {
         String tmppass = GeneratePassword.generateTempPass();
 
         UserDao userDao = new UserDao();
-
         try{
             if (userDao.checkEmailExistence(email)){
                 userDao.changePassword(tmppass, email);
 
-                GeneratePassword gp = new GeneratePassword();
-                gp.sendEmail(email);
+                Email em = new Email();
+                String recipient = email;
+                String subject = "Password Reset";
+                String content = "Your new password is " + tmppass;
 
+                em.sendEmail(recipient, subject, content);
                 request.setAttribute("successMessage", "Password was succesfully reset, please check your mail inbox.");
             }else{
                 request.setAttribute("errorMessage", "Password was not reset. Email does not exist.");
@@ -42,7 +37,6 @@ public class ForgotPassword extends HttpServlet {
             request.getRequestDispatcher("/forgotPassword.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("emailCatch", "Email-server error. Email could not be sent.");
         }
     }
 

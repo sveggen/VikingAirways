@@ -2,19 +2,8 @@ package model;
 
 import java.io.PrintWriter;
 
-/**
- * This class prints out the navigation bar for servlets that don't use JSP
- *
- * @author Jørgen Lindbøl
- * @version 24.11.2019
- */
 public class Navbar {
 
-    /**
-     * Prints out the navigation bar through the provided PrintWriter
-     *
-     * @param out The PrintWriter to be used for printing out the navigation bar
-     */
     public static void loadNavBar(PrintWriter out) {
         out.println("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">");
         out.println("  <ul class=\"navbar-nav mr-auto\">");

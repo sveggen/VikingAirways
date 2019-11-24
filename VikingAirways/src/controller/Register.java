@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
-/**
- * This servlet handles the input from register.jsp, and adds a new user to the database.
- *
- * @author Markus Sveggen
- * @version 23.11.2019
- */
 
 @WebServlet(name = "Register", urlPatterns = {"/Register"})
 public class Register extends HttpServlet {

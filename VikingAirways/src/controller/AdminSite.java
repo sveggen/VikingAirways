@@ -48,6 +48,11 @@ public class AdminSite extends HttpServlet {
         List cprice = new ArrayList();
         List fk_flightnumber = new ArrayList();
 
+
+        //Loads the Navbar to create the navigation bar
+        Navbar.loadNavBar(out);
+
+
         //oppretter connection med database
         Connection conn;
         DBConnect dbconnect = new DBConnect();
@@ -57,9 +62,11 @@ public class AdminSite extends HttpServlet {
         String strSelect1 = "SELECT * FROM Flight";
         String strSelect2 = "SELECT class_flight_fk, class_type, class_capacity, class_price FROM Class";
 
+
         //Contains the info from the database
         Statement stmnt1;
         Statement stmnt2;
+
 
         try {
             //Creates variables for the result
@@ -67,6 +74,7 @@ public class AdminSite extends HttpServlet {
             stmnt2 = conn.createStatement();
             ResultSet rset1 = stmnt1.executeQuery(strSelect1);
             ResultSet rset2 = stmnt2.executeQuery(strSelect2);
+
 
             //creates a while loop to iterate each row in the table "Flight"
             while (rset1.next()) {
@@ -76,6 +84,8 @@ public class AdminSite extends HttpServlet {
                 aairport.add(rset1.getString("arrival_airport"));
                 dairport.add(rset1.getString("departure_airport"));
                 atime.add(rset1.getString("arrival_time"));
+
+
             }
 
             //creates a while loop to iterate each row in the table "Class"
@@ -84,12 +94,13 @@ public class AdminSite extends HttpServlet {
                 ccap.add(rset2.getInt("class_capacity"));
                 cprice.add(rset2.getInt("class_price"));
                 fk_flightnumber.add(rset2.getInt("class_flight_fk"));
+
+
             }
 
 
-            conn.close();
-        } catch (SQLException e)
-        {
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -107,6 +118,6 @@ public class AdminSite extends HttpServlet {
 
         //Connects the AdminSite servlet to the adminSite jsp.
         request.getRequestDispatcher("/adminSite.jsp").forward(request, response);
-        }
     }
+}
 

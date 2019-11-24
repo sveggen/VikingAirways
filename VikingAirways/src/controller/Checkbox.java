@@ -16,7 +16,7 @@ public class Checkbox extends HttpServlet {
         ArrayList<String> yesArrayList = new ArrayList<>();
         ArrayList<String> noArrayList = new ArrayList<>();
 
-        // gets values of text fields, 1 if checked and 0 if not checked
+        // gets values of text fields
         String Extra_Luggage = request.getParameter("Checked_in_luggage");
         if(Extra_Luggage==null) {
             noArrayList.add("extraluggage");
@@ -68,7 +68,7 @@ public class Checkbox extends HttpServlet {
             k++;
         }
 
-        RequestDispatcher req = request.getRequestDispatcher("Summary");
+        RequestDispatcher req = request.getRequestDispatcher("personalinfo.jsp");
         req.forward(request, response);
     }
 
