@@ -16,7 +16,7 @@ public class Checkbox extends HttpServlet {
         ArrayList<String> yesArrayList = new ArrayList<>();
         ArrayList<String> noArrayList = new ArrayList<>();
 
-        // gets values of text fields
+        // gets values of text fields, 1 if checked and 0 if not checked
         String Extra_Luggage = request.getParameter("Checked_in_luggage");
         if(Extra_Luggage==null) {
             noArrayList.add("extraluggage");
