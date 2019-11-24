@@ -49,6 +49,7 @@ public class FlightDetails extends HttpServlet {
 
         Navbar.loadNavBar(out);
 
+        //kobler til databasen og henter ut nødvendig informasjon
         Connection conn;
         DBConnect dbconnect = new DBConnect();
         conn = dbconnect.connectToDB();
@@ -75,6 +76,7 @@ public class FlightDetails extends HttpServlet {
                 arrivalTime = arrivalTime.substring(0, arrivalTime.length() - 3);
                 timeOfDeparture = timeOfDeparture.substring(0, timeOfDeparture.length() - 3);
 
+                //legger til cookies
                 String[] nameArray = new String[] {"flightnumber", "dateofdeparture", "timeofdeparture", "destinationAirport", "departureairport", "arrivaltime"};
                 String[] valueArray = new String[] {flightnumber, dateOfDeparture, timeOfDeparture, destinationAirport, departureAirport, arrivalTime};
 
@@ -85,6 +87,8 @@ public class FlightDetails extends HttpServlet {
                     response.addCookie(newCookie);
                     i++;
                 }
+
+                //skriver ut detaljert informasjon om flyvningen øverst
                 out.println("<body>");
                 out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
                 out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
@@ -116,6 +120,7 @@ public class FlightDetails extends HttpServlet {
             rset.close();
             ResultSet classRset = stmnt.executeQuery(classesForFlight);
             int c = 1;
+            //skriver ut tabellen med klasse, pris og seter
             while(classRset.next()) {
                 String classType = classRset.getString("class_type");
                 String classCapacity = classRset.getString("class_capacity");
