@@ -44,19 +44,19 @@ public class FlightDetails extends HttpServlet {
         DBConnect dbconnect = new DBConnect();
         conn = dbconnect.connectToDB();
 
-        Statement stmnt;
-        Statement stmnt2;
-
         //Defines what to get from the database
         String strSelect = "SELECT * FROM Flight WHERE flight_number = " + selectedFlight;
         String strSelect2 = "SELECT * FROM Class WHERE class_flight_fk = " + selectedFlight;
+
+        Statement stmnt;
+        Statement stmnt2;
 
         try {
             stmnt = conn.createStatement();
             stmnt2 = conn.createStatement();
 
             ResultSet rset = stmnt.executeQuery(strSelect);
-            ResultSet rset2 = stmnt.executeQuery(strSelect2);
+            ResultSet rset2 = stmnt2.executeQuery(strSelect2);
 
 
             //creates a while loop to iterate each row in the table "??"
@@ -67,23 +67,14 @@ public class FlightDetails extends HttpServlet {
                 arra.add(rset.getString("arrival_airport"));
                 depa.add(rset.getString("departure_airport"));
                 arrt.add(rset.getString("arrival_time"));
-                /*
-                (fnum)flightnumber = rset.getString("flight_number");
-                (ddate)String dateOfDeparture = rset.getString("departure_date");
-                (dept)String timeOfDeparture = rset.getString("departure_time");
-                (arra)String destinationAirport = rset.getString("arrival_airport");
-                (depa)String departureAirport = rset.getString("departure_airport");
-                (arrt)String arrivalTime = rset.getString("arrival_time");
- */
-            }
 
+            }
 
             while (rset2.next()){
                 ctype.add(rset2.getString("class_type"));
                 ccap.add(rset2.getInt("class_capacity"));
                 cprice.add(rset2.getInt("class_price"));
             }
-
 
             //Connects the AdminSite servlet to the adminSite jsp.
             request.getRequestDispatcher("/flightDetails.jsp").forward(request, response);

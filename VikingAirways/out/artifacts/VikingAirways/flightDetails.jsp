@@ -83,6 +83,29 @@
             </tbody>
         </table>
     </form>
-
 </div>
+
+<div class="text-center">
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Class type</th>
+                    <th>Class capacity</th>
+                    <th>Class price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <TD align="center"><A HREF="adminSite.jsp">
+                    </A></tr>
+                <c:forEach items="${ctype}" var="ctype" varStatus="myIndex">
+                    <tr>
+                        <td>${ctype[myIndex.index]}</td>
+                        <td>${ccap[myIndex.index]}</td>
+                        <td>${cprice[myIndex.index]}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
 </html>
