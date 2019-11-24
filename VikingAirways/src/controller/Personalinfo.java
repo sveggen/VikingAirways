@@ -13,12 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "/Personalinfo", urlPatterns = {"/Personalinfo"})
 public class Personalinfo extends HttpServlet {
     protected void personalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         // gets values of text fields
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
         String email = request.getParameter("Email");
         String dateofBirth = request.getParameter("DateofBirth");
 
+        //Creates arrays to use for the cookies
         String[] nameArray = new String[] {"firstname", "lastname", "email", "dateofBirth"};
         String[] valueArray = new String[] {firstName, lastName, email, dateofBirth};
 
