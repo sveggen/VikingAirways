@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Data Access Object for all flight related operations -
+ * can be used by other classes to send queries to the DB.
+ */
 public class FlightDao implements Dao {
     private DBConnect dbconnect = new DBConnect();
 
@@ -21,6 +25,10 @@ public class FlightDao implements Dao {
         return null;
     }
 
+    /** Deletes a flight from the Db.
+     *
+     * @param selectedFlight    The flight which should be deleted.
+     */
     public void deleteFlight(String selectedFlight) {
 
         Connection conn = dbconnect.connectToDB();
