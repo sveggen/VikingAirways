@@ -15,43 +15,96 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.*;
+
 
 @WebServlet(name = "FlightDetails", urlPatterns = {"/FlightDetails"})
 
 public class FlightDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        /*PrintWriter out = response.getWriter();
 
         String selectedFlight = request.getParameter("selectedFlight");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js\"></script>");
-        out.println("<script src=\"scripts/searchFilter.js\"></script>");
-        out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
-        out.println("<link rel=\"stylesheet\" href=\"stylesheets/globalStyle.css\">");
-        out.println("</head>");
 
-         */
+        //Creates arraylists for each of the database columns
+        List fnum = new ArrayList();
+        List ddate = new ArrayList();
+        List dept = new ArrayList();
+        List arra = new ArrayList();
+        List depa = new ArrayList();
+        List arrt = new ArrayList();
+        List ctype = new ArrayList();
+        List ccap = new ArrayList();
+        List cprice = new ArrayList();
 
-        Navbar.loadNavBar(out);
 
+
+        //Creates a connection with the database
         Connection conn;
         DBConnect dbconnect = new DBConnect();
         conn = dbconnect.connectToDB();
 
-        String strSelect = "SELECT * FROM Flight WHERE flight_number = "+ selectedFlight;
-        String classesForFlight = "SELECT * FROM Class WHERE class_flight_fk = " + selectedFlight;
-
         Statement stmnt;
+        Statement stmnt2;
+
+        //Defines what to get from the database
+        String strSelect = "SELECT * FROM Flight WHERE flight_number = " + selectedFlight;
+        String strSelect2 = "SELECT * FROM Class WHERE class_flight_fk = " + selectedFlight;
 
         try {
             stmnt = conn.createStatement();
-            ResultSet rset = stmnt.executeQuery(strSelect);
+            stmnt2 = conn.createStatement();
 
-            String flightnumber = null;
+            ResultSet rset = stmnt.executeQuery(strSelect);
+            ResultSet rset2 = stmnt.executeQuery(strSelect2);
+
+
+            //creates a while loop to iterate each row in the table "??"
+            while (rset.next()) {
+                fnum.add(rset.getInt("flight_number"));
+                ddate.add(rset.getString("departure_date"));
+                dept.add(rset.getString("departure_time"));
+                arra.add(rset.getString("arrival_airport"));
+                depa.add(rset.getString("departure_airport"));
+                arrt.add(rset.getString("arrival_time"));
+                /*
+                (fnum)flightnumber = rset.getString("flight_number");
+                (ddate)String dateOfDeparture = rset.getString("departure_date");
+                (dept)String timeOfDeparture = rset.getString("departure_time");
+                (arra)String destinationAirport = rset.getString("arrival_airport");
+                (depa)String departureAirport = rset.getString("departure_airport");
+                (arrt)String arrivalTime = rset.getString("arrival_time");
+ */
+            }
+
+
+            while (rset2.next()){
+                ctype.add(rset2.getString("class_type"));
+                ccap.add(rset2.getInt("class_capacity"));
+                cprice.add(rset2.getInt("class_price"));
+            }
+
+
+            //Connects the AdminSite servlet to the adminSite jsp.
+            request.getRequestDispatcher("/flightDetails.jsp").forward(request, response);
+
+        } catch (SQLException e) {
+            e.printStackTrace(/*"Error extracting data from database" +e*/);
+        }
+
+        //Creates an object of the arraylist for the .jsp to use
+        request.setAttribute("flight", fnum);
+        request.setAttribute("ddate", ddate);
+        request.setAttribute("dept", dept);
+        request.setAttribute("arra", arra);
+        request.setAttribute("depa", depa);
+        request.setAttribute("arrt", arrt);
+        request.setAttribute("ctype", ctype);
+        request.setAttribute("ccap", ccap);
+        request.setAttribute("cprice", cprice);
+    }
+}
+          /*
 
             if(rset.next()) {
                 flightnumber = rset.getString("flight_number");
@@ -125,12 +178,29 @@ public class FlightDetails extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
-        catch (SQLException ex) {
-            out.println("Error extracting data from database " +ex);
+    } catch (SQLException e) {
+            e.printStackTrace("Error extracting data from database " +e);
         }
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
+/*
+                (fnum)flightnumber = rset.getString("flight_number");
+                (ddate)String dateOfDeparture = rset.getString("departure_date");
+                (dept)String timeOfDeparture = rset.getString("departure_time");
+                (arra)String destinationAirport = rset.getString("arrival_airport");
+                (depa)String departureAirport = rset.getString("departure_airport");
+                (arrt)String arrivalTime = rset.getString("arrival_time");
+ */
+        /*PrintWriter out = response.getWriter();
 
-}
+        String selectedFlight = request.getParameter("selectedFlight");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js\"></script>");
+        out.println("<script src=\"scripts/searchFilter.js\"></script>");
+        out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
+        out.println("<link rel=\"stylesheet\" href=\"stylesheets/globalStyle.css\">");
+        out.println("</head>");
+
+         */
