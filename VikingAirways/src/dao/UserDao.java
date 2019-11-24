@@ -10,6 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Data Access Object for all user related operations -
+ * can be used by other classes to send queries to the DB.
+ */
 public class UserDao implements Dao {
 
     DBConnect dbconnect = new DBConnect();
@@ -25,6 +29,12 @@ public class UserDao implements Dao {
     }
 
 
+    /** Checks if input-email and-password corresponds to entries in the DB.
+     *
+     * @param email     Email to check existence of.
+     * @param password  Password to check existence of.
+     * @return boolean  true or false depending on if the account exists.
+     */
     public boolean checkUserExistence(String email, String password) {
         boolean userExistence = false;
 
@@ -43,6 +53,11 @@ public class UserDao implements Dao {
         return userExistence;
     }
 
+    /** Checks if the email currently exists in the User-table in the DB.
+     *
+     * @param email     Email to check existence of.
+     * @return boolean  true or false depending on if the email exists.
+     */
     public boolean checkEmailExistence(String email) {
         boolean emailExistence = false;
         try {
@@ -63,6 +78,11 @@ public class UserDao implements Dao {
         return emailExistence;
     }
 
+    /** Changes the users password in the DB.
+     *
+     * @param email     The users email.
+     * @param password  The new password
+     */
     public void changePassword(String password, String email) {
         try {
             Connection conn = dbconnect.connectToDB();
@@ -79,6 +99,14 @@ public class UserDao implements Dao {
         }
     }
 
+    /** Creates a new account in the DB, by inserting data into the User-table.
+     *
+     * @param FirstName     The new users firstname
+     * @param LastName      The new users lastname
+     * @param BirthDate     The new users birthdate
+     * @param Password      The new users password
+     * @param Email         The new users email
+     */
     public void newUser(String FirstName, String LastName, String BirthDate, String Password, String Email) {
         try {
             Connection conn = dbconnect.connectToDB();
@@ -97,6 +125,11 @@ public class UserDao implements Dao {
         }
     }
 
+    /** Retrieves user-information from the DB.
+     *
+     * @param email The users email.
+     * @return A HashMap containing the requested user-data-
+     */
     public HashMap<String, Object> getPersonalData(String email) {
         HashMap<String, Object> user = new HashMap<>();
         try {

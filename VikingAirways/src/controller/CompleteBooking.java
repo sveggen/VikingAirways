@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * This servlet handles the input and output of the profile.jsp for logged in users,
- * and makes it possible for the users to change password and list all the users bookings.
+ * This servlet completes the final procedure of the booking AKA. completes the booking by passing all the
+ * data to the DB, and sending an final email to the customer with booking details.
  *
  * @author Markus Sveggen
  * @version 23.11.2019
@@ -22,11 +22,22 @@ import java.util.HashMap;
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
 public class CompleteBooking extends HttpServlet {
 
-    private String bookingnumber = null;
-    private String classID = null;
+    private String bookingnumber = null; //The customers booking number.
+    private String classID = null; //The class ID.
 
+
+    /** This method handles all the DB operations, when the booking is completed.
+     * The method starts a transaction and commits the transaction if all the
+     * booking details are correct.
+     *
+     * @param request Request object received from user, currently payment.jsp
+     * @param response Response object sent back to the user.
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //Connects to the DB.
         Connection conn;
         DBConnect dbconnect = new DBConnect();
         conn = dbconnect.connectToDB();
@@ -57,8 +68,10 @@ public class CompleteBooking extends HttpServlet {
 
             String removeSeat = "UPDATE Class SET class_capacity = class_capacity - 1 WHERE class_id = (?);";
 
+            //Sets autocommit to false in order to start the transaction.
             conn.setAutoCommit(false);
 
+            //Passes customer-data to the cache.
             try (PreparedStatement insertCustomerInfo = conn.prepareStatement(customerInfo)) {
                 insertCustomerInfo.setString(1, cookieHash.get("firstname"));
                 insertCustomerInfo.setString(2, cookieHash.get("lastname"));
@@ -66,6 +79,7 @@ public class CompleteBooking extends HttpServlet {
                 insertCustomerInfo.setDate(4, Date.valueOf(cookieHash.get("dateofBirth")));
                 insertCustomerInfo.executeUpdate();
 
+                //Passes class-data to the cache.
                 try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
                     retrieveClassID.setString(1, cookieHash.get("class"));
                     retrieveClassID.setString(2, cookieHash.get("flightnumber"));
@@ -75,6 +89,7 @@ public class CompleteBooking extends HttpServlet {
                         classID = classRS.getString("class_id");
                     }
 
+                    //Passes booking-data to the cache.
                     try (PreparedStatement insertBookingInfo = conn.prepareStatement(bookinginfo)) {
                         insertBookingInfo.setString(1, cookieHash.get("extraluggage"));
                         insertBookingInfo.setString(2, cookieHash.get("extracarryon"));
@@ -85,6 +100,8 @@ public class CompleteBooking extends HttpServlet {
                         insertBookingInfo.setString(7, cookieHash.get("flightnumber"));
                         insertBookingInfo.setString(8, classID);
 
+                        //Checks if the customer is logged in with a user. If that is the case, the User is
+                        //added as a FK to the booking table in the DB.
                         HttpSession session = request.getSession();
                         if (session.getAttribute("userID") != null) {
                             insertBookingInfo.setInt(9, (Integer) session.getAttribute("userID"));
@@ -93,29 +110,36 @@ public class CompleteBooking extends HttpServlet {
                         }
                         insertBookingInfo.executeUpdate();
 
+                        //Retrieves the booking-number from the DB.
                         try (PreparedStatement getCustomerInfostmt = conn.prepareStatement(getBN)) {
                             ResultSet getBNRS = getCustomerInfostmt.executeQuery();
 
                             while (getBNRS.next()) {
                                 bookingnumber = getBNRS.getString("customer_id");
                             }
+                            //Removes one seat from the class on the flight the customer has booked.
                             try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)) {
                                 seatRemoval.setString(1, classID);
                                 seatRemoval.executeUpdate();
                             }
                         }
+                        //Commits the transaction.
                         conn.commit();
 
+                        //Creates BNE-object and sends an email to the customer with booking info.
                         BookingNumberEmail bn = new BookingNumberEmail();
                         bn.sendEmail(conn, bookingnumber);
                         conn.close();
 
+                        //Iterates over all the cookies in the HM and if the cookie is not the Session-object
+                        // it gets deleted and passes to the response.
                         for (Cookie cookie : cookies) {
                             if (!cookie.getName().equals("JSESSIONID")) {
                                 cookie.setMaxAge(0);
                                 response.addCookie(cookie);
                             }
                         }
+                                //Redirects to the confirmation page if transaction was successfull.
                                 RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
                                 rd.forward(request, response);
                     }
@@ -124,12 +148,12 @@ public class CompleteBooking extends HttpServlet {
             //Rollback if error occurs
             catch (SQLException e) {
                 e.printStackTrace();
-                System.out.println("Transaction did not commit");
                 conn.rollback();
                 conn.close();
             }
             //Sends an email to the customer with the correct booking number.
         } catch (Exception e) {
+            //Redirects to the failed page if transaction was unsuccessful.
             response.sendRedirect("bookingFailed.jsp");
             e.printStackTrace();
         }
