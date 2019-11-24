@@ -20,7 +20,10 @@ import java.sql.Statement;
 
 public class FlightDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+
+        /*PrintWriter out = response.getWriter();
 
         String selectedFlight = request.getParameter("selectedFlight");
         out.println("<html>");
@@ -30,6 +33,8 @@ public class FlightDetails extends HttpServlet {
         out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
         out.println("<link rel=\"stylesheet\" href=\"stylesheets/globalStyle.css\">");
         out.println("</head>");
+
+         */
 
         Navbar.loadNavBar(out);
 

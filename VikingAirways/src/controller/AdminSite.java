@@ -14,80 +14,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.*;
 
 @WebServlet(name = "AdminSite", urlPatterns = {"/AdminSite"})
 public class AdminSite extends HttpServlet {
-    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
-        Navbar.loadNavBar(out);
-
-        out.println("<head>");
-        out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
-        out.println("</head>");
-        out.println("<h1>Admin page</h1>" +"<br/><br/>");
-
-        //oppretter connection med database
-        Connection conn;
-        DBConnect dbconnect = new DBConnect();
-        conn = dbconnect.connectToDB();
-
-        //Gjør klart hva som skal hentes ut av databasen
-        String strSelect = "SELECT * FROM Flight";
-
-        //holder denne infoen
-        Statement stmnt;
-
-
-        try {
-            //oppretter varriabel for resultatet
-            stmnt = conn.createStatement();
-            ResultSet rset = stmnt.executeQuery(strSelect);
-
-            out.println("<table style=\"width:30%\" border=\"1\">");
-            out.println("  <tr>");
-            out.println("    <th>Flight number</th>");
-            out.println("    <th>Departure date</th>");
-            out.println("    <th>Departure airport</th>");
-            out.println("    <th>Arrival airport</th>");
-            out.println("    <th>Departure time</th>");
-            out.println("    <th>Arrival time</th>");
-            out.println("  </tr>");
-
-            while(rset.next()) {
-                int flightnumber = rset.getInt("flight_number");
-                String dateOfDeparture = rset.getString("departure_date");
-                String timeOfDeparture = rset.getString("departure_time");
-                String destinationAirport = rset.getString("arrival_airport");
-                String departureAirport = rset.getString("departure_airport");
-                String arrivalTime = rset.getString("arrival_time");
-/*
-                int availableSeatsEcon = rset.getInt("available_seats_economy");
-                int availableSeatsBusi = rset.getInt("available_seats_business");
-                int availableSeatsFirst = rset.getInt("available_seats_firstclass");
-                int priceEcon = rset.getInt("price_economy");
-                int priceBusi = rset.getInt("price_business");
-                int priceFirst = rset.getInt("price_firstclass");
-
-*/
-                out.println("  <tr>");
-                out.println("    <td>"+flightnumber+"</td>");
-                out.println("    <td>"+dateOfDeparture+"</td>");
-                out.println("    <td>"+departureAirport+"</td>");
-                out.println("    <td>"+destinationAirport+"</td>");
-                out.println("    <td>"+timeOfDeparture+"</td>");
-                out.println("    <td>"+arrivalTime+"</td>");
-                out.println("  </tr>");
-            }
-
-            out.println("</table>");
-        }
-        catch (SQLException ex) {
-            out.println("Error extracting data from database " +ex);
-        }
-    }
-
+    /**
+     *
+     * @param request Defines an object to provide client request information to a servlet.
+     * @param response Defines an object to assist a servlet in sending a response to the client.
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -95,4 +31,93 @@ public class AdminSite extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        //Creates arraylists for each of the database columns
+        List flightNumber = new ArrayList();
+        List ddate = new ArrayList();
+        List dtime = new ArrayList();
+        List aairport = new ArrayList();
+        List dairport = new ArrayList();
+        List atime = new ArrayList();
+        List ctype = new ArrayList();
+        List ccap = new ArrayList();
+        List cprice = new ArrayList();
+        List fk_flightnumber = new ArrayList();
+
+
+        //Loads the Navbar to create the navigation bar
+        Navbar.loadNavBar(out);
+
+
+        //oppretter connection med database
+        Connection conn;
+        DBConnect dbconnect = new DBConnect();
+        conn = dbconnect.connectToDB();
+
+        //Defines what to get from the database
+        String strSelect1 = "SELECT * FROM Flight";
+        String strSelect2 = "SELECT class_flight_fk, class_type, class_capacity, class_price FROM Class";
+
+
+        //Contains the info from the database
+        Statement stmnt1;
+        Statement stmnt2;
+
+
+        try {
+            //Creates variables for the result
+            stmnt1 = conn.createStatement();
+            stmnt2 = conn.createStatement();
+            ResultSet rset1 = stmnt1.executeQuery(strSelect1);
+            ResultSet rset2 = stmnt2.executeQuery(strSelect2);
+
+
+            //creates a while loop to iterate each row in the table "Flight"
+            while (rset1.next()) {
+                flightNumber.add(rset1.getInt("flight_number"));
+                ddate.add(rset1.getString("departure_date"));
+                dtime.add(rset1.getString("departure_time"));
+                aairport.add(rset1.getString("arrival_airport"));
+                dairport.add(rset1.getString("departure_airport"));
+                atime.add(rset1.getString("arrival_time"));
+
+
+            }
+
+            //creates a while loop to iterate each row in the table "Class"
+            while (rset2.next()) {
+                ctype.add(rset2.getString("class_type"));
+                ccap.add(rset2.getInt("class_capacity"));
+                cprice.add(rset2.getInt("class_price"));
+                fk_flightnumber.add(rset2.getInt("class_flight_fk"));
+
+
+            }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        //Creates an object of the arraylist for the .jsp to use
+        request.setAttribute("flight", flightNumber);
+        request.setAttribute("ddate", ddate);
+        request.setAttribute("dtime", dtime);
+        request.setAttribute("aairport", aairport);
+        request.setAttribute("dairport", dairport);
+        request.setAttribute("atime", atime);
+        request.setAttribute("ctype", ctype);
+        request.setAttribute("ccap", ccap);
+        request.setAttribute("cprice", cprice);
+        request.setAttribute("fk_flightnumber", fk_flightnumber);
+
+        //Connects the AdminSite servlet to the adminSite jsp.
+        request.getRequestDispatcher("/adminSite.jsp").forward(request, response);
+    }
 }
+
