@@ -91,6 +91,7 @@ public class MyBookingSearch extends HttpServlet {
                 email = rset.getString("email");
                 dateOfBirth = rset.getString("date_of_birth");
             }
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

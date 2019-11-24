@@ -107,6 +107,7 @@ public class CompleteBooking extends HttpServlet {
 
                         BookingNumberEmail bn = new BookingNumberEmail();
                         bn.sendEmail(conn, bookingnumber);
+                        conn.close();
 
                         for (Cookie cookie : cookies) {
                             if (!cookie.getName().equals("JSESSIONID")) {
@@ -124,6 +125,7 @@ public class CompleteBooking extends HttpServlet {
                 e.printStackTrace();
                 System.out.println("Transaction did not commit");
                 conn.rollback();
+                conn.close();
             }
             //Sends an email to the customer with the correct booking number.
         } catch (Exception e) {

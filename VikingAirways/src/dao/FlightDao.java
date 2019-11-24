@@ -21,21 +21,8 @@ public class FlightDao implements Dao {
         return null;
     }
 
-    @Override
-    public void create(Object o) {
-    }
 
-    @Override
-    public void update(Object o) {
-
-    }
-
-    @Override
-    public void delete(Object o) {
-
-    }
-
-    public void deleteFlight(String selectedFlight) {
+    public void deleteFlight(String selectedFlight) throws SQLException {
 
         Connection conn = dbconnect.connectToDB();
 
@@ -54,6 +41,7 @@ public class FlightDao implements Dao {
         } catch (
                 SQLException ex) {
         }
+        conn.close();
     }
 
     /**
@@ -84,6 +72,7 @@ public class FlightDao implements Dao {
             statement1.setString(6, arrival_time);
 
             statement1.executeUpdate();
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,6 +103,8 @@ public class FlightDao implements Dao {
             statement2.setString(4, class_flight_fk);
 
             statement2.executeUpdate();
+
+            conn.close();
 
         }
 

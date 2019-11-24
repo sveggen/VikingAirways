@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.SQLException;
+
 import model.*;
 import DBConnection.DBConnect;
 
@@ -58,12 +60,15 @@ public class SearchResult extends HttpServlet {
 
             DBDisplay dbdisplay = new DBDisplay();
             dbdisplay.displayTables(conn, out, toAirprt, departrDate, fromAirprt);
+            conn.close();
 
             out.println("<script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>");
             out.println("<script defer src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
 
             out.println("</body>");
             out.println("</html>");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

@@ -96,6 +96,7 @@ public class BoardingPassPDF {
         Statement stmt;
         stmt = conn.createStatement();
         ResultSet rset = stmt.executeQuery(strSelect);
+        conn.close();
 
         //Extract data from resultset and save in appropriate class variables
         if(rset.next()) {
