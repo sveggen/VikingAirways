@@ -21,7 +21,10 @@ public class BookingDao implements Dao {
         return null;
     }
 
-
+    /**Deletes booking from the DB.
+     *
+     * @param bookingnumber     The customers booking number.
+     */
     public void deleteBooking(String bookingnumber) {
         try {
             Connection conn = dbconnect.connectToDB();
@@ -38,6 +41,11 @@ public class BookingDao implements Dao {
         }
     }
 
+    /**Deletes the booking and the linked customer from the DB.
+     *
+     * @param bookingnumber     The customers booking number.
+     * @param customerID        The customers unique ID.
+     */
     public void deleteBookingandCustomerID(String bookingnumber, String customerID){
         try {
             Connection conn = dbconnect.connectToDB();
