@@ -16,8 +16,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class receives data from myBookingSearch.jsp and uses this to extract
+ * data from the database, which is then passed on to myBooking.jsp for display.
+ *
+ * @author Jørgen Lindbøl
+ * @version 24.11.2019
+ */
 @WebServlet(name = "MyBookingSearch", urlPatterns = {"/MyBookingSearch"})
 public class MyBookingSearch extends HttpServlet {
+
+    /**
+     * Standard servlet Post method called if specified in connecting Form.
+     * In this system myBookingSearch.jsp calls this method.
+     * It extracts data from the request object, connects to the database,
+     * extracts the necessary data and forwards it to myBooking.jsp.
+     *
+     * @param request Request object received from user, currently myBookingSearch.jsp
+     * @param response Response object sent back to the user, currently myBookingSearch.jsp
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int checkedInBaggage = 0;
@@ -47,7 +66,7 @@ public class MyBookingSearch extends HttpServlet {
             statement = conn.createStatement();
             ResultSet rset = statement.executeQuery(sqlBookingQuery);
 
-            //extract values from the ResultSet and assign to previously declared variables
+            //extract values from the ResultSet and assign to previously initialized variables
             if(rset.next()) {
                 checkedInBaggage = rset.getInt("checked_in_baggage");
                 customerIdFk = rset.getInt("customer_id_fk");
@@ -72,6 +91,7 @@ public class MyBookingSearch extends HttpServlet {
                 email = rset.getString("email");
                 dateOfBirth = rset.getString("date_of_birth");
             }
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,6 +117,15 @@ public class MyBookingSearch extends HttpServlet {
 
     }
 
+    /**
+     * Standard servlet Get method called if specified in connecting Form.
+     * Not currently used in this project.
+     *
+     * @param request Request object received from user
+     * @param response Response object received from user
+     * @throws ServletException Thrown if exceptions related to calling the servlet occur
+     * @throws IOException Thrown if an I/O exception of some sort has occurred
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

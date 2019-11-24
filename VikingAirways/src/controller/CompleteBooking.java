@@ -11,6 +11,14 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * This servlet handles the input and output of the profile.jsp for logged in users,
+ * and makes it possible for the users to change password and list all the users bookings.
+ *
+ * @author Markus Sveggen
+ * @version 23.11.2019
+ */
+
 @WebServlet(name = "CompleteBooking", urlPatterns = {"/CompleteBooking"})
 public class CompleteBooking extends HttpServlet {
 
@@ -24,99 +32,107 @@ public class CompleteBooking extends HttpServlet {
         conn = dbconnect.connectToDB();
 
         try {
-                //Creates a HashMap
-                HashMap<String, String> cookieHash = new HashMap<>();
-                //Retrieves cookies and adds them to an Array
-                Cookie[] cookies = request.getCookies();
+            //Creates a HashMap
+            HashMap<String, String> cookieHash = new HashMap<>();
+            //Retrieves cookies and adds them to an Array
+            Cookie[] cookies = request.getCookies();
 
-                //Loops through the cookie Array and adds them to the HashMap and finally deletes them.
-                // Adds the deleted cookies to the response.
-                for (Cookie cookie : cookies) {
-                    cookieHash.put(cookie.getName(), cookie.getValue());
-                    if(!cookie.getName().equals("JSESSIONID")) {
-                        cookie.setMaxAge(0);
-                        response.addCookie(cookie);
+            //Loops through the cookie Array and adds them to the HashMap and finally deletes them.
+            // Adds the deleted cookies to the response.
+            for (Cookie cookie : cookies) {
+                cookieHash.put(cookie.getName(), cookie.getValue());
+            }
+
+            String customerInfo = "INSERT INTO Customer (first_name, last_name, email, date_of_birth) " +
+                    "VALUES(?, ?, ?, ?);";
+
+            String bookinginfo = "INSERT INTO Booking (customer_paid, checked_in_baggage, extra_carryon, " +
+                    "special_equipment, pet_carryon, food_on_flight, wifi_on_flight, flight_number_fk, customer_id_fk, class_id_fk, registered_user_fk) " +
+                    "VALUES('1', ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID(), ?, ?);";
+
+            String getBN = "SELECT * FROM Customer WHERE customer_id = (SELECT LAST_INSERT_ID());";
+
+            String getClassID = "SELECT class_id FROM Class WHERE class_type = (?) AND class_flight_fk = (?);";
+
+            String removeSeat = "UPDATE Class SET class_capacity = class_capacity - 1 WHERE class_id = (?);";
+
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement insertCustomerInfo = conn.prepareStatement(customerInfo)) {
+                insertCustomerInfo.setString(1, cookieHash.get("firstname"));
+                insertCustomerInfo.setString(2, cookieHash.get("lastname"));
+                insertCustomerInfo.setString(3, cookieHash.get("email"));
+                insertCustomerInfo.setDate(4, Date.valueOf(cookieHash.get("dateofBirth")));
+                insertCustomerInfo.executeUpdate();
+
+                try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
+                    retrieveClassID.setString(1, cookieHash.get("class"));
+                    retrieveClassID.setString(2, cookieHash.get("flightnumber"));
+                    ResultSet classRS = retrieveClassID.executeQuery();
+
+                    while (classRS.next()) {
+                        classID = classRS.getString("class_id");
                     }
-                }
 
-                String customerInfo = "INSERT INTO Customer (first_name, last_name, email, date_of_birth) " +
-                        "VALUES(?, ?, ?, ?);";
+                    try (PreparedStatement insertBookingInfo = conn.prepareStatement(bookinginfo)) {
+                        insertBookingInfo.setString(1, cookieHash.get("extraluggage"));
+                        insertBookingInfo.setString(2, cookieHash.get("extracarryon"));
+                        insertBookingInfo.setString(3, cookieHash.get("specialequipment"));
+                        insertBookingInfo.setString(4, cookieHash.get("petcarryon"));
+                        insertBookingInfo.setString(5, cookieHash.get("foodonflight"));
+                        insertBookingInfo.setString(6, cookieHash.get("wifionflight"));
+                        insertBookingInfo.setString(7, cookieHash.get("flightnumber"));
+                        insertBookingInfo.setString(8, classID);
 
-                String bookinginfo = "INSERT INTO Booking (customer_paid, checked_in_baggage, extra_carryon, " +
-                        "special_equipment, pet_carryon, food_on_flight, wifi_on_flight, flight_number_fk, customer_id_fk, class_id_fk, registered_user_fk) " +
-                        "VALUES('1', ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID(), ?, ?);";
-
-                String getBN = "SELECT * FROM Customer WHERE customer_id = (SELECT LAST_INSERT_ID());";
-
-                String getClassID = "SELECT class_id FROM Class WHERE class_type = (?) AND class_flight_fk = (?);";
-
-                String removeSeat = "UPDATE Class SET class_capacity = class_capacity - 1 WHERE class_id = (?);";
-
-                conn.setAutoCommit(false);
-
-                try (PreparedStatement insertCustomerInfo = conn.prepareStatement(customerInfo)) {
-                    insertCustomerInfo.setString(1, cookieHash.get("firstname"));
-                    insertCustomerInfo.setString(2, cookieHash.get("lastname"));
-                    insertCustomerInfo.setString(3, cookieHash.get("email"));
-                    insertCustomerInfo.setDate(4, Date.valueOf(cookieHash.get("dateofBirth")));
-                    insertCustomerInfo.executeUpdate();
-
-                    try (PreparedStatement retrieveClassID = conn.prepareStatement(getClassID)) {
-                        retrieveClassID.setString(1, "Economy");
-                        retrieveClassID.setString(2, cookieHash.get("flightnumber"));
-                        ResultSet classRS = retrieveClassID.executeQuery();
-
-                        while (classRS.next()) {
-                            classID = classRS.getString("class_id");
+                        HttpSession session = request.getSession();
+                        if (session.getAttribute("userID") != null) {
+                            insertBookingInfo.setInt(9, (Integer) session.getAttribute("userID"));
+                        } else {
+                            insertBookingInfo.setNull(9, java.sql.Types.INTEGER);
                         }
+                        insertBookingInfo.executeUpdate();
 
-                        try (PreparedStatement insertBookingInfo = conn.prepareStatement(bookinginfo)) {
-                            insertBookingInfo.setString(1, cookieHash.get("extraluggage"));
-                            insertBookingInfo.setString(2, cookieHash.get("extracarryon"));
-                            insertBookingInfo.setString(3, cookieHash.get("specialequipment"));
-                            insertBookingInfo.setString(4, cookieHash.get("petcarryon"));
-                            insertBookingInfo.setString(5, cookieHash.get("foodonflight"));
-                            insertBookingInfo.setString(6, cookieHash.get("wifionflight"));
-                            insertBookingInfo.setString(7, cookieHash.get("flightnumber"));
-                            insertBookingInfo.setString(8, classID);
+                        try (PreparedStatement getCustomerInfostmt = conn.prepareStatement(getBN)) {
+                            ResultSet getBNRS = getCustomerInfostmt.executeQuery();
 
-                            HttpSession session = request.getSession();
-                            if(session.getAttribute("userID") != null){
-                                insertBookingInfo.setInt(9, (Integer) session.getAttribute("userID"));
-                                } else {
-                                insertBookingInfo.setNull(9, java.sql.Types.INTEGER);
+                            while (getBNRS.next()) {
+                                bookingnumber = getBNRS.getString("customer_id");
                             }
-                            insertBookingInfo.executeUpdate();
-
-                            try (PreparedStatement getCustomerInfostmt = conn.prepareStatement(getBN)) {
-                                ResultSet getBNRS = getCustomerInfostmt.executeQuery();
-
-                                while (getBNRS.next()) {
-                                    bookingnumber = getBNRS.getString("customer_id");
-                                }
-                                try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)) {
-                                    seatRemoval.setString(1, classID);
-                                    seatRemoval.executeUpdate();
-                                    }
-                                }
-                            conn.commit();
-                            BookingNumberEmail.sendEmail(conn, bookingnumber);
-                            RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
-                            rd.forward(request, response);
+                            try (PreparedStatement seatRemoval = conn.prepareStatement(removeSeat)) {
+                                seatRemoval.setString(1, classID);
+                                seatRemoval.executeUpdate();
+                            }
                         }
+                        conn.commit();
+
+                        BookingNumberEmail bn = new BookingNumberEmail();
+                        bn.sendEmail(conn, bookingnumber);
+                        conn.close();
+
+                        for (Cookie cookie : cookies) {
+                            if (!cookie.getName().equals("JSESSIONID")) {
+                                cookie.setMaxAge(0);
+                                response.addCookie(cookie);
+                            }
+                        }
+                                RequestDispatcher rd = request.getRequestDispatcher("bookingConfirmation.jsp");
+                                rd.forward(request, response);
                     }
                 }
-                //Rollback if error occurs
-                catch (SQLException e) {
-                    e.printStackTrace();
-                    System.out.println("Transaction did not commit");
-                    conn.rollback();
-                }
-                //Sends an email to the customer with the correct booking number.
+            }
+            //Rollback if error occurs
+            catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Transaction did not commit");
+                conn.rollback();
+                conn.close();
+            }
+            //Sends an email to the customer with the correct booking number.
         } catch (Exception e) {
+            response.sendRedirect("bookingFailed.jsp");
             e.printStackTrace();
         }
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 }

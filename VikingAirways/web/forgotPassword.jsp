@@ -23,7 +23,8 @@
         <div class="col">
             <form class="justify-content-center" action="ForgotPassword" method="post">
                 <div style="color: #008F11;">${successMessage}</div>
-                <div style="color: #FF0000;">${errorMessage}</div><br>
+                <div style="color: #FF0000;">${errorMessage}</div>
+                <div style="color: #FF0000;">${emailCatch}</div><br>
                 Email
                 <input type="email" class="form-control" name="email" required/><br>
                 <input class="btn btn-success" type="submit" name="submit" value="Reset Password">

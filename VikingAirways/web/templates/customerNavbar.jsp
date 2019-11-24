@@ -24,8 +24,14 @@
         <li class="nav-item">
             <a class="nav-link" href="/VikingAirways/checkIn.jsp">Check In</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/VikingAirways/myBookingSearch.jsp">My Booking</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                My Booking
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/VikingAirways/myBookingSearch.jsp">Change Booking</a>
+                <a class="dropdown-item" href="/VikingAirways/cancelBooking.jsp">Cancel Booking</a>
+            </div>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -37,5 +43,8 @@
         </li>
     </ul>
 </nav>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
