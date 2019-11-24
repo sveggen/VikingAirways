@@ -97,12 +97,13 @@
             <tbody>
                 <tr>
                     <TD align="center"><A HREF="adminSite.jsp">
-                    </A></tr>
-                <c:forEach items="${ctype}" var="ctype" varStatus="myIndex">
+                    </A>
+                </tr>
+                <c:forEach items="${ctype}" var="ctype" varStatus="myIndex2">
                     <tr>
-                        <td>${ctype[myIndex.index]}</td>
-                        <td>${ccap[myIndex.index]}</td>
-                        <td>${cprice[myIndex.index]}</td>
+                        <td>${ctype[myIndex2.index]}</td>
+                        <td>${ccap[myIndex2.index]}</td>
+                        <td>${cprice[myIndex2.index]}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
