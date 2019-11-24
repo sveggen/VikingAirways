@@ -28,7 +28,7 @@ public class DeleteFlight extends HttpServlet {
 
     private void deleteFlight(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // connecter med databsen og kjører query som sletter klasser og flygning med gitt flightnumber
+            // connecter med databasen og kjører query som sletter klasser og flygning med gitt flightnumber
             String selectedFlight = request.getParameter("flightnumber");
             FlightDao flightDao = new FlightDao();
             flightDao.deleteFlight(selectedFlight);

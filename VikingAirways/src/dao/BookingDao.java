@@ -7,6 +7,15 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *
+ * This class makes a connection to the database and deletes entries.
+ *
+ * @author magnusneergaard
+ * @author Markus Sveggen
+ * @version 24.11.2019
+ */
+
 public class BookingDao implements Dao {
 
     private DBConnect dbconnect = new DBConnect();
@@ -21,7 +30,11 @@ public class BookingDao implements Dao {
         return null;
     }
 
-
+    /**
+     *
+     * @param bookingnumber
+     */
+    //Makes a connection to the database and deletes booking
     public void deleteBooking(String bookingnumber) {
         try {
             Connection conn = dbconnect.connectToDB();
@@ -38,6 +51,12 @@ public class BookingDao implements Dao {
         }
     }
 
+    /**
+     *
+     * @param bookingnumber
+     * @param customerID
+     */
+    //Makes a connection to the database and deletes customer and booking
     public void deleteBookingandCustomerID(String bookingnumber, String customerID){
         try {
             Connection conn = dbconnect.connectToDB();

@@ -72,9 +72,9 @@
                 <tr>
                     <td>${flight}</td>
                     <td>${ddate}</td>
-                    <td>${dept}</td>
-                    <td>${arra}</td>
                     <td>${depa}</td>
+                    <td>${arra}</td>
+                    <td>${dept}</td>
                     <td>${arrt}</td>
                 </tr>
             </tbody>
