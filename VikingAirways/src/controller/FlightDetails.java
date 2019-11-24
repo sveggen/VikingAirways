@@ -77,6 +77,10 @@ public class FlightDetails extends HttpServlet {
                 depa = rset.getString("departure_airport");
                 arrt = rset.getString("arrival_time");
 
+                //fjerne de siste 3 tegnene i strengene, som tilsvarer :00 da det ikke er nødvendig å se sekunder her
+                ddate = ddate.substring(0, ddate.length() - 3);
+                arrt = arrt.substring(0, arrt.length() - 3);
+
             }
 
             //creates arrays to store cookies
