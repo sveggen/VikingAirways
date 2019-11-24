@@ -16,9 +16,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This servlet is responsible for connecting with the database and displaying details about the flight.
+ */
+
 @WebServlet(name = "FlightDetails", urlPatterns = {"/FlightDetails"})
 
 public class FlightDetails extends HttpServlet {
+
+    /**
+     * Receives value from selected flight being the selected flightnumber.
+     * Accesses database where all information about with this flightnumber is retrieved.
+     * The selected information is stores in cookies, and ready for use elsewhere.
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
