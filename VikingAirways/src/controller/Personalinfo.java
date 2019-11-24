@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Makes textfields for personal information and stores the information in cookies
+ */
+
 @WebServlet(name = "/Personalinfo", urlPatterns = {"/Personalinfo"})
 public class Personalinfo extends HttpServlet {
     protected void personalInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,6 +29,7 @@ public class Personalinfo extends HttpServlet {
         String[] nameArray = new String[] {"firstname", "lastname", "email", "dateofBirth"};
         String[] valueArray = new String[] {firstName, lastName, email, dateofBirth};
 
+        // Creates cookies to store the information inputted by the user.
         int i = 0;
         for(String selected : nameArray){
             response.addCookie(new Cookie(nameArray[i], valueArray[i]));

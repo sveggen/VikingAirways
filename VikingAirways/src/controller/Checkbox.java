@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+/**
+ * Creates options for the user to choose extra accomodations and stores this info in cookies
+ */
 @WebServlet(name = "Checkbox", urlPatterns = {"/Checkbox"})
 public class Checkbox extends HttpServlet {
     protected void registerOptionalServices(HttpServletRequest request,
@@ -60,6 +63,8 @@ public class Checkbox extends HttpServlet {
             response.addCookie(newCookie);
             i++;
         }
+
+        // Creates cookies to store information
         int k = 0;
         for(String selected : noArrayList){
             Cookie newCookie = new Cookie(noArrayList.get(k), "0");
