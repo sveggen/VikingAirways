@@ -13,12 +13,13 @@ import java.sql.Statement;
 
 public class BookingNumberEmail extends Email{
 
-    protected String recipient;
-    protected String subject;
-    protected String content;
+    protected String recipient; //The addressee's email address.
+    protected String subject; //The subject of the Email.
+    protected String content; //The content of the Email.
 
     /**
-     * This method sends an email to the customer with booking information.
+     * This method collects the customers booking information from the database, and sends an email
+     * to the customer with the customers booking information.
      *
      * @param conn             connection to the database
      * @param bookingNumber    the customers bookingnumber
@@ -33,14 +34,14 @@ public class BookingNumberEmail extends Email{
                 ResultSet rset = stmnt.executeQuery(strSelect);
 
                 while (rset.next()) {
-                    //Creates variables from values collected from Database
+                    //Retrieves values from the database, and creates variables.
                     String firstName = rset.getString("first_name");
                     String lastName = rset.getString("last_name");
                     String departureAirport = rset.getString("departure_airport");
                     String arrivalAirport = rset.getString("arrival_airport");
                     String departure_date = rset.getString("departure_date");
 
-                    //Creates variables to be used when sending an email.
+                    //Creates variables to be passed to the Email-superclass-object, in order to send an email.
                     recipient = rset.getString("email");
                     subject = "Booking confirmation";
                     content = "Hello " + firstName + " " + lastName + ". <br>" +
@@ -51,6 +52,7 @@ public class BookingNumberEmail extends Email{
                             "NO-4635 Kristiansand, Norway <br>" +
                             "Tel. +47 38 04 55 38 <br>";
 
+                    //Initiates the sendEmail method from the Email-superclass, and passes the previously set variables.
                     super.sendEmail(recipient, subject, content);
                 }
             } catch (SQLException e) {
