@@ -26,6 +26,7 @@ public class FlightDetails extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js\"></script>");
+        out.println("<script src=\"scripts/searchFilter.js\"></script>");
         out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">");
         out.println("<link rel=\"stylesheet\" href=\"stylesheets/globalStyle.css\">");
         out.println("</head>");
@@ -108,14 +109,15 @@ public class FlightDetails extends HttpServlet {
                 out.println("    <th>"+classType+"</th>");
                 out.println("    <td>" + classCapacity + "</td>");
                 out.println("    <td>" + classPrice + "</td>");
-                out.println("    <td><button name=\"SelectedClass\" id=\""+c +"\" class=\"btn btn-success\" value=\"Economy" + flightnumber + "\">Select</button></td>");
+                out.println("    <td><button name=\"SelectedClass\" id=\""+ c +"btn"+"\" class=\"btn btn-success\" value=\"Economy" + flightnumber + "\">Select</button></td>");
                 out.println("  </tr>");
                 out.println("  <tr>");
                 c++;
             }
-            out.println("</div>"); //hører denne til her?
+            out.println("</tbody>");
             out.println("  </form>");
             out.println("</table>");
+            out.println("</body>");
             out.println("</html>");
         }
         catch (SQLException ex) {

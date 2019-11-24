@@ -103,7 +103,7 @@ public class DBDisplay {
 
     /**
      * Takes two strings containing timestamps, converts them to int
-     * and returns the difference between them.
+     * and returns the difference between them in minutes.
      *
      * @param timeDeparture Departure time of the selected flight
      * @param timeArrival Arrival time of the selected flight
