@@ -11,7 +11,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
-
+/**
+ * This class retrieves cookies.
+ *
+ * @author Heidi Landsverk
+ * @version 24.11.2019
+ */
 @WebServlet(name = "Summary", urlPatterns = {"/Summary"})
 public class Summary extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +35,7 @@ public class Summary extends HttpServlet {
 
             }
 
+            //
             String flightClass = cookieHash.get("class");
             request.setAttribute("flightClass", flightClass);
 
@@ -48,8 +54,9 @@ public class Summary extends HttpServlet {
             String arrTime = cookieHash.get("arrivaltime");
             request.setAttribute("arrTime", arrTime);
 
-            String flightClass2 = cookieHash.get("class");
-            request.setAttribute("class2", flightClass2);
+            System.out.println(depAirport + depDate);
+
+
 
             RequestDispatcher req = request.getRequestDispatcher("summary.jsp");
             req.forward(request, response);
