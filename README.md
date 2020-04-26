@@ -6,7 +6,6 @@ Opprette en bookingside for et fiktivt flyselskap.
 
 
 __Contributors:__
-
 - Stian barbakken
 - Heidi Beate Landsverk
 - Jørgen Lindbøl
